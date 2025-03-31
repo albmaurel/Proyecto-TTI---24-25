@@ -285,12 +285,12 @@ int all_tests()
     _verify(m_sum_01);
     _verify(m_sub_01);
     _verify(m_zeros_01);
-	_verify(m_mul_01);
-	_verify(m_div_01);
-	_verify(m_transpose_01);
-	_verify(m_eye_01);
-	_verify(m_inv_01);
-	_verify(m_add_scalar_01);
+    _verify(m_mul_01);
+    _verify(m_div_01);
+    _verify(m_transpose_01);
+    _verify(m_eye_01);
+    _verify(m_inv_01);
+    _verify(m_add_scalar_01);
     _verify(m_sub_scalar_01);
     _verify(m_mul_scalar_01);
     _verify(m_div_scalar_01);
