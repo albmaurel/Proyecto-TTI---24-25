@@ -20,6 +20,22 @@ Matrix::Matrix(const int n_row, const int n_column) {
 	}
 }
 
+Matrix::Matrix(const int v_size){
+	if (v_size < 0) {
+		cout << "Vector create: error in v_size1\n";
+        exit(EXIT_FAILURE);
+	}
+	this->n_row=1;
+	this->n_column=v_size;
+	this->data = (double **) malloc(n_row*sizeof(double *));
+	
+	if (this->data == NULL) {
+		cout << "Matrix create: error in data\n";
+        exit(EXIT_FAILURE);
+	}
+	this->data[0] = (double *) calloc(v_size,sizeof(double));
+}
+
 double& Matrix::operator () (const int row, const int column) {
 
     if (row <= 0 || row > this->n_row || column <= 0 || column > this->n_column) {
@@ -30,7 +46,20 @@ double& Matrix::operator () (const int row, const int column) {
     return this->data[row - 1][column - 1];
 }
 
+double& Matrix::operator () (const int v_size) {
 
+    if (v_size <= 0 || v_size > this->n_column*this->n_row) {
+        cout << "Matrix get: error in column\n";
+        exit(EXIT_FAILURE);
+    }
+
+return this->data[(v_size-1)/this->n_column][(v_size-1)%this->n_column];
+}
+
+int Matrix::size() const {
+    if (n_row == 1) return n_column;
+    if (n_column == 1) return n_row;
+}
 Matrix& Matrix::operator + (Matrix &m) {
 	if (this->n_row != m.n_row || this->n_column != m.n_column) {
 		cout << "Matrix sum: error in n_row/n_column2\n";
@@ -108,7 +137,7 @@ Matrix& Matrix::operator / (Matrix& matrix2) {
         exit(EXIT_FAILURE);
     }
 
-    Matrix invMatrix2 = inverse(matrix2);
+    Matrix invMatrix2 = inv(matrix2);
 
     return *this * invMatrix2;  
 }
@@ -189,6 +218,16 @@ Matrix& zeros(const int n_row, const int n_column) {
 	return (*m_aux);
 }
 
+Matrix& zeros(const int v_size) {
+	Matrix *m_aux = new Matrix(v_size);
+	
+	for(int j = 1; j <= v_size; j++) {
+		(*m_aux)(j) = 0;
+	}
+	
+	return (*m_aux);
+}
+
 Matrix& eye(int size) {
     Matrix *m_aux = new Matrix(size, size);  
 
@@ -247,3 +286,30 @@ Matrix& inv(Matrix& m) {
 
     return *m_aux;  
 }
+
+double norm(Matrix& a){
+	 double r=0;
+	 for(int i=1;i<=a.size();i++){
+		 r +=pow(a(i),2);
+	 }
+	 double solv=sqrt(r);
+	 return solv;
+}
+
+double dot(Matrix& a,Matrix& b){
+	 double r=0;
+	 for(int i=1;i<=a.size();i++)
+		 r +=a(i)*b(i);
+	 return r;
+}
+
+Matrix& cross(Matrix& a,Matrix& b){
+	Matrix *m_aux = new Matrix(3);
+	(*m_aux)(1) = a(2) * b(3) - a(3) * b(2);  
+    (*m_aux)(2) = a(3) * b(1) - a(1) * b(3);  
+    (*m_aux)(3) = a(1) * b(2) - a(2) * b(1);  
+    
+    return (*m_aux);
+}
+
+

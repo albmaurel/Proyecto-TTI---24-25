@@ -90,6 +90,19 @@ int m_zeros_01() {
     return 0;
 }
 
+int m_zeros_02() {
+    int c = 4;
+	
+	Matrix A(c);
+	A(1) = 0; A(2) = 0; A(3) = 0; A(4) = 0;
+	
+	Matrix B = zeros(4);
+    
+    _assert(m_equals(A, B, 1e-10));
+    
+    return 0;
+}
+
 int m_mul_01() {
     int f1 = 3, c1 = 2;  
     int f2 = 2, c2 = 4; 
@@ -280,11 +293,55 @@ int m_div_scalar_01() {
     return 0;
 }
 
+int m_norm_01() {
+    Matrix a(3); 
+    a(1) = 3; a(2) = 4; a(3) = 0;
+
+    double expected = 5.0; 
+    double result = norm(a);
+
+    _assert(fabs(result - expected) < 1e-10);
+    return 0;
+}
+
+int m_dot_01() {
+    Matrix a(1, 3); 
+    a(1,1) = 1; a(1,2) = 2; a(1,3) = 3;
+
+    Matrix b(1, 3);
+    b(1,1) = 4; b(1,2) = -5; b(1,3) = 6;
+
+    double expected = 1*4 + 2*(-5) + 3*6; 
+    double result = dot(a, b);
+
+    _assert(fabs(result - expected) < 1e-10);
+    return 0;
+}
+
+int m_cross_01() {
+    Matrix a(1, 3);
+    a(1,1) = 1; a(1,2) = 2; a(1,3) = 3;
+
+    Matrix b(1, 3);
+    b(1,1) = 4; b(1,2) = 5; b(1,3) = 6;
+
+    Matrix expected(3);
+    expected(1) = -3; 
+    expected(2) = 6;  
+    expected(3) = -3; 
+
+    Matrix result = cross(a, b);
+
+    _assert(m_equals(result, expected, 1e-10));
+    return 0;
+}
+
 int all_tests()
 {
     _verify(m_sum_01);
     _verify(m_sub_01);
     _verify(m_zeros_01);
+	_verify(m_zeros_02);
 	_verify(m_mul_01);
 	_verify(m_div_01);
 	_verify(m_transpose_01);
@@ -294,6 +351,9 @@ int all_tests()
     _verify(m_sub_scalar_01);
     _verify(m_mul_scalar_01);
     _verify(m_div_scalar_01);
+	_verify(m_norm_01);
+    _verify(m_dot_01);
+    _verify(m_cross_01);
 
     return 0;
 }
