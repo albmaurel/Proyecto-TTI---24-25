@@ -380,7 +380,8 @@ Matrix& extract_column(Matrix& m, const int column){
 }
 
 Matrix& assign_column(Matrix& m, Matrix& v, const int column){
-	if (m.n_row != v.n_row) {
+
+	if (m.n_row != v.n_column) {
 		cout << "Matrix assign_column: invalid row number\n";
         exit(EXIT_FAILURE);
 	}
@@ -395,7 +396,7 @@ Matrix& assign_column(Matrix& m, Matrix& v, const int column){
 
 Matrix& assign_row(Matrix& m, Matrix& v, const int row){
 	if (m.n_column!= v.n_column) {
-		cout << "Matrix assign_row: invalid column number\n";
+		cout << "Matrix assign_row: invalid row number\n";
         exit(EXIT_FAILURE);
 	}
 	Matrix *m_aux = &m;
