@@ -28,7 +28,6 @@ public:
 	Matrix& operator - (double scalar);
 	Matrix& operator * (double scalar);
 	Matrix& operator / (double scalar);
-	int size() const;
 	
 	// Non-member operators
 	friend ostream& operator << (ostream &o, Matrix &m);
@@ -46,5 +45,11 @@ Matrix& inv(Matrix &m);
 double norm(Matrix& a);
 double dot(Matrix& a,Matrix& b);
 Matrix& cross(Matrix& a,Matrix& b);
+Matrix& extract_vector(Matrix& m, const int n1, const int n2);
+Matrix& union_vector(Matrix& m1, Matrix& m2);
+Matrix& extract_column(Matrix& m, const int column);
+Matrix& extract_row(Matrix& m, const int row);
+Matrix& assign_column(Matrix& m, Matrix& v, const int column);
+Matrix& assign_row(Matrix& m, Matrix& v, const int row);
 
 #endif

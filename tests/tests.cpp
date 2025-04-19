@@ -335,13 +335,151 @@ int m_cross_01() {
     _assert(m_equals(result, expected, 1e-10));
     return 0;
 }
+int m_extract_vector_01() {
+    int c = 4;
+    
+    Matrix A(c);
+    A(1) = 0; A(2) = 2; A(3) = 8; A(4) = 0;
+    
+    Matrix Expected(3);
+    Expected(1) = 0;
+    Expected(2) = 2;
+    Expected(3) = 8;
+
+    Matrix R = extract_vector(A, 1, 3);  
+    
+    _assert(m_equals(Expected, R, 1e-10));  
+    
+    return 0;
+}
+
+int m_union_vector_01() {
+    
+    Matrix A(3);  
+    A(1) = 1;
+    A(2) = 2;
+    A(3) = 3;
+    
+    Matrix B(2);  
+    B(1) = 4;
+    B(2) = 5;
+
+    Matrix Expected(5);
+    Expected(1) = 1;
+    Expected(2) = 2;
+    Expected(3) = 3;
+    Expected(4) = 4;
+    Expected(5) = 5;
+
+    Matrix R = union_vector(A, B);  
+    
+    _assert(m_equals(Expected, R, 1e-10));  
+    
+    return 0;
+}
+
+int m_extract_row_01() {
+    int f = 3, c = 3;
+    
+    Matrix A(f, c);
+    A(1,1) = 1; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
+    A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
+
+    Matrix Expected(c);
+    Expected(1) = 4;
+    Expected(2) = 5;
+    Expected(3) = 6;
+
+    Matrix R = extract_row(A, 2);  
+
+    _assert(m_equals(Expected, R, 1e-10));  
+
+    return 0;
+}
+
+int m_extract_column_01() {
+    int f = 3, c = 3;
+
+    Matrix A(f, c);
+    A(1,1) = 1; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
+    A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
+
+    Matrix Expected(f);
+    Expected(1) = 2;
+    Expected(2) = 5;
+    Expected(3) = 8;
+
+    Matrix R = extract_column(A, 2);  
+
+    _assert(m_equals(Expected, R, 1e-10));  
+
+    return 0;
+}
+
+int m_assign_row_01() {
+    int f = 4, c = 3; 
+    
+    Matrix A(f, c);  
+    A(1,1) = 1; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
+    A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
+    A(4,1) = 10; A(4,2) = 11; A(4,3) = 12;
+
+
+    Matrix NewRow(3);  
+    NewRow(1) = 13;
+    NewRow(2) = 14;
+    NewRow(3) = 15;
+
+    Matrix R = assign_row(A, NewRow, 2);
+
+	Matrix B(f, c);  
+    A(1,1) = 1; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 13; A(2,2) = 14; A(2,3) = 15;
+    A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
+    A(4,1) = 10; A(4,2) = 11; A(4,3) = 12;
+	
+    _assert(m_equals(B, R, 1e-10));  
+
+    return 0;
+}
+
+int m_assign_column_01() {
+    int f = 4, c = 3; 
+    
+    Matrix A(f, c);  
+    A(1,1) = 1; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
+    A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
+    A(4,1) = 10; A(4,2) = 11; A(4,3) = 12;
+
+
+    Matrix NewColumn(4);  
+    NewColumn(1) = 13;
+    NewColumn(2) = 14;
+    NewColumn(3) = 15;
+	NewColumn(3) = 16;
+
+    Matrix R = assign_column(A, NewColumn, 1);
+
+	Matrix B(f, c);  
+    A(1,1) = 13; A(1,2) = 2; A(1,3) = 3;
+    A(2,1) = 14; A(2,2) = 5; A(2,3) = 6;
+    A(3,1) = 15; A(3,2) = 8; A(3,3) = 9;
+    A(4,1) = 16; A(4,2) = 11; A(4,3) = 12;
+	
+    _assert(m_equals(B, R, 1e-10));  
+
+    return 0;
+}
 
 int all_tests()
 {
     _verify(m_sum_01);
     _verify(m_sub_01);
     _verify(m_zeros_01);
-<<<<<<< HEAD
 	_verify(m_zeros_02);
 	_verify(m_mul_01);
 	_verify(m_div_01);
@@ -349,20 +487,18 @@ int all_tests()
 	_verify(m_eye_01);
 	_verify(m_inv_01);
 	_verify(m_add_scalar_01);
-=======
-    _verify(m_mul_01);
-    _verify(m_div_01);
-    _verify(m_transpose_01);
-    _verify(m_eye_01);
-    _verify(m_inv_01);
-    _verify(m_add_scalar_01);
->>>>>>> 4f57fdcc633aa5524e5f57f74dd56a999d8dc632
     _verify(m_sub_scalar_01);
     _verify(m_mul_scalar_01);
     _verify(m_div_scalar_01);
 	_verify(m_norm_01);
     _verify(m_dot_01);
     _verify(m_cross_01);
+	_verify(m_extract_vector_01);
+	_verify(m_union_vector_01);  
+	_verify(m_extract_row_01); 
+    _verify(m_extract_column_01);
+	_verify(m_assign_row_01);
+	_verify(m_assign_column_01);
 
     return 0;
 }
