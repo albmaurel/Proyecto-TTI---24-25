@@ -1,4 +1,4 @@
-#include "..\include\matrix.h"
+#include "..\include\matrix.hpp"
 
 Matrix::Matrix(const int n_row, const int n_column) {
     if (n_row <= 0 || n_column <= 0) {
