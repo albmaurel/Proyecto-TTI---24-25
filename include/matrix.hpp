@@ -12,7 +12,7 @@ class Matrix {
 public:
     int n_row, n_column;
 	double **data;
-
+	Matrix();
     // Parameterized constructor
     Matrix(const int n_row, const int n_column);
 	Matrix(const int v_size);

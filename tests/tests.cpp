@@ -1,4 +1,17 @@
 #include "..\include\matrix.hpp"
+#include "..\include\R_x.hpp"
+#include "..\include\R_y.hpp"
+#include "..\include\R_z.hpp"
+#include "..\include\AzElPa.hpp"
+#include "..\include\Mjday.hpp"
+#include "..\include\Mjday_TDB.hpp"
+#include "..\include\Position.hpp"
+#include "..\include\timediff.hpp"
+#include "..\include\sign.hpp"
+#include "..\include\TimeUpdate.hpp"
+
+
+
 #include <cstdio>
 #include <cmath>
 
@@ -475,6 +488,166 @@ int m_assign_column_01() {
     return 0;
 }
 
+int R_x_01() {
+    Matrix B = R_x(2.0);
+	
+    Matrix A(3, 3);  
+    A(1,1) = 1.0000    ; A(1,2) = 0; A(1,3) =  0;
+    A(2,1) = 0; A(2,2) = -0.4161; A(2,3) =  0.9093;
+    A(3,1) = 0; A(3,2) = -0.9093 ; A(3,3) = -0.4161;
+
+	
+    _assert(m_equals(A, B, 1e-10));  
+
+    return 0;
+}
+
+int R_y_01() {
+	
+    Matrix B = R_y(2.0);
+	
+    Matrix A(3, 3);  
+    A(1,1) = -0.4161    ; A(1,2) = 0; A(1,3) =  -0.9093;
+    A(2,1) =  0; A(2,2) = 1.0000; A(2,3) = 0;
+    A(3,1) = 0.9093 ; A(3,2) = 0; A(3,3) = -0.4161;
+
+	
+    _assert(m_equals(A, B, 1e-10));  
+
+    return 0;
+}
+
+int R_z_01() {
+	
+    Matrix B = R_z(2.0);
+	
+    Matrix A(3, 3);  
+    A(1,1) = 0.4161    ; A(1,2) = 0.9093; A(1,3) =  0;
+    A(2,1) = -0.9093; A(2,2) = -0.4161; A(2,3) = 0;
+    A(3,1) = 0; A(3,2) = 0; A(3,3) = 1.0000;
+
+	
+    _assert(m_equals(A, B, 1e-10));  
+
+    return 0;
+}
+
+int AzElPa_01() {
+	
+    Matrix A(3);  
+    A(1) = 100;
+    A(2) = 200;
+    A(3) = 300;
+	
+	double Az, El;
+    Matrix dAds(3), dEds(3);
+	
+	double Az_expected = 0.4636;
+    double El_expected = 0.1334;
+    Matrix dAds_expected(3), dEds_expected(3);
+
+    dAds_expected(1) = 0.0004;
+    dAds_expected(2) = -0.0002;
+    dAds_expected(3) = 0.0;
+
+    dEds_expected(1) = -0.0000264;
+    dEds_expected(2) = -0.0000527;
+    dEds_expected(3) = 0.0004393;
+	
+	AzElPa(s, Az, El, dAds, dEds);
+
+	_assert(fabs(Az_expected - Az) < 1e-10);
+    _assert(fabs(El_expected - El) < 1e-10);
+	_assert(m_equals(dAds_expected, dAds, 1e-10));
+	_assert(m_equals(dEds_expected, dEds, 1e-10));
+	
+    return 0;
+}
+
+int Mjday_01() {
+    double mjd = Mjday(2024, 4, 17);
+	double esperado = 60417.0;
+
+	_assert(fabs(mjd - esperado) < 1e-10);
+    return 0;
+}
+
+int Mjd_TDB_01() {
+    double mjdtdb = Mjday_TDB(60417);
+	double esperado = 60417.0;
+
+	_assert(fabs(mjdtdb - esperado) < 1e-10);
+    return 0;
+}
+
+int Position_01() {
+    Matrix Pos = Position(0,1,1);
+	
+	Matrix A(3);  
+    A(1) = 3454318.94409859;
+    A(2) = 0;
+    A(3) = 5343768.70088094;
+	
+	_assert(m_equals(A, Pos, 1e-10));
+
+    return 0;
+}
+
+int timediff_01() {
+    double UT1_UTC = -0.3341;
+    double TAI_UTC = 37;
+
+    double UT1_TAI, UTC_GPS, UT1_GPS, TT_UTC, GPS_UTC;
+
+    timediff(UT1_UTC, TAI_UTC, UT1_TAI, UTC_GPS, UT1_GPS, TT_UTC, GPS_UTC);
+
+    assert(fabs(UT1_TAI + 37.3341) < 1e-10);
+    assert(fabs(UTC_GPS + 18.0) < 1e-10);
+    assert(fabs(UT1_GPS + 18.3341) < 1e-10);
+    assert(fabs(TT_UTC - 69.184) < 1e-10);
+    assert(fabs(GPS_UTC - 18.0) < 1e-10);
+	
+	return 0;
+
+}
+
+int sign__01(){
+	double res=sign_(5,-3);
+	double a =-5;
+	assert(fabs(res + a) < 1e-10);
+	
+	return 0;
+
+}
+
+int TimeUpdate_01(){
+	Matrix P(2, 2);
+    P(1, 1) = 1;
+    P(1, 2) = 2;
+    P(2, 1) = 3;
+    P(2, 2) = 4;
+
+    Matrix Phi(2, 2);
+    Phi(1, 1) = 0.5;
+    Phi(1, 2) = 0;
+    Phi(2, 1) = 0;
+    Phi(2, 2) = 0.5;
+
+    double Qdt = 0.1;
+
+    Matrix P_updated = TimeUpdate(P, Phi, Qdt);
+	
+	Matrix Res(2, 2);
+    Phi(1, 1) = 0.25;
+    Phi(1, 2) = 0.5;
+    Phi(2, 1) = 0.75;
+    Phi(2, 2) = 1.0;
+	
+	_assert(m_equals(Res, P_updated, 1e-10));
+	
+	return 0;
+}
+
 int all_tests()
 {
     _verify(m_sum_01);
@@ -499,6 +672,19 @@ int all_tests()
     _verify(m_extract_column_01);
 	_verify(m_assign_row_01);
 	_verify(m_assign_column_01);
+	_verify(R_x_01);
+	_verify(R_y_01);
+	_verify(R_z_01);
+	_verify(AzElPa_01);
+	_verify(Mjday_01);
+	_verify(Mjd_TDB_01);
+	_verify(Position_01);
+	_verify(timediff_01);
+	_verify(sign__01);
+	_verify(TimeUpdate_01);
+
+
+
 
     return 0;
 }

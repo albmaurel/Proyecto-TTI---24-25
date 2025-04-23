@@ -3,7 +3,7 @@
 
 
 Matrix TimeUpdate(const Matrix& P, const Matrix& Phi, double Qdt) {
-	Matrix PhiT = transpose(Phi); // Transpose of Phi
+	Matrix PhiT = transpose(Phi);
 	Matrix updatedP = Phi * P * PhiT + Qdt;
 	
 	return updatedP;
