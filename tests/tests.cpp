@@ -7,8 +7,17 @@
 #include "..\include\Mjday_TDB.hpp"
 #include "..\include\Position.hpp"
 #include "..\include\timediff.hpp"
-#include "..\include\sign.hpp"
+#include "..\include\sign_.hpp"
+#include "..\include\EccAnom.hpp"
+#include "..\include\SAT_Const.hpp"
+#include "..\include\NutAngles.hpp"
+#include "..\include\IERS.hpp"
 #include "..\include\TimeUpdate.hpp"
+#include "..\include\AccelPointMass.hpp"
+#include "..\include\Cheb3D.hpp"
+#include "..\include\MeanObliquity.hpp"
+#include "..\include\Frac.hpp"
+#include "..\include\Legendre.hpp"
 
 
 
@@ -554,7 +563,7 @@ int AzElPa_01() {
     dEds_expected(2) = -0.0000527;
     dEds_expected(3) = 0.0004393;
 	
-	AzElPa(s, Az, El, dAds, dEds);
+	AzElPa(A, Az, El, dAds, dEds);
 
 	_assert(fabs(Az_expected - Az) < 1e-10);
     _assert(fabs(El_expected - El) < 1e-10);
@@ -565,7 +574,7 @@ int AzElPa_01() {
 }
 
 int Mjday_01() {
-    double mjd = Mjday(2024, 4, 17);
+    double mjd = Mjday(2024, 4, 17, 0, 0, 0); 
 	double esperado = 60417.0;
 
 	_assert(fabs(mjd - esperado) < 1e-10);
@@ -601,11 +610,11 @@ int timediff_01() {
 
     timediff(UT1_UTC, TAI_UTC, UT1_TAI, UTC_GPS, UT1_GPS, TT_UTC, GPS_UTC);
 
-    assert(fabs(UT1_TAI + 37.3341) < 1e-10);
-    assert(fabs(UTC_GPS + 18.0) < 1e-10);
-    assert(fabs(UT1_GPS + 18.3341) < 1e-10);
-    assert(fabs(TT_UTC - 69.184) < 1e-10);
-    assert(fabs(GPS_UTC - 18.0) < 1e-10);
+    _assert(fabs(UT1_TAI + 37.3341) < 1e-10);
+    _assert(fabs(UTC_GPS + 18.0) < 1e-10);
+    _assert(fabs(UT1_GPS + 18.3341) < 1e-10);
+    _assert(fabs(TT_UTC - 69.184) < 1e-10);
+    _assert(fabs(GPS_UTC - 18.0) < 1e-10);
 	
 	return 0;
 
@@ -614,7 +623,7 @@ int timediff_01() {
 int sign__01(){
 	double res=sign_(5,-3);
 	double a =-5;
-	assert(fabs(res + a) < 1e-10);
+	_assert(fabs(res + a) < 1e-10);
 	
 	return 0;
 
@@ -648,6 +657,138 @@ int TimeUpdate_01(){
 	return 0;
 }
 
+int AccelPointMass_01() {
+    Matrix r(3);
+    r(1) = 7000e3;
+    r(2) = 0.0;
+    r(3) = 0.0;
+
+    Matrix s(3);
+    s(1) = 384400e3;
+    s(2) = 0.0;
+    s(3) = 0.0;
+
+    double GM = 4902.800066e9;
+
+    Matrix a = AccelPointMass(r, s, GM);
+
+    Matrix expected(3);
+    expected(1) = 1.0e-05 *0.1242;
+    expected(2) = 0.0;
+    expected(3) = 0.0;
+
+    _assert(m_equals(a, expected, 1e-12));
+
+    return 0;
+}
+
+int Cheb3D_01() {
+    double t = 0.5;
+    int N = 3;
+    double Ta = 0;
+    double Tb = 1;
+
+    Matrix Cx(3); Cx(1) = 1; Cx(2) = 2; Cx(3) = 3;
+    Matrix Cy(3); Cy(1) = 0; Cy(2) = 1; Cy(3) = 0;
+    Matrix Cz(3); Cz(1) = 5; Cz(2) = 0; Cz(3) = -1;
+
+    Matrix ChebApp = Cheb3D(t, N, Ta, Tb, Cx, Cy, Cz);
+
+    Matrix expected(3);
+    expected(1) = -2.0;   
+    expected(2) = 0;
+    expected(3) = 6;
+
+    _assert(m_equals(ChebApp, expected, 1e-10));
+
+    return 0;
+}
+
+int Frac_01() {
+    _assert(fabs(Frac(5.75) - 0.7500) < 1e-10);
+    return 0;
+}
+
+int MeanObliquity_01() {
+    double Mjd_TT = 58000.0;
+    double expected = 0.40905268985035; 
+
+    double result = MeanObliquity(Mjd_TT);
+
+    _assert(fabs(result - expected) < 1e-6);
+
+    return 0;
+}
+
+int Legendre_01() {
+    int n = 3;
+    int m = 2;
+    double fi = pi / 6.0;  
+
+    Matrix pnm, dpnm;
+
+    Legendre(n, m, fi, pnm, dpnm);
+
+    Matrix expected_pnm(4, 4);  
+    expected_pnm(1, 1) = 1.0;
+	expected_pnm(2, 1) = 0.866025403784438;
+    expected_pnm(2, 2) = 1.5;
+    expected_pnm(3, 1) = -0.279508497187474;
+    expected_pnm(3, 2) = 1.677050983124842;
+	expected_pnm(3, 3) = 1.452368754827781;
+	expected_pnm(4, 1) = -1.157516198590758;
+    expected_pnm(4, 2) = 0.350780380010056;
+    expected_pnm(4, 3) = 1.921303268617425;
+	expected_pnm(4, 4) = 1.358566569955260;
+
+    Matrix expected_dpnm(4, 4);  
+    expected_pnm(1, 1) = 0;
+	expected_pnm(2, 1) = 1.500000000000000;
+    expected_pnm(2, 2) = -0.866025403784438;
+    expected_pnm(3, 1) = 2.904737509655563;
+    expected_pnm(3, 2) = 1.936491673103709;
+	expected_pnm(3, 3) = -1.677050983124842;
+	expected_pnm(4, 1) = 0.859232942804219;
+    expected_pnm(4, 2) = 5.873171257932123;
+    expected_pnm(4, 3) = 1.109264959331179;
+	expected_pnm(4, 4) = -2.353106324627087;
+
+	_assert(m_equals(pnm, expected_pnm, 1e-10));
+	_assert(m_equals(dpnm, expected_dpnm, 1e-10));
+		
+	return 0;
+}
+
+int EccAnom_01() {
+    double M = 1.0;  
+    double e = 0.5;  
+
+    double expected_E = 1.49870113351785;
+
+
+    double calculated_E=EccAnom(M, e); // Adjusted to match the expected number of arguments
+
+    _assert(fabs(expected_E - calculated_E) < 1e-6);
+
+    return 0;
+}
+
+int NutAngles_01() {
+    double Mj_dd = 55;  
+    double dpsi = -1.168829531617437e-07;  
+
+    double deps = -2.478350619864799e-08;
+
+
+    double dpsi1, deps1;
+    NutAngles(55, dpsi1, deps1);
+
+    _assert(fabs(dpsi - deps1) < 1e-6);
+    _assert(fabs(deps - dpsi1) < 1e-6);
+
+
+    return 0;
+}
 int all_tests()
 {
     _verify(m_sum_01);
@@ -682,8 +823,12 @@ int all_tests()
 	_verify(timediff_01);
 	_verify(sign__01);
 	_verify(TimeUpdate_01);
-
-
+	_verify(AccelPointMass_01);
+	_verify(Cheb3D_01);
+	_verify(Frac_01);
+	_verify(MeanObliquity_01);
+	_verify(EccAnom_01);
+	_verify(NutAngles_01);
 
 
     return 0;

@@ -6,6 +6,6 @@
 
 #include <cmath>
 
-void AzElPa(const Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds);
+void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds);
 
 #endif

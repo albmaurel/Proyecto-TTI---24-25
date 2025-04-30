@@ -2,7 +2,7 @@
 #define _LEGENDRE_
 
 #include "..\include\matrix.hpp"
-#include "..\include\SAT_Const.h"
+#include "..\include\SAT_Const.hpp"
 #include <cmath>
 #include <iostream>
 

@@ -64,3 +64,4 @@ void Legendre(const int n, const int m, const double fi, Matrix& pnm, Matrix& dp
         k++;
         if (j > m) break;
     }
+}

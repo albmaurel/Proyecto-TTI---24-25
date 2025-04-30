@@ -5,8 +5,7 @@
 
 #include <cmath>
 
-void AzElPa(const Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds) {
-	double pi2 = SAT_Const::pi2;
+void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds) {
     double rho = std::sqrt(s(1) * s(1) + s(2) * s(2));
 
     // Angles
@@ -29,5 +28,5 @@ void AzElPa(const Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds)
 
     // Normalize dEds by the dot product of s
     double dot_product = dot(s,s);
-    dEds /= dot_product;
+    dEds = dEds / dot_product;
 }

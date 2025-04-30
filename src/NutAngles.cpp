@@ -4,15 +4,13 @@
 
 #include <cmath>
 
-void NutAngles(double Mjd_TT, double& dpsi, double& deps) {
+void NutAngles(double Mjd_TT, double dpsi, double deps) {
     double rev = 360.0 * 3600.0; // arcsec in one full circle
     double T = (Mjd_TT - MJD_J2000) / 36525.0;
     double T2 = T * T;
     double T3 = T2 * T;
-	double rev = 360.0 * 3600.0;
 	
-	int N_coeff = 106;
-	double C[N_coeff][9] = {
+	double C[106][9] = {
         //   l,  l',  F,  D, Om,      dpsi,    *T,      deps,    *T
         {   0,   0,   0,   0,  1, -1719960,  -1742,   920250,     89},  //  1
         {   0,   0,   0,   0,  2,    20620,      2,    -8950,      5},  //  2
@@ -139,7 +137,7 @@ void NutAngles(double Mjd_TT, double& dpsi, double& deps) {
     dpsi = 0.0;
     deps = 0.0;
 
-    for (int i = 0; i < N_coeff; ++i) {
+    for (int i = 0; i < 106; ++i) {
         double arg = (C[i][0] * l + C[i][1] * lp + C[i][2] * F + C[i][3] * D + C[i][4] * Om) / Arcs; // Use Arcs from sat_const.hpp
         dpsi += (C[i][5] + C[i][6] * T) * std::sin(arg);
         deps += (C[i][7] + C[i][8] * T) * std::cos(arg);
@@ -149,4 +147,3 @@ void NutAngles(double Mjd_TT, double& dpsi, double& deps) {
     deps = 1.0e-5 * deps / Arcs;
 }
 
-}
