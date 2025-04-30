@@ -7,6 +7,6 @@
 
 #include <cmath>
 
-void NutAngles(double Mjd_TT, double& dpsi, double& deps);
+void NutAngles(double Mjd_TT, double dpsi, double deps);
 
 #endif

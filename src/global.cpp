@@ -1,7 +1,7 @@
 #include "..\include\global.hpp"
 #include <cmath>
 
-extern Matrix eopdata;
+Matrix eopdata;
 
 void eop19620101(int c){
 	eopdata=zeros(13, c);

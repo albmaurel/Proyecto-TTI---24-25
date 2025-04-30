@@ -1,5 +1,5 @@
-#ifndef INITIAL_ORBIT_DETERMINATION_C___SAT_CONST_H
-#define INITIAL_ORBIT_DETERMINATION_C___SAT_CONST_H
+#ifndef _GLOBAL_
+#define _GLOBAL_
 
 #include "..\include\matrix.hpp"
 #include <cmath>

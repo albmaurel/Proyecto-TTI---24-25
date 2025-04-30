@@ -6,16 +6,16 @@
 #include <cmath>
 
 void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds) {
-    double rho = std::sqrt(s(1) * s(1) + s(2) * s(2));
+    double rho = sqrt(s(1) * s(1) + s(2) * s(2));
 
     // Angles
-    Az = std::atan2(s(1), s(2)); // Azimuth
+    Az = atan2(s(1), s(2)); // Azimuth
 
     if (Az < 0.0) {
         Az += pi2;
     }
 
-    El = std::atan(s(3) / rho); // Elevation
+    El = atan(s(3) / rho); // Elevation
 
     // Partials
     dAds(1) = s(2) / (rho * rho);

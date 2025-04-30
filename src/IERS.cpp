@@ -35,7 +35,7 @@ void IERS( Matrix& eop, double Mjd_UTC, char interp,
 			exit(EXIT_FAILURE);
         }
 
-        double mfme = 1440.0 * (Mjd_UTC - std::floor(Mjd_UTC));
+        double mfme = 1440.0 * (Mjd_UTC - floor(Mjd_UTC));
         double fixf = mfme / 1440.0;
 
         // Setting of IERS Earth rotation parameters

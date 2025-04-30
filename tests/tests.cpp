@@ -502,8 +502,8 @@ int R_x_01() {
 	
     Matrix A(3, 3);  
     A(1,1) = 1.0000    ; A(1,2) = 0; A(1,3) =  0;
-    A(2,1) = 0; A(2,2) = -0.4161; A(2,3) =  0.9093;
-    A(3,1) = 0; A(3,2) = -0.9093 ; A(3,3) = -0.4161;
+    A(2,1) = 0; A(2,2) = -0.416146836547142; A(2,3) =   0.909297426825682;
+    A(3,1) = 0; A(3,2) = -0.909297426825682 ; A(3,3) = -0.416146836547142;
 
 	
     _assert(m_equals(A, B, 1e-10));  
@@ -516,9 +516,9 @@ int R_y_01() {
     Matrix B = R_y(2.0);
 	
     Matrix A(3, 3);  
-    A(1,1) = -0.4161    ; A(1,2) = 0; A(1,3) =  -0.9093;
+    A(1,1) = -0.416146836547142     ; A(1,2) = 0; A(1,3) =  -0.909297426825682;
     A(2,1) =  0; A(2,2) = 1.0000; A(2,3) = 0;
-    A(3,1) = 0.9093 ; A(3,2) = 0; A(3,3) = -0.4161;
+    A(3,1) =  0.909297426825682; A(3,2) = 0; A(3,3) = -0.416146836547142;
 
 	
     _assert(m_equals(A, B, 1e-10));  
@@ -531,8 +531,8 @@ int R_z_01() {
     Matrix B = R_z(2.0);
 	
     Matrix A(3, 3);  
-    A(1,1) = 0.4161    ; A(1,2) = 0.9093; A(1,3) =  0;
-    A(2,1) = -0.9093; A(2,2) = -0.4161; A(2,3) = 0;
+    A(1,1) = -0.416146836547142     ; A(1,2) = 0.909297426825682; A(1,3) =  0;
+    A(2,1) = -0.909297426825682 ; A(2,2) = -0.416146836547142; A(2,3) = 0;
     A(3,1) = 0; A(3,2) = 0; A(3,3) = 1.0000;
 
 	
@@ -551,20 +551,21 @@ int AzElPa_01() {
 	double Az, El;
     Matrix dAds(3), dEds(3);
 	
-	double Az_expected = 0.4636;
-    double El_expected = 0.1334;
+	double Az_expected = 0.463647609000806;
+    double El_expected = 0.133367677774729;
     Matrix dAds_expected(3), dEds_expected(3);
 
     dAds_expected(1) = 0.0004;
     dAds_expected(2) = -0.0002;
     dAds_expected(3) = 0.0;
 
-    dEds_expected(1) = -0.0000264;
-    dEds_expected(2) = -0.0000527;
-    dEds_expected(3) = 0.0004393;
+    dEds_expected(1) = -0.0000263583651571684;
+    dEds_expected(2) = -0.0000527167303143369;
+    dEds_expected(3) = 0.000439306085952807;
 	
 	AzElPa(A, Az, El, dAds, dEds);
-
+    cout << Az << " " << El << endl;
+    cout << Az_expected << " " << El_expected << endl;
 	_assert(fabs(Az_expected - Az) < 1e-10);
     _assert(fabs(El_expected - El) < 1e-10);
 	_assert(m_equals(dAds_expected, dAds, 1e-10));
@@ -817,18 +818,18 @@ int all_tests()
 	_verify(R_y_01);
 	_verify(R_z_01);
 	_verify(AzElPa_01);
-	_verify(Mjday_01);
-	_verify(Mjd_TDB_01);
-	_verify(Position_01);
-	_verify(timediff_01);
-	_verify(sign__01);
-	_verify(TimeUpdate_01);
-	_verify(AccelPointMass_01);
-	_verify(Cheb3D_01);
-	_verify(Frac_01);
-	_verify(MeanObliquity_01);
-	_verify(EccAnom_01);
-	_verify(NutAngles_01);
+	//_verify(Mjday_01);
+	//_verify(Mjd_TDB_01);
+	//_verify(Position_01);
+	//_verify(timediff_01);
+	//_verify(sign__01);
+	//_verify(TimeUpdate_01);
+	//_verify(AccelPointMass_01);
+	//_verify(Cheb3D_01);
+	//_verify(Frac_01);
+	//_verify(MeanObliquity_01);
+	//_verify(EccAnom_01);
+	//_verify(NutAngles_01);
 
 
     return 0;

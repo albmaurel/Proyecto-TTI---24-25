@@ -3,5 +3,5 @@
 #include <cmath>
 
 double sign_(double a, double b) {
-    return (b >= 0.0) ? std::abs(a) : -std::abs(a);
+    return (b >= 0.0) ? abs(a) : -abs(a);
 }
