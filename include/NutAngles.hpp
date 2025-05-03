@@ -4,9 +4,10 @@
 #include "..\include\SAT_Const.hpp"
 #include "..\include\matrix.hpp"
 
+#include <tuple>
 
 #include <cmath>
 
-void NutAngles(double Mjd_TT, double dpsi, double deps);
+tuple<double,double> NutAngles (double Mjd_TT);
 
 #endif

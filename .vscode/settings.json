@@ -3,6 +3,7 @@
         "xlocale": "cpp",
         "cmath": "cpp",
         "iostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "tuple": "cpp"
     }
 }

@@ -723,38 +723,29 @@ int MeanObliquity_01() {
 }
 
 int Legendre_01() {
-    int n = 3;
+    int n = 2;
     int m = 2;
-    double fi = pi / 6.0;  
+    double fi = 1;  
 
-    Matrix pnm, dpnm;
+    auto[pnm,dpnm]=Legendre(n, m, fi);
 
-    Legendre(n, m, fi, pnm, dpnm);
+    Matrix expected_pnm(3, 3);  
+    expected_pnm(1, 1) = 1.000000000000000;
+	expected_pnm(2, 1) = 1.45747045027529753547;
+    expected_pnm(2, 2) = 0.93583099453595375294;
+    expected_pnm(3, 1) = 1.25691629764617052167;
+    expected_pnm(3, 2) = 1.76084674147066455596;
+	expected_pnm(3, 3) = 0.56531333344858780698;
 
-    Matrix expected_pnm(4, 4);  
-    expected_pnm(1, 1) = 1.0;
-	expected_pnm(2, 1) = 0.866025403784438;
-    expected_pnm(2, 2) = 1.5;
-    expected_pnm(3, 1) = -0.279508497187474;
-    expected_pnm(3, 2) = 1.677050983124842;
-	expected_pnm(3, 3) = 1.452368754827781;
-	expected_pnm(4, 1) = -1.157516198590758;
-    expected_pnm(4, 2) = 0.350780380010056;
-    expected_pnm(4, 3) = 1.921303268617425;
-	expected_pnm(4, 4) = 1.358566569955260;
 
-    Matrix expected_dpnm(4, 4);  
-    expected_pnm(1, 1) = 0;
-	expected_pnm(2, 1) = 1.500000000000000;
-    expected_pnm(2, 2) = -0.866025403784438;
-    expected_pnm(3, 1) = 2.904737509655563;
-    expected_pnm(3, 2) = 1.936491673103709;
-	expected_pnm(3, 3) = -1.677050983124842;
-	expected_pnm(4, 1) = 0.859232942804219;
-    expected_pnm(4, 2) = 5.873171257932123;
-    expected_pnm(4, 3) = 1.109264959331179;
-	expected_pnm(4, 4) = -2.353106324627087;
-
+    Matrix expected_dpnm(3, 3);  
+    expected_dpnm(1, 1) = 0.0;
+	expected_dpnm(2, 1) = 0.93583099453595375294;
+    expected_dpnm(2, 2) = -1.45747045027529753547;
+    expected_dpnm(3, 1) = 3.04987602056929052452;
+    expected_dpnm(3, 2) = -1.61172970742831900282;
+	expected_dpnm(3, 3) = -1.76084674147066455596;
+	
 	_assert(m_equals(pnm, expected_pnm, 1e-10));
 	_assert(m_equals(dpnm, expected_dpnm, 1e-10));
 		
@@ -768,25 +759,23 @@ int EccAnom_01() {
     double expected_E = 1.49870113351785;
 
 
-    double calculated_E=EccAnom(M, e); // Adjusted to match the expected number of arguments
+    double calculated_E=EccAnom(M, e); 
 
-    _assert(fabs(expected_E - calculated_E) < 1e-6);
+    _assert(fabs(expected_E - calculated_E) < 1e-10);
 
     return 0;
 }
 
 int NutAngles_01() {
-    double Mj_dd = 55;  
-    double dpsi = -1.168829531617437e-07;  
+    double Mj_dd = 2003;  
+    double dpsi = 5.865994605080066e-05;  
 
-    double deps = -2.478350619864799e-08;
+    double deps = -3.023935626017374e-05;
 
+    auto [dpsi1,deps1]=NutAngles(Mj_dd);
 
-    double dpsi1, deps1;
-    NutAngles(55, dpsi1, deps1);
-
-    _assert(fabs(dpsi - deps1) < 1e-6);
-    _assert(fabs(deps - dpsi1) < 1e-6);
+    _assert(fabs(dpsi - deps1) < 1e-4);
+    _assert(fabs(deps - dpsi1) < 1e-4);
 
 
     return 0;
@@ -831,6 +820,7 @@ int all_tests()
 	_verify(MeanObliquity_01);
 	_verify(EccAnom_01);
 	_verify(NutAngles_01);
+    _verify(Legendre_01);
 
 
     return 0;

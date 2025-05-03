@@ -5,8 +5,10 @@
 #include "..\include\SAT_Const.hpp"
 #include <cmath>
 #include <iostream>
+#include <tuple>
 
 
-void Legendre(const int n, const int m, const double fi, Matrix& pnm, Matrix& dpnm);
+
+tuple<Matrix, Matrix> Legendre(int n, int m, double fi);
 
 #endif

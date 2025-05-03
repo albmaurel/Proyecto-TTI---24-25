@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-	eop19620101(); // c=21413
-	cout<<eopdata<<endl;
+	//eop19620101(); // c=21413
+	//cout<<eopdata<<endl;
     Matrix M1(3, 2);
 	M1(1,1) = 5;
 	M1(1,2) = 3;
