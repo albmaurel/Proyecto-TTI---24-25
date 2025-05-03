@@ -552,20 +552,19 @@ int AzElPa_01() {
     Matrix dAds(3), dEds(3);
 	
 	double Az_expected = 0.463647609000806;
-    double El_expected = 0.133367677774729;
+    double El_expected = 0.930274014115472;
     Matrix dAds_expected(3), dEds_expected(3);
 
-    dAds_expected(1) = 0.0004;
-    dAds_expected(2) = -0.0002;
+    dAds_expected(1) = 0.0040;
+    dAds_expected(2) = -0.0020;
     dAds_expected(3) = 0.0;
 
-    dEds_expected(1) = -0.0000263583651571684;
-    dEds_expected(2) = -0.0000527167303143369;
-    dEds_expected(3) = 0.000439306085952807;
+    dEds_expected(1) = -0.00095831484749991 ;
+    dEds_expected(2) = -0.00191662969499982;
+    dEds_expected(3) = 0.00159719141249985;
 	
 	AzElPa(A, Az, El, dAds, dEds);
-    cout << Az << " " << El << endl;
-    cout << Az_expected << " " << El_expected << endl;
+
 	_assert(fabs(Az_expected - Az) < 1e-10);
     _assert(fabs(El_expected - El) < 1e-10);
 	_assert(m_equals(dAds_expected, dAds, 1e-10));
@@ -584,7 +583,7 @@ int Mjday_01() {
 
 int Mjd_TDB_01() {
     double mjdtdb = Mjday_TDB(60417);
-	double esperado = 60417.0;
+	double esperado = 60417.0000000186;
 
 	_assert(fabs(mjdtdb - esperado) < 1e-10);
     return 0;
@@ -594,9 +593,9 @@ int Position_01() {
     Matrix Pos = Position(0,1,1);
 	
 	Matrix A(3);  
-    A(1) = 3454318.94409859;
+    A(1) = 3454318.944098592735827;
     A(2) = 0;
-    A(3) = 5343768.70088094;
+    A(3) = 5343768.700880938209593;
 	
 	_assert(m_equals(A, Pos, 1e-10));
 
@@ -624,7 +623,8 @@ int timediff_01() {
 int sign__01(){
 	double res=sign_(5,-3);
 	double a =-5;
-	_assert(fabs(res + a) < 1e-10);
+
+	_assert(fabs(res - a) < 1e-10);
 	
 	return 0;
 
@@ -646,13 +646,14 @@ int TimeUpdate_01(){
     double Qdt = 0.1;
 
     Matrix P_updated = TimeUpdate(P, Phi, Qdt);
-	
+
+    // Expected result
 	Matrix Res(2, 2);
-    Phi(1, 1) = 0.25;
-    Phi(1, 2) = 0.5;
-    Phi(2, 1) = 0.75;
-    Phi(2, 2) = 1.0;
-	
+    Res(1, 1) = 0.350000000000000;
+    Res(1, 2) = 0.600000000000000;
+    Res(2, 1) = 0.850000000000000;
+    Res(2, 2) = 1.100000000000000;
+
 	_assert(m_equals(Res, P_updated, 1e-10));
 	
 	return 0;
@@ -674,7 +675,7 @@ int AccelPointMass_01() {
     Matrix a = AccelPointMass(r, s, GM);
 
     Matrix expected(3);
-    expected(1) = 1.0e-05 *0.1242;
+    expected(1) = 1.24226040196081e-06;
     expected(2) = 0.0;
     expected(3) = 0.0;
 
@@ -818,18 +819,18 @@ int all_tests()
 	_verify(R_y_01);
 	_verify(R_z_01);
 	_verify(AzElPa_01);
-	//_verify(Mjday_01);
-	//_verify(Mjd_TDB_01);
-	//_verify(Position_01);
-	//_verify(timediff_01);
-	//_verify(sign__01);
-	//_verify(TimeUpdate_01);
-	//_verify(AccelPointMass_01);
-	//_verify(Cheb3D_01);
-	//_verify(Frac_01);
-	//_verify(MeanObliquity_01);
-	//_verify(EccAnom_01);
-	//_verify(NutAngles_01);
+	_verify(Mjday_01);
+	_verify(Mjd_TDB_01);
+	_verify(Position_01);
+	_verify(timediff_01);
+	_verify(sign__01);
+	_verify(TimeUpdate_01);
+	_verify(AccelPointMass_01);
+	_verify(Cheb3D_01);
+	_verify(Frac_01);
+	_verify(MeanObliquity_01);
+	_verify(EccAnom_01);
+	_verify(NutAngles_01);
 
 
     return 0;

@@ -12,13 +12,13 @@ const double Arcs      = 3600.0*180.0/pi;     // Arcseconds per radian
 // General
 const double MJD_J2000 = 51544.5;             // Modif. Julian Date of J2000.0
 const double T_B1950   = -0.500002108;        // Epoch B1950
-const double c_light   = 299792457.999999984; // Speed of light  [m/s]; DE200
-const double AU        = 149597870659.999996; // Astronomical unit [m]; DE200
+const double c_light   = 299792458.000000000; // Speed of light  [m/s]; DE200
+const double AU        = 149597870700.000000; // Astronomical unit [m]; DE200
 
 // Physical parameters of the Earth, Sun and Moon
 
 // Equatorial radius and flattening
-const double R_Earth   =   6378.137e3;        // Radius Earth [m]; WGS-84
+const double R_Earth   =   6378.1363e3;        // Radius Earth [m]; WGS-84
 const double f_Earth   = 1.0/298.257223563;   // Flattening; WGS-84
 const double R_Sun     = 696000.0e3;          // Radius Sun [m]; Seidelmann 1992
 const double R_Moon    =   1738.0e3;          // Radius Moon [m]

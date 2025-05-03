@@ -2,7 +2,6 @@
 #include "..\include\SAT_Const.hpp"
 #include "..\include\Position.hpp"
 
-
 #include <cmath>
 
 Matrix Position(double lon, double lat, double h) {
@@ -15,7 +14,7 @@ Matrix Position(double lon, double lat, double h) {
 	
 	//Position vector
     double N = R_equ / sqrt(1.0 - e2 * SinLat * SinLat);
-
+    
     Matrix r = zeros(3);
 
     r(1) = (N + h) * CosLat * cos(lon);
