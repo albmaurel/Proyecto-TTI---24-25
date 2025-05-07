@@ -5,7 +5,7 @@
 #include <cmath>
 
 tuple<double,double> NutAngles (double Mjd_TT){
-	double T  = (Mjd_TT-MJD_J2000)/36525;
+	double T  = (Mjd_TT-SAT_Const::MJD_J2000)/36525;
 	double T2 = T*T;
 	double T3 = T2*T;
 	double rev = 360*3600; // arcsec/revolution
@@ -130,13 +130,13 @@ tuple<double,double> NutAngles (double Mjd_TT){
 	double deps = 0;
 
 	for(int i=0;i<106;i++){
-	  double arg  =  ( C[i][0]*l+C[i][1]*lp+C[i][2]*F+C[i][3]*D+C[i][4]*Om )/Arcs;
+	  double arg  =  ( C[i][0]*l+C[i][1]*lp+C[i][2]*F+C[i][3]*D+C[i][4]*Om )/SAT_Const::Arcs;
 	  dpsi = dpsi + ( C[i][5]+C[i][6]*T ) * sin(arg);
 	  deps = deps + ( C[i][7]+C[i][8]*T ) * cos(arg);
 	}
 
-	dpsi = 1.0e-5 * dpsi/Arcs;
-	deps = 1.0e-5 * deps/Arcs;
+	dpsi = 1.0e-5 * dpsi/SAT_Const::Arcs;
+	deps = 1.0e-5 * deps/SAT_Const::Arcs;
 	
 	return std::make_tuple(dpsi,deps);
 }

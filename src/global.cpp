@@ -3,21 +3,19 @@
 
 Matrix eopdata;
 
-void eop19620101(int c){
-	eopdata=zeros(13, c);
-	
-	FILE *fid = fopen("eop19620101.txt","r");
-	if(fid==NULL){
-		printf("Fail open eop19620101.txt file\n");
-		exit(EXIT_FAILURE);
-	}
-	for(int j = 1; j <= c; j++){
-		fscanf(fid,"%lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf",
-		&(eopdata(1,j)),&(eopdata(2,j)),&(eopdata(3,j)),&(eopdata(4,j)),
-		&(eopdata(5,j)),&(eopdata(6,j)),&(eopdata(7,j)),&(eopdata(8,j)),
-		&(eopdata(9,j)),&(eopdata(10,j)),&(eopdata(11,j)),&(eopdata(12,j)),
-		&(eopdata(13,j)));
-	}
-	fclose(fid);
+void eop19620101(int c) {
+    eopdata = zeros(13, c);
 
+    FILE *fid = fopen("..\\data\\eop19620101.txt", "r");
+    if (fid== NULL) {
+        printf("Fail open eop19620101.txt file\n");
+        exit(EXIT_FAILURE);
+    }
+    for(int i = 1; i <= c; i++) {
+        fscanf(fid,"%lf %lf %d %lf %lf %lf %lf %lf %lf %lf %lf %lf %lf",
+            &(eopdata(1,i)),&(eopdata(2,i)),&(eopdata(3,i)),&(eopdata(4,i)),&(eopdata(5,i)),
+            &(eopdata(6,i)),&(eopdata(7,i)),&(eopdata(8,i)),&(eopdata(9,i)),&(eopdata(10,i)),
+            &(eopdata(11,i)),&(eopdata(12,i)),&(eopdata(13,i)));
+    }
+    fclose(fid);
 }

@@ -97,21 +97,25 @@ Matrix& Matrix::operator - (Matrix &m) {
 	return *m_aux;
 }
 
-Matrix& Matrix::operator = (Matrix& matrix2)
-{
-	if (this == &matrix2){ 
-        return *this;
-	}	
-	if (this->n_row != matrix2.n_row || this->n_column != matrix2.n_column) {
-        cout << "Matrix assign: error in n_row/n_column4\n";
-        exit(EXIT_FAILURE);
-    }
-	
-    for (int i = 1; i <= this->n_row; i++)
-        for (int j = 1; j <= this->n_column; j++)
-            (*this)(i,j)= matrix2(i,j);
+Matrix& Matrix::operator = (Matrix &m) {
+	this->n_row = m.n_row;
+	this->n_column = m.n_column;
 
-    return *this;
+	this->data = (double **) malloc(m.n_row*sizeof(double *));
+	
+    if (this->data == NULL) {
+		cout << "Matrix assignment: error in data\n";
+        exit(EXIT_FAILURE);
+	}
+	
+	for(int i = 0; i < m.n_row; i++) {
+		this->data[i] = (double *) malloc(m.n_column*sizeof(double));
+		for (int j = 0; j < this->n_column; j++) {
+			this->data[i][j]=m.data[i][j];
+		}
+	}
+	
+	return *this;
 }
 
 Matrix& Matrix::operator * (Matrix& matrix2){

@@ -4,6 +4,7 @@
         "cmath": "cpp",
         "iostream": "cpp",
         "ios": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "numbers": "cpp"
     }
 }

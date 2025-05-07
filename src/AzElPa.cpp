@@ -12,7 +12,7 @@ void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds) {
     Az = atan2(s(1), s(2)); // Azimuth
 
     if (Az < 0.0) {
-        Az += pi2;
+        Az += SAT_Const::pi2;
     }
 
     El = atan(s(3) / rho); // Elevation

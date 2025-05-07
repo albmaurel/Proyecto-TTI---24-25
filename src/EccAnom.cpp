@@ -8,13 +8,13 @@ double EccAnom(double M, double e) {
     int i = 1;
 	
 	//Starting value
-    M = fmod(M, 2.0 * pi);
+    M = fmod(M, 2.0 * M_PI );
 
     double E;
     if (e < 0.8) {
         E = M;
     } else {
-        E = pi;
+        E = M_PI ;
     }
 
     double f = E - e * sin(E) - M;

@@ -18,6 +18,7 @@
 #include "..\include\MeanObliquity.hpp"
 #include "..\include\Frac.hpp"
 #include "..\include\Legendre.hpp"
+#include "..\include\global.hpp"
 
 
 
@@ -589,17 +590,21 @@ int Mjd_TDB_01() {
     return 0;
 }
 
-int Position_01() {
-    Matrix Pos = Position(0,1,1);
+int Position_01(){
+	double lat = 42.232583;
+	double lon = -2.473639;
+	double h = 841;
 	
-	Matrix A(3);  
-    A(1) = 3454318.944098592735827;
-    A(2) = 0;
-    A(3) = 5343768.700880938209593;
+	Matrix R(3);
+	R(1)=892407.685713797;
+	R(2)=4934471.15708111;
+	R(3)=-3929617.98430755;
 	
-	_assert(m_equals(A, Pos, 1e-10));
-
-    return 0;
+	Matrix B = Position(lat,lon,h);
+	
+	_assert(m_equals(R,B, 1e-8));
+	
+	return 0;
 }
 
 int timediff_01() {
@@ -780,8 +785,23 @@ int NutAngles_01() {
 
     return 0;
 }
+
+int iers_01() {
+	Matrix s = eye(15);
+	tuple<double, double, double, double, double, double, double, double, double> result = IERS(eopdata, 37670);
+	
+
+	_assert(fabs(std::get<0>(result) - (-1.338037278494208e-07)) < 1e-10);
+	_assert(fabs(std::get<1>(result) - 1.058353113998928e-06) < 1e-10);
+	_assert(fabs(std::get<2>(result) - 0.030535300000000) < 1e-10);
+
+	return 0;
+}
+
 int all_tests()
 {
+    eop19620101(10);
+
     _verify(m_sum_01);
     _verify(m_sub_01);
     _verify(m_zeros_01);
@@ -821,6 +841,8 @@ int all_tests()
 	_verify(EccAnom_01);
 	_verify(NutAngles_01);
     _verify(Legendre_01);
+    _verify(iers_01);
+
 
 
     return 0;
