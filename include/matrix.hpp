@@ -22,6 +22,7 @@ public:
 	Matrix& operator = (Matrix& matrix2);
 	Matrix& operator + (Matrix &m);
 	Matrix& operator - (Matrix &m);
+	Matrix& operator - ();
 	Matrix& operator * (Matrix& matrix2);
 	Matrix& operator / (Matrix& matrix2);
 	Matrix& operator + (double scalar);

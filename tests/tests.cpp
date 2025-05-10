@@ -23,7 +23,10 @@
 #include "..\include\NutMatrix.hpp"
 #include "..\include\PoleMatrix.hpp"
 #include "..\include\gmst.hpp"
-
+#include "..\include\AccelHarmonic.hpp"
+#include "..\include\EqnEquinox.hpp"
+#include "..\include\LTC.hpp"
+#include "..\include\JPL_Eph_DE430.hpp"
 
 
 #include <cstdio>
@@ -847,9 +850,71 @@ int gmst_01() {
 	return 0;
 }
 
+int accelharmonic_01() {
+
+    Matrix E(3);
+	E(1)=5; E(2)=8; E(3)=9;
+
+	Matrix r(3,3);
+	r(1,1)=2; r(1,2)=2; r(1,3)=6;
+	r(2,1)=3; r(2,2)=3; r(2,3)=3;
+	r(3,1)=10; r(3,2)=7; r(3,3)=7;
+
+	Matrix expected(3);
+	expected(1)=-104712172210.142; expected(2)=-78789774109.2913; expected(3)=-95151051017.126;
+
+	Matrix final = AccelHarmonic(transpose(E),r, 1, 10);
+	_assert(m_equals(transpose(expected), final, 1e-10));
+
+	return 0;
+}
+
+int EqnEquinox_01() {
+    double result = EqnEquinox(5.5);
+	double expected = 2.64781060573754e-05; 
+
+	_assert(fabs(expected-result) < 1e-10);
+
+	return 0;
+}
+
+int LTC_01() {
+
+	Matrix expected(3,3);
+	expected(1,1)=0.958924274663138 ; expected(1,2)=0.283662185463226 ; expected(1,3)=0;
+	expected(2,1)= 0.272010555444685 ; expected(2,2)=-0.919535764538226; expected(2,3)= 0.283662185463226;
+	expected(3,1)=0.0804642354617738 ; expected(3,2)=-0.272010555444685; expected(3,3)=-0.958924274663138;
+
+	Matrix result = LTC(5.0, 5.0);
+
+	_assert(m_equals(expected, result, 1e-10));
+	return 0;
+
+}
+
+int JPL_Eph_01() {
+
+	Matrix r_Mercury(3);
+	r_Mercury(1)=-3.120904288035969e+10; r_Mercury(2)=-1.562493277880154e+11; r_Mercury(3)=-6.409670990423103e+10;
+	Matrix r_Venus(3);
+	r_Venus(1)=9.456114421786035e+10; r_Venus(2)=-5.446125036393051e+10; r_Venus(3)=-2.661042312791346e+10;
+	Matrix r_Earth(3);
+	r_Earth(1)=-2.758784301574040e+10; r_Earth(2)=1.320400551107718e+11; r_Earth(3)=5.726729591563843e+10;
+
+	auto [ar, br, cr, d, e, f, g, h, i, j, k] = JPL_Eph_DE430(60676);
+
+	_assert(m_equals(transpose(r_Mercury), ar, 1e-4));
+	_assert(m_equals(transpose(r_Venus), br, 1e-4));
+	_assert(m_equals(transpose(r_Earth), cr, 1e-4));
+
+	return 0;
+}
+
 int all_tests()
 {
     eop19620101(10);
+    GGM03S();
+    DE430Coeff();
 
     _verify(m_sum_01);
     _verify(m_sub_01);
@@ -895,8 +960,10 @@ int all_tests()
     _verify(polemat_01);
     _verify(precmat_01);
     _verify(gmst_01);
-
-
+    _verify(accelharmonic_01);
+    _verify(EqnEquinox_01);
+    _verify(LTC_01);
+    _verify(JPL_Eph_01);
 
     return 0;
 }

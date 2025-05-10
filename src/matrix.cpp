@@ -149,6 +149,10 @@ Matrix& Matrix::operator / (Matrix& matrix2) {
     return *this * invMatrix2;  
 }
 
+Matrix& Matrix::operator-() {
+	return (*this)*(-1.0);
+}
+
 Matrix& Matrix::operator + (double scalar) {
     Matrix *m_aux = new Matrix(this->n_row, this->n_column);
 
