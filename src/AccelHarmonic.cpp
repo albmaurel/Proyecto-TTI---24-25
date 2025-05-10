@@ -7,6 +7,7 @@ Matrix& AccelHarmonic(Matrix& r,Matrix& E,int n_max,int m_max){
     double gm    = 398600.4415e9; // [m^3/s^2]; GGM03S
     // Body-fixed position 
     Matrix r_bf = E * r;
+    r_bf = transpose(r_bf);
 
     // Auxiliary quantities
     double d = norm(r_bf);                     // distance

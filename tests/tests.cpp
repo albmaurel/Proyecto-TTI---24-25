@@ -30,6 +30,8 @@
 #include "..\include\MeasUpdate.hpp"
 #include "..\include\G_AccelHarmonic.hpp"
 #include "..\include\gast.hpp"
+#include "..\include\GHAMatrix.hpp"
+#include "..\include\Accel.hpp"
 
 
 #include <cstdio>
@@ -854,22 +856,23 @@ int gmst_01() {
 }
 
 int accelharmonic_01() {
+    Matrix r(3,3);
+    r(1,1)=1.2e7; r(1,2)=2.3e7; r(1,3)=3.4e7;
+    r(2,1)=4.5e7; r(2,2)=5.6e7; r(2,3)=6.7e7;
+    r(3,1)=7.8e7; r(3,2)=8.9e7; r(3,3)=9.0e7;
 
     Matrix E(3);
-	E(1)=5; E(2)=8; E(3)=9;
+    E(1)=9.9e6; E(2)=8.8e6; E(3)=7.7e6;
 
-	Matrix r(3,3);
-	r(1,1)=2; r(1,2)=2; r(1,3)=6;
-	r(2,1)=3; r(2,2)=3; r(2,3)=3;
-	r(3,1)=10; r(3,2)=7; r(3,3)=7;
+    Matrix expected(3);
+    expected(1) = -4.799617844379188e-09;
+    expected(2) = -5.712662039382403e-09;
+    expected(3) = -6.190233410373446e-09;
 
-	Matrix expected(3);
-	expected(1)=-104712172210.142; expected(2)=-78789774109.2913; expected(3)=-95151051017.126;
+    Matrix result = AccelHarmonic(transpose(E), r, 1, 10);
 
-	Matrix final = AccelHarmonic(transpose(E),r, 1, 10);
-	_assert(m_equals(transpose(expected), final, 1e-10));
-
-	return 0;
+    _assert(m_equals(transpose(expected), result, 1e-10));
+    return 0;
 }
 
 int EqnEquinox_01() {
@@ -974,33 +977,82 @@ int measupdate_01() {
 }
 
 int g_accelharmonic_01() {
-	Matrix r(3,1);
-	r(1,1)=958922.0;
-	r(2,1)=2720105.58115302;
-	r(3,1)=2720105.014948955;
-	Matrix U(3,3);
-	U(1,1)=0.958924274663138 ; U(1,2)=0.283662185463226 ; U(1,3)=0;
-	U(2,1)= 0.272010555444685 ; U(2,2)=-0.919535764538226; U(2,3)= 0.283662185463226;
-	U(3,1)=0.0804642354617738 ; U(3,2)=-0.272010555444685; U(3,3)=-0.958924274663138;
-	int n_max = 20;
-	int m_max = 20;
+    Matrix r(3,1);
+    r(1,1) = 8123456.123456;
+    r(2,1) = 6234567.234567;
+    r(3,1) = 7345678.345678;
+
+    Matrix U(3,3);
+    U(1,1) = -0.852;   U(1,2) =  0.523;  U(1,3) =  0.021;
+    U(2,1) = -0.522;   U(2,2) = -0.852;  U(2,3) =  0.038;
+    U(3,1) =  0.030;   U(3,2) =  0.029;  U(3,3) =  0.999;
+
+    int n_max = 20;
+    int m_max = 20;
+
     Matrix expected(3,3);
-    expected(1,1) = -5.70580440140134e-06;   expected(1,2) =  2.24957474692644e-06;   expected(1,3) =  5.94090810590586e-06;
-    expected(2,1) =  2.24957474870280e-06;   expected(2,2) =  3.26836247310780e-06;   expected(2,3) =  1.18635188428584e-05;
-    expected(3,1) =  5.94090811034675e-06;   expected(3,2) =  1.18635188428584e-05;   expected(3,3) =  2.43744190697726e-06;    
+    expected(1,1) = 4.577110823689168e-08;
+    expected(1,2) = 1.914096479094241e-07;
+    expected(1,3) = 2.248192538800708e-07;
 
-	Matrix result = G_AccelHarmonic(r, U, n_max, m_max);
+    expected(2,1) = 1.914096490196471e-07;
+    expected(2,2) = -5.022823978961810e-08;
+    expected(2,3) = 1.727688230257485e-07;
 
-	_assert(m_equals(expected, result, 1e-7));
+    expected(3,1) = 2.248192534359816e-07;
+    expected(3,2) = 1.727688219155255e-07;
+    expected(3,3) = 3.566242856578583e-09;
+
+    Matrix result = G_AccelHarmonic(r, U, n_max, m_max);
+
+    _assert(m_equals(expected, result, 1e-7));
+    return 0;
+}
+
+int GHAMatrix_01() {
+
+    Matrix result = GHAMatrix(5.0);
+
+	Matrix expected(3,3);
+	expected(1,1)=0.489527823677807; expected(1,2)= 0.871987677576507 ; expected(1,3)=0;
+	expected(2,1)=-0.871987677576507  ; expected(2,2)=0.489527823677807; expected(2,3)=0;
+	expected(3,1)=0; expected(3,2)=0; expected(3,3)=1.0;
+
+	_assert(m_equals(expected, result, 1e-10));
+
 	return 0;
+}
 
+int accel_01() {
+    double x = 125.349830192;
+    Matrix Y(6, 1);
+    Y(1,1) = 6524000.000000;  
+    Y(2,1) = 1223000.000000;  
+    Y(3,1) = 2800000.000000;  
+    Y(4,1) = -500.000000;     
+    Y(5,1) = 5700.000000;    
+    Y(6,1) = 3800.000000;     
+
+    Matrix expected(6,1);
+    expected(1,1) = -500.000000;    
+    expected(2,1) = 5700.000000;    
+    expected(3,1) = 3800.000000;     
+    expected(4,1) = -6.95755523897325;  
+    expected(5,1) = -1.30432214898872;  
+    expected(6,1) = -2.99374240926662;  
+
+    Matrix result = Accel(x, Y);
+
+    _assert(m_equals(result, expected, 1e-3));
+    return 0;	
 }
 
 int all_tests()
 {
-    eop19620101(10);
+    eop19620101(21413);
     GGM03S();
     DE430Coeff();
+    auxparam();
 
     _verify(m_sum_01);
     _verify(m_sub_01);
@@ -1053,6 +1105,8 @@ int all_tests()
     _verify(gast_01);
     _verify(measupdate_01);
     _verify(g_accelharmonic_01);
+    _verify(GHAMatrix_01);
+    _verify(accel_01);
 
     return 0;
 }

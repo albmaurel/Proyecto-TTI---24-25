@@ -8,9 +8,17 @@ extern Matrix eopdata;
 extern Matrix Cnm;
 extern Matrix Snm;
 extern Matrix PC;
+typedef struct {
+    double Mjd_UTC, Mjd_TT;
+    int n, m, sun, moon, planets;
+} Param;
+extern Param AuxParam;
+
 
 void eop19620101(int c);
 void GGM03S();
 void DE430Coeff();
+void auxparam();
+
 
 #endif 

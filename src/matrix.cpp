@@ -380,7 +380,7 @@ Matrix& extract_row(Matrix& m, const int row){
 
 Matrix& extract_column(Matrix& m, const int column){
 	if (column <= 0 || column > m.n_column) {
-        cout << "Matrix extract_row: invalid column number\n";
+        cout << "Matrix extract_column: invalid column number\n";
         exit(EXIT_FAILURE);
     }
 

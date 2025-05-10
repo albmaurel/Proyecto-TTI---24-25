@@ -15,9 +15,6 @@ tuple<double, double, double, double, double, double, double, double, double> IE
     if (interp =='l') {
         // linear interpolation
         double mjd = (floor(Mjd_UTC));
-
-
-        //i = find(mjd==eop(4,:),1,'first');
         int i = 0;
         Matrix aux = extract_row(eop,4);
         for (int j = 1; j <= aux.n_column; j++) {
@@ -27,10 +24,8 @@ tuple<double, double, double, double, double, double, double, double, double> IE
             }
         }
 
-        //preeop = eop(:,i);
         Matrix preeop = extract_column(eop,i);
 
-        //nexteop = eop(:,i+1);
         Matrix nexteop = extract_column(eop,i+1);
         
         double mfme = 1440*(Mjd_UTC-floor(Mjd_UTC));
@@ -55,7 +50,6 @@ tuple<double, double, double, double, double, double, double, double, double> IE
         dy_pole = dy_pole/SAT_Const::Arcs; // Pole coordinate [rad]
     } else if (interp =='n') {
         double mjd = (floor(Mjd_UTC));
-        //i = find(mjd==eop(4,:),1,'first');
         int i = 0;
         Matrix aux = extract_row(eop,4);
         for (int j = 1; j <= aux.n_column; j++) {
