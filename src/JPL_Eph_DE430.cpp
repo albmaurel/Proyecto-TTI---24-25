@@ -1,4 +1,4 @@
-#include "../include/JPL_Eph_DE430.hpp"
+#include "..\include\JPL_Eph_DE430.hpp"
 
 Matrix& range(int x, int y, int f) {
     int aux = (f-x)/y;
