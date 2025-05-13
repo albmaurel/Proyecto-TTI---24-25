@@ -8,20 +8,24 @@ permissions:
 jobs:
   docs:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Doxygen
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ejecutar Doxygen
         uses: mattnotmitt/doxygen-action@edge
         with:
-          working-directory: './docs'
-          
-      - name: Deploy to GitHub Pages
+          working-directory: ./docs
+
+      - name: Añadir archivo .nojekyll
+        run: touch ./docs/html/.nojekyll
+
+      - name: Deploy a GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
-          publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./docs/html
           force_orphan: true
