@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// GHAMatrix
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file GHAMatrix.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función GHAMatrix.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _GHAMATRIX_
 #define _GHAMATRIX_
 

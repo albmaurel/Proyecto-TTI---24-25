@@ -1,6 +1,27 @@
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// AccelPointMass
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file AccelPointMass.cpp
+ * @brief Computes the perturbational acceleration due to a point mass
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\AccelPointMass.hpp"
-#include <cmath>
+
+
+/**
+ * @brief Computes the perturbational acceleration due to a point mass
+ * 
+ * @param r Satellite position vector
+ * @param s Point mass position vector  
+ * @param GM Gravitational coefficient of point mass
+ * @return Matrix& Acceleration (a=d^2r/dt^2)
+ */
 
 Matrix& AccelPointMass(Matrix& r, Matrix& s, double GM) {
     Matrix& d = r - s;

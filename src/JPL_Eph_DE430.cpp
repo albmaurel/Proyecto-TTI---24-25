@@ -1,5 +1,30 @@
+// $Source$
+//----------------------------------------------------------------------
+// JPL_Eph_DE430
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file JPL_Eph_DE430.cpp
+ * @brief Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\JPL_Eph_DE430.hpp"
 
+/**
+ * @brief Creates a range of integers from x to f with a step of y.
+ *  
+ * This function generates a range of integers starting from x, incrementing by y, and ending at f.
+ * The range is inclusive of x and f.   
+ *
+ * @param x The starting integer of the range.
+ * @param y The step size for the range.
+ * @param f The ending integer of the range.
+ * @return Matrix& A reference to a Matrix object containing the generated range of integers.
+ *  
+*/
 Matrix& range(int x, int y, int f) {
     int aux = (f-x)/y;
     Matrix* aux2= new Matrix(aux+1);
@@ -9,6 +34,27 @@ Matrix& range(int x, int y, int f) {
 
     return *aux2;
 }
+
+/**
+ * @brief Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides.
+ * 
+ * @param Mjd_TDB Modified Julian Date of Barycentric Dynamical Time (TDB).
+ * @return A tuple containing:
+ *         - r_Mercury: Geocentric equatorial position of Mercury [m].
+ *         - r_Venus: Geocentric equatorial position of Venus [m].
+ *         - r_Earth: Geocentric equatorial position of Earth (solar system barycenter) [m].
+ *         - r_Mars: Geocentric equatorial position of Mars [m].
+ *         - r_Jupiter: Geocentric equatorial position of Jupiter [m].
+ *         - r_Saturn: Geocentric equatorial position of Saturn [m].
+ *         - r_Uranus: Geocentric equatorial position of Uranus [m].
+ *         - r_Neptune: Geocentric equatorial position of Neptune [m].
+ *         - r_Pluto: Geocentric equatorial position of Pluto [m].
+ *         - r_Moon: Geocentric equatorial position of the Moon [m].
+ *         - r_Sun: Geocentric equatorial position of the Sun [m].
+ * 
+ * @note The positions are referred to the International Celestial Reference Frame (ICRF).
+ *       Light-time corrections are already taken into account.
+ */
 
 tuple<Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&, Matrix&> JPL_Eph_DE430(double Mjd_TDB){
 

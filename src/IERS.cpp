@@ -1,9 +1,35 @@
+// $Source$
+//----------------------------------------------------------------------
+// IERS
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file IERS.cpp
+ * @brief Management of IERS time and polar motion data
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\IERS.hpp"
-#include "..\include\matrix.hpp"
-#include "..\include\SAT_Const.hpp"
 
-#include <cmath>
-#include <tuple>
+/**
+ * @brief IERS: Management of IERS time and polar motion data
+ * 
+ * @param eop Matrix containing Earth Orientation Parameters (EOP) data
+ * @param Mjd_UTC Modified Julian Date in UTC
+ * @param interp Interpolation method ('l' for linear, 'n' for nearest)
+ * @return A tuple containing the following values:
+ *          - x_pole: x coordinate of the pole in radians    
+ *          - y_pole: y coordinate of the pole in radians
+ *          - UT1_UTC: UT1-UTC time difference in seconds
+ *          - lod: Length of day in seconds
+ *          - dpsi: dpsi value in radians
+ *          - deps: deps value in radians
+ *          - dx_pole: dx coordinate of the pole in radians
+ *          - dy_pole: dy coordinate of the pole in radians
+ *          - TAI_UTC: TAI-UTC time difference in seconds
+ */
 
 tuple<double, double, double, double, double, double, double, double, double> IERS(Matrix& eop, double Mjd_UTC, char interp) {
     

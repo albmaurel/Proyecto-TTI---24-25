@@ -1,7 +1,25 @@
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// MeanObliquity
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file MeanObliquity.cpp
+ * @brief Computes the mean obliquity of the ecliptic
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\MeanObliquity.hpp"
-#include "..\include\SAT_Const.hpp" 
 
+
+/**
+ * @brief Computes the mean obliquity of the ecliptic
+ *
+ * @param Mjd_TT Modified Julian Date (Terrestrial Time)
+ * @return double - Mean obliquity of the ecliptic [rad]
+ */
 
 double MeanObliquity(double Mjd_TT) {
     double T = (Mjd_TT - SAT_Const::MJD_J2000) / 36525.0;

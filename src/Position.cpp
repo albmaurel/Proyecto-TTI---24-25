@@ -1,7 +1,29 @@
+// $Source$
+//----------------------------------------------------------------------
+// Position
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Position.cpp
+ * @brief Calculate geocentric position from geodetic coordinates
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\matrix.hpp"
 #include "..\include\Position.hpp"
 
 #include <cmath>
+
+/**
+ * @brief Calculate geocentric position from geodetic coordinates
+ * 
+ * @param lon Longitude in radians
+ * @param lat Latitude in radians  
+ * @param h Altitude in meters
+ * @return Matrix& Position vector in Earth-fixed frame
+ */
 
 Matrix& Position (double lon, double lat, double h){
 	

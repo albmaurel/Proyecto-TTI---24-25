@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// SAT_Const
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file SAT_Const.hpp
+*	@brief Este archivo de cabecera contiene una implementación del namespace SAT_Const.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//---------------------------------------------------------------------
 #ifndef INITIAL_ORBIT_DETERMINATION_C___SAT_CONST_H
 #define INITIAL_ORBIT_DETERMINATION_C___SAT_CONST_H
 

@@ -1,4 +1,27 @@
+// $Source$
+//----------------------------------------------------------------------
+// AccelHarmonic
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file AccelHarmonic.cpp
+ * @brief Computes the acceleration due to the harmonic gravity field of the central body
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\AccelHarmonic.hpp"
+
+/**
+ * @brief Computes the acceleration due to the harmonic gravity field of the central body
+ * 
+ * @param r Satellite position vector in the inertial system
+ * @param E Transformation matrix to body-fixed system
+ * @param n_max Maximum degree
+ * @param m_max Maximum order (m_max<=n_max; m_max=0 for zonals, only)
+ * @return Matrix& Acceleration (a=d^2r/dt^2)
+ */
 
 Matrix& AccelHarmonic(Matrix& r,Matrix& E,int n_max,int m_max){
 

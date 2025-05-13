@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// JPL_Eph_DE430
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file JPL_Eph_DE430.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función JPL_Eph_DE430.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _JPL_EPH_DE430_
 #define _JPL_EPH_DE430_
 

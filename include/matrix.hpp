@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// matrix
+//----------------------------------------------------------------------
+// Proyecto TTI
+//
+/** @file matrix.hpp
+*	@brief Este archivo de cabecera contiene una implementación de una clase que representa una matriz y vectores.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _MATRIX_
 #define _MATRIX_
 

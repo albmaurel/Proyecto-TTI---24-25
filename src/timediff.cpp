@@ -1,7 +1,29 @@
+// $Source$
+//----------------------------------------------------------------------
+// timediff
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file timediff.cpp
+ * @brief Computes various time differences between different time scales.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\timediff.hpp"
 
-#include <cmath>
-
+/**
+ * @brief Computes various time differences between different time scales.
+ * 
+ * @param UT1_UTC Difference between UT1 and UTC time scales [s].
+ * @param TAI_UTC Difference between TAI and UTC time scales [s].
+ * @param UT1_TAI Output: Difference between UT1 and TAI time scales [s].
+ * @param UTC_GPS Output: Difference between UTC and GPS time scales [s].
+ * @param UT1_GPS Output: Difference between UT1 and GPS time scales [s].
+ * @param TT_UTC Output: Difference between TT and UTC time scales [s].
+ * @param GPS_UTC Output: Difference between GPS and UTC time scales [s].
+ */
 void timediff(double UT1_UTC, double TAI_UTC,
               double& UT1_TAI, double& UTC_GPS,
               double& UT1_GPS, double& TT_UTC,

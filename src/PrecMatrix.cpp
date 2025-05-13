@@ -1,5 +1,25 @@
+// $Source$
+//----------------------------------------------------------------------
+// PrecMatrix
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file PrecMatrix.cpp
+ * @brief Precession transformation of equatorial coordinates
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\PrecMatrix.hpp"
 
+/**
+ * @brief Precession transformation of equatorial coordinates
+ * 
+ * @param Mjd_1 Epoch given (Modified Julian Date TT)
+ * @param MjD_2 Epoch to precess to (Modified Julian Date TT)
+ * @return Matrix& PrecMat - Precession transformation matrix
+ */
 Matrix& PrecMatrix(double Mjd_1, double Mjd_2) {
     double T  = (Mjd_1-SAT_Const::MJD_J2000)/36525;
     double dT = (Mjd_2-Mjd_1)/36525;

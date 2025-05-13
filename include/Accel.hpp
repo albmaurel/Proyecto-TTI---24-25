@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// Accel
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Accel.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función Accel.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _ACCEL_
 #define _ACCEL_
 

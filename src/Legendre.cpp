@@ -1,9 +1,31 @@
-#include "..\include\matrix.hpp"
-#include "..\include\SAT_Const.hpp"
-#include <iostream>
+// $Source$
+//----------------------------------------------------------------------
+// Legendre
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Legendre.cpp
+ * @brief Computes the Legendre polynomials and their derivatives.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
+#include "..\include\Legendre.hpp"
 
-#include <cmath>
-#include <tuple>
+/**
+ * @brief Computes the Legendre polynomials and their derivatives.
+ * 
+ * This function calculates the associated Legendre polynomials (Pn,m) and their derivatives (dPn,m/dθ)
+ * up to a given degree (n) and order (m) for a specified angle (fi) in radians.
+ * 
+ * @param n Maximum degree of the Legendre polynomials.
+ * @param m Maximum order of the Legendre polynomials.
+ * @param fi Angle in radians for which the polynomials are computed.
+ * @return tuple<Matrix, Matrix> A tuple containing two matrices:
+ *         - The first matrix contains the values of the Legendre polynomials.
+ *         - The second matrix contains the values of their derivatives.
+ */
 
 tuple<Matrix, Matrix> Legendre(int n, int m, double fi)
 {

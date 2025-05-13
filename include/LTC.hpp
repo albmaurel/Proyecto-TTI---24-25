@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// LTC
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file LTC.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función LTC.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _LTC_
 #define _LTC_
 

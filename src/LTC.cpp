@@ -1,4 +1,28 @@
+// $Source$
+//----------------------------------------------------------------------
+// LTC
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file LTC.cpp
+ * @brief Transformation from Greenwich meridian system to 
+ * local tangent coordinates
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\LTC.hpp"
+
+/**
+ * @brief Transformation from Greenwich meridian system to 
+ * local tangent coordinates
+ * 
+ * @param lon Geodetic East longitude [rad]
+ * @param lat Geodetic latitude [rad]
+ * @return Matrix& Rotation matrix from the Earth equator and Greenwich meridian
+ * to the local tangent (East-North-Zenith) coordinate system
+ */
 
 Matrix& LTC(double lon, double lat) {
     Matrix& M = R_y(-1.0*lat)*R_z(lon);

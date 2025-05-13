@@ -1,6 +1,24 @@
+// $Source$
+//----------------------------------------------------------------------
+// Mjday_TDB
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Mjday_TDB.cpp
+ * @brief Computes the Modified Julian Date for barycentric dynamical time
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\Mjday_TDB.hpp"
 
-#include <cmath> 
+/**
+ * @brief Computes the Modified Julian Date for barycentric dynamical time
+ * 
+ * @param Mjd_TT Modified julian date (TT)
+ * @return Modified julian date (TDB)
+ */
 
 double Mjday_TDB(double Mjd_TT) {
 	//Compute Julian Centureis of TT

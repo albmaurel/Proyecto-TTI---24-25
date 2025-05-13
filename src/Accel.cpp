@@ -1,4 +1,31 @@
+// $Source$
+//----------------------------------------------------------------------
+// Accel
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Accel.cpp
+ * @brief Computes the acceleration of an Earth orbiting satellite
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\Accel.hpp"
+
+/**
+ * @brief Computes the acceleration of an Earth orbiting satellite
+ * 
+ * Due to:
+ * - The Earth's harmonic gravity field
+ * - The Gravitational perturbations of Sun and Moon 
+ * - The Solar radiation pressure
+ * - The Atmospheric drag
+ *
+ * @param x Terrestrial Time (Modified Julian Date)
+ * @param Y Satellite state vector in the ICRF/EME2000 system
+ * @return Matrix& Acceleration (a=d^2r/dt^2) in the ICRF/EME2000 system
+ */
 
 Matrix& Accel(double x, Matrix Y) {
 

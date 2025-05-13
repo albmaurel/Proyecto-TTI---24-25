@@ -1,4 +1,26 @@
+// $Source$
+//----------------------------------------------------------------------
+// VarEqn
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file VarEqn.cpp
+ * @brief Computes the variational equations, i.e. the derivative of the state vector and the state transition matrix
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\vareqn.hpp"
+
+/**
+ * @brief Computes the variational equations, i.e. the derivative of the state vector and the state transition matrix
+ * 
+ * @param x Time since epoch in [s]
+ * @param yPhi (6+36)-dim vector comprising the state vector (y) and the state transition matrix (Phi) in column wise storage order
+ * @return Matrix& yPhip, Derivative of yPhi
+ * 
+ */
 
 Matrix& VarEqn(double x, Matrix yPhi) {
     

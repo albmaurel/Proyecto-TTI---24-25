@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// global
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file global.hpp
+*	@brief Este archivo de cabecera contiene una implementación de las acciones eop19620101,GGM03S,DE430Coeff,auxparam.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _GLOBAL_
 #define _GLOBAL_
 

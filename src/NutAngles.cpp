@@ -1,9 +1,26 @@
-#include "..\include\SAT_Const.hpp"
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// NutAngles
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file NutAngles.cpp
+ * @brief Nutation in longitude and obliquity
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
+#include "..\include\NutAngles.hpp"
 
-#include <tuple>
-#include <cmath>
-
+/**
+ * @brief Nutation in longitude and obliquity
+ * 
+ * @param Mjd_TT -Modified Julian Date (Terrestrial Time)
+ * @return A tuple containing:
+ *         - dpsi: Nutation Angle in longitude (in radians).
+ *         - deps: Nutation Angle in obliquity (in radians).
+ */
 tuple<double,double> NutAngles (double Mjd_TT){
 	double T  = (Mjd_TT-SAT_Const::MJD_J2000)/36525;
 	double T2 = T*T;

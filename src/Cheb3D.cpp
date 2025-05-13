@@ -1,6 +1,31 @@
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// Cheb3D
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Cheb3D.cpp
+ * @brief Chebyshev approximation of 3-dimensional vectors
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\Cheb3D.hpp"
-#include <cmath>
+
+
+/**
+ * @brief Chebyshev approximation of 3-dimensional vectors
+ *
+ * @param t  Time value to evaluate at
+ * @param N  Number of coefficients
+ * @param Ta Begin interval
+ * @param Tb End interval 
+ * @param Cx Coefficients of Chebyshev polynomial (x-coordinate)
+ * @param Cy Coefficients of Chebyshev polynomial (y-coordinate)
+ * @param Cz Coefficients of Chebyshev polynomial (z-coordinate)
+ * @return Matrix& Position vector at time t
+ */
 
 Matrix& Cheb3D(double t, int N, double Ta, double Tb,  Matrix& Cx,  Matrix& Cy,  Matrix& Cz){
     //Check validity

@@ -1,4 +1,24 @@
+// $Source$
+//----------------------------------------------------------------------
+// NutMatrix
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file NutMatrix.cpp
+ * @brief Transformation from mean to true equator and equinox
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\nutmatrix.hpp"
+
+/**
+ * @brief Transformation from mean to true equator and equinox
+ * 
+ * @param Mjd_TT Modified Julian Date (Terrestrial Time)
+ * @return Matrix& Nutation matrix
+ */
 
 Matrix& NutMatrix(double Mjd_TT) {
     

@@ -1,6 +1,25 @@
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// R_x
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file R_x.cpp
+ * @brief Generates a 3x3 rotation matrix for a given angle around the x-axis.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\R_x.hpp"
-#include <cmath>
+
+/**
+ * @brief Generates a 3x3 rotation matrix for a given angle around the x-axis.
+ * 
+ * 
+ * @param angle The angle of rotation in radians.
+ * @return Matrix& A reference to the resulting 3x3 rotation matrix.
+ */
 
 Matrix& R_x(double angle){
 	double C = cos(angle);

@@ -1,4 +1,24 @@
+// $Source$
+//----------------------------------------------------------------------
+// gmst
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file gmst.cpp
+ * @brief Greenwich Mean Sidereal Time
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\gmst.hpp"
+
+/**
+ * @brief Greenwich Mean Sidereal Time
+ * 
+ * @param Mjd_UT1 Modified Julian Date UT1
+ * @return double - GMST in [rad]
+ */
 
 double gmst(double Mjd_UT1) {
     double Secs = 86400.0;                       // Seconds per day

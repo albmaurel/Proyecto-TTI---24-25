@@ -1,7 +1,24 @@
-#include "..\include\matrix.hpp"
+// $Source$
+//----------------------------------------------------------------------
+// EccAnom
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file EccAnom.cpp
+ * @brief Computes the eccentric anomaly for elliptic orbits
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\EccAnom.hpp"
-#include "..\include\SAT_Const.hpp"
-#include <cmath>
+/**
+ * @brief Computes the eccentric anomaly for elliptic orbits
+ *
+ * @param M Mean anomaly in [rad]
+ * @param e Eccentricity of the orbit [0,1]
+ * @return Eccentric anomaly in [rad]
+ */
 
 double EccAnom(double M, double e) {
     const int maxit = 15;

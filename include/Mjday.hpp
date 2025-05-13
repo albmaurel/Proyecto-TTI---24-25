@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// Mjday
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Mjday.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función Mjday.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _MJDAY_HPP_
 #define _MJDAY_HPP_
 

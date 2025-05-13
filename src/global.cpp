@@ -1,9 +1,28 @@
+// $Source$
+//----------------------------------------------------------------------
+// gast
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file gast.cpp
+ * @brief implementation of the methods auxparam,eop19620101,GGM03S,DE430Coeff
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\global.hpp"
-#include <cmath>
 
 
 Param AuxParam;
 
+/**
+ * @brief Initializes auxiliary parameters for the program.
+ *
+ * This function sets the values for various auxiliary parameters used in the program.
+ * It includes the Modified Julian Date (Mjd_UTC), number of coefficients (n, m),
+ * and flags for sun, moon, and planets.
+ */
 void auxparam() {
     AuxParam.Mjd_UTC = 49746.1163541665;
     AuxParam.n      = 20;
@@ -16,6 +35,11 @@ void auxparam() {
 
 Matrix eopdata;
 
+/**
+ * @brief Reads Earth Orientation Parameters (EOP) data from a file and stores it in a matrix.
+ *
+ * @param c The number of columns (data entries) to read from the file.
+ */
 void eop19620101(int c) {
     eopdata = zeros(13, c);
 
@@ -36,6 +60,9 @@ void eop19620101(int c) {
 Matrix Cnm;
 Matrix Snm;
 
+/**
+ * @brief Reads GGM03S gravitational coefficients from a file and stores them in matrices.
+ */
 void GGM03S() {
     
     Cnm = zeros(181, 181);
@@ -60,6 +87,9 @@ void GGM03S() {
 
 Matrix PC;
 
+/**
+ * @brief Reads DE430 planetary coefficients from a file and stores them in a matrix.
+ */
 void DE430Coeff() {
     PC = zeros(2285, 1020);
 	FILE *fid = fopen("../data/DE430Coeff.txt","r");

@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// AccelHarmonic
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file AccelHarmonic.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función AccelHarmonic.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _ACCELHARMONIC_
 #define _ACCELHARMONIC_
 

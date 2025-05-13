@@ -1,4 +1,24 @@
+// $Source$
+//----------------------------------------------------------------------
+// gast
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file gast.cpp
+ * @brief Greenwich Apparent Sidereal Time
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\gast.hpp"
+
+/**
+ * @brief Greenwich Apparent Sidereal Time
+ * 
+ * @param Mjd_UT1 Modified Julian Date UT1
+ * @return double - GAST in [rad]
+ */
 
 double gast(double Mjd_UT1) {
     

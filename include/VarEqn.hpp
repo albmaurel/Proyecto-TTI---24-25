@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// VarEqn
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file VarEqn.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función VarEqn.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//---------------------------------------------------------------------
 #ifndef _VAREQN_
 #define _VAREQN_
 

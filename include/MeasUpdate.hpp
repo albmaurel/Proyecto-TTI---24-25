@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// MeasUpdate
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file MeasUpdate.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función MeasUpdate.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _MEASUPDATE_
 #define _MEASUPDATE_
 
