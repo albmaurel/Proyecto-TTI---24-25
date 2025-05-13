@@ -15,8 +15,7 @@ jobs:
       - name: Doxygen
         uses: mattnotmitt/doxygen-action@edge
         with:
-            working-directory: './' 
-            doxyfile-path: './docs/Doxyfile'
+          working-directory: './docs'
           
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
