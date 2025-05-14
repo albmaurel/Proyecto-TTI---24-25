@@ -11,9 +11,9 @@
  * @bug No known bugs.
  */
 //----------------------------------------------------------------------
-#include "..\include\matrix.hpp"
+
 #include "..\include\Frac.hpp"
-#include <cmath>
+
 
 /**
  * @brief Computes the fractional part of a given number.

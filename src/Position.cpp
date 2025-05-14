@@ -11,10 +11,8 @@
  * @bug No known bugs.
  */
 //----------------------------------------------------------------------
-#include "..\include\matrix.hpp"
 #include "..\include\Position.hpp"
 
-#include <cmath>
 
 /**
  * @brief Calculate geocentric position from geodetic coordinates
