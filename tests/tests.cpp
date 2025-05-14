@@ -33,6 +33,13 @@
 #include "..\include\GHAMatrix.hpp"
 #include "..\include\Accel.hpp"
 #include "..\include\VarEqn.hpp"
+#include "..\include\Geodetic.hpp"
+#include "..\include\hgibbs.hpp"
+#include "..\include\gibbs.hpp"
+#include "..\include\elements.hpp"
+#include "..\include\angl.hpp"
+#include "..\include\unit.hpp"
+
 
 
 #include <cstdio>
@@ -1144,6 +1151,100 @@ int vareqn_01() {
     return 0;
 }
 
+int geodetic_01() {
+	Matrix r(3);
+	r(1)=50; r(2)=30; r(3)=6;
+
+	double h2 = -6356745.57691637;
+	double lat2 = 1.56943545859473;
+	double lon2 = 0.540419500270584;
+
+    auto [lon, lat, h] = Geodetic(r);
+
+    _assert(fabs(h-h2) < 1e-8);
+	_assert(fabs(lat-lat2) < 1e-8);
+	_assert(fabs(lon-lon2) < 1e-8);
+	return 0;
+}
+
+int angl_01() {
+	Matrix vec1(3);
+	vec1(1)=0; vec1(2)=0; vec1(3)=1;
+	Matrix vec2(3);
+	vec2(1)=1; vec2(2)=0; vec2(3)=0;
+	double theta = angl(vec1,vec2);
+
+	_assert(fabs(M_PI/2-theta) < 1e-10);
+	return 0;
+}
+
+int elements_01() {
+	Matrix y(6);
+	y(1) = 6221397.62857869;
+	y(2) = 2867713.77965738;
+	y(3) = 3006155.98509949;
+
+	y(4) = 4645.04725161806;
+	y(5) = -2752.21591588204;
+    y(6) = -7507.99940987031;
+
+	auto [p, a, e, i, Omega, omega, M] = elements(y);
+	double p2 = 12001693.597214;
+	double a2 = 18943922.6607145;
+	double e2 = 0.605361104987026;
+	double i2 = 2.02656295535017;
+	double Omega2 = 3.35671076650829;
+	double omega2 = 2.73757289772562;
+	double M2 = 6.27144693341967;
+	_assert(fabs(p-p2) < 1e-6);
+	_assert(fabs(a-a2) < 1e-6);
+	_assert(fabs(e-e2) < 1e-10);
+	_assert(fabs(i-i2) < 1e-10);
+	_assert(fabs(Omega-Omega2) < 1e-10);
+	_assert(fabs(omega-omega2) < 1e-10);
+	_assert(fabs(M-M2) < 1e-10);
+	return 0;
+
+}
+
+int unit_01() {
+	Matrix vec(3, 1);
+	vec(1, 1)=50.659;
+	vec(2, 1)=755545.925151;
+	vec(3, 1)=-5522525.562;
+
+	Matrix vec2(3);
+	vec2(1)=9.0884957606754e-06 ; vec2(2)=0.135548983156605; vec2(3)=-0.990770646054176;
+
+	Matrix res = unit(vec);
+	_assert(m_equals(vec2, res, 1e-10));
+
+	return 0;
+}
+
+int gibbs_01() {
+	Matrix r1(3); Matrix r2(3); Matrix r3(3);
+	r1(1)=5700000;r1(2)=3200000;r1(3)=3700000;
+	r2(1)=6220000;r2(2)=2870000;r2(3)=3000000;
+	r3(1)=6700000;r3(2)=2570000;r3(3)=2150000;
+	auto [v2, theta, theta1, copa, error] = gibbs(transpose(r1),transpose(r2),transpose(r3));
+	Matrix ev2(3);
+	ev2(1)=3285.00672439696; ev2(2)=-2070.98907087224; ev2(3)=-5028.38856563685;
+	double etheta=0.124403423649683;
+	double etheta1=0.136536249640068;
+	double ecopa=0.0130938058778771;
+	string eerror = "          ok";
+
+	_assert(m_equals(v2, transpose(ev2), 1e-9));
+	_assert(fabs(theta-etheta) < 1e-10);
+	_assert(fabs(theta1-etheta1) < 1e-10);
+	_assert(fabs(copa-ecopa) < 1e-10);
+	_assert(error==eerror);
+
+	return 0;
+}
+
+
 int all_tests()
 {
     eop19620101(21413);
@@ -1205,9 +1306,16 @@ int all_tests()
     _verify(GHAMatrix_01);
     _verify(accel_01);
     _verify(vareqn_01);
+    _verify(geodetic_01);
+    _verify(angl_01);
+    _verify(elements_01);
+    _verify(unit_01);
+    _verify(gibbs_01);
+
 
     return 0;
 }
+
 
 
 int main()

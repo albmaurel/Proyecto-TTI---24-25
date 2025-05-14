@@ -15,6 +15,8 @@
 #define _GLOBAL_
 
 #include "..\include\matrix.hpp"
+#include "..\include\SAT_Const.hpp"
+#include "..\include\Mjday.hpp"
 #include <cmath>
 
 extern Matrix eopdata;
@@ -32,6 +34,7 @@ void eop19620101(int c);
 void GGM03S();
 void DE430Coeff();
 void auxparam();
+
 
 
 #endif 
