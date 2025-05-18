@@ -27,28 +27,31 @@
  * @param dEds Output matrix representing the partial derivatives of elevation with respect to s.
  */
 
-void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds) {
-    double rho = sqrt(s(1) * s(1) + s(2) * s(2));
+std::tuple<double, double, Matrix&, Matrix&> AzElPa(Matrix& s) {
+    double pi2 = SAT_Const::pi2;
+
+    double rho = sqrt(s(1)*s(1)+s(2)*s(2));
 
     // Angles
-    Az = atan2(s(1), s(2)); // Azimuth
+    double Az = atan2(s(1),s(2));
 
-    if (Az < 0.0) {
-        Az += SAT_Const::pi2;
-    }
+    if (Az<0.0) 
+        Az = Az+pi2;
+    
 
-    El = atan(s(3) / rho); // Elevation
+    double El = atan ( s(3) / rho );
 
     // Partials
-    dAds(1) = s(2) / (rho * rho);
-    dAds(2) = -s(1) / (rho * rho);
+    Matrix &dAds = zeros(3);
+    dAds(1) = s(2)/(rho*rho);
+    dAds(2) = -s(1)/(rho*rho);
     dAds(3) = 0.0;
-
-    dEds(1) = -s(1) * s(3) / rho;
-    dEds(2) = -s(2) * s(3) / rho;
+    Matrix &dEds = zeros(3);
+    dEds(1) = -s(1)*s(3)/rho;
+    dEds(2) = -s(2)*s(3)/rho;
     dEds(3) = rho;
+    dEds = dEds / dot(s,s);
 
-    // Normalize dEds by the dot product of s
-    double dot_product = dot(s,s);
-    dEds = dEds / dot_product;
+    return tie(Az, El, dAds, dEds);
+    
 }

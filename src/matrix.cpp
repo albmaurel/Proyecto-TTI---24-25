@@ -530,10 +530,7 @@ Matrix& cross(Matrix& a,Matrix& b){
  *       - n1 is greater than n2.
  */
 Matrix& extract_vector(Matrix& m, const int n1, const int n2) {
-    if (n1 <= 0 || n2 <= 0 || n1 > m.n_column || n2 > m.n_column || n1 > n2) {
-        cout << "Matrix extract_vector: error in n1/n2\n";
-        exit(EXIT_FAILURE);
-    }
+
 
     int size = n2 - n1 + 1;
     Matrix *m_aux = new Matrix(size);  

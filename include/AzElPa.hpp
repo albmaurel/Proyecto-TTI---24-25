@@ -17,7 +17,9 @@
 #include "..\include\matrix.hpp"
 #include "..\include\SAT_Const.hpp"
 #include <cmath>
+#include <tuple>
 
-void AzElPa( Matrix& s, double& Az, double& El, Matrix& dAds, Matrix& dEds);
+
+tuple<double, double, Matrix&, Matrix&> AzElPa(Matrix& s);
 
 #endif

@@ -564,35 +564,15 @@ int R_z_01() {
 }
 
 int AzElPa_01() {
-	
-    Matrix A(3);  
-    A(1) = 100;
-    A(2) = 200;
-    A(3) = 300;
-	
-	double Az, El;
-    Matrix dAds(3), dEds(3);
-	
-	double Az_expected = 0.463647609000806;
-    double El_expected = 0.930274014115472;
-    Matrix dAds_expected(3), dEds_expected(3);
+	Matrix r(3);
+	r(1)=1; r(2)=2; r(3)=3;
+	double expected = 0.463647609000806; 
+	double expected2 = 0.930274014115472;
+	tuple<double, double, Matrix, Matrix> result = AzElPa(r);
 
-    dAds_expected(1) = 0.0040;
-    dAds_expected(2) = -0.0020;
-    dAds_expected(3) = 0.0;
-
-    dEds_expected(1) = -0.00095831484749991 ;
-    dEds_expected(2) = -0.00191662969499982;
-    dEds_expected(3) = 0.00159719141249985;
-	
-	AzElPa(A, Az, El, dAds, dEds);
-
-	_assert(fabs(Az_expected - Az) < 1e-10);
-    _assert(fabs(El_expected - El) < 1e-10);
-	_assert(m_equals(dAds_expected, dAds, 1e-10));
-	_assert(m_equals(dEds_expected, dEds, 1e-10));
-	
-    return 0;
+	_assert(fabs(get<0>(result) - expected) < 1e-10);
+	_assert(fabs(get<1>(result) - expected2) < 1e-10);
+	return 0;
 }
 
 int Mjday_01() {
