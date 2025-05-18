@@ -56,7 +56,7 @@ Matrix& zeros(const int n);
 Matrix& eye(int size);
 Matrix& transpose(Matrix &m);
 Matrix& inv(Matrix &m);
-double norm(Matrix& a);
+double norm(Matrix &a);
 double dot(Matrix& a,Matrix& b);
 Matrix& cross(Matrix& a,Matrix& b);
 Matrix& extract_vector(Matrix& m, const int n1, const int n2);

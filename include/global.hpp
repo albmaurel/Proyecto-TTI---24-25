@@ -17,6 +17,7 @@
 #include "..\include\matrix.hpp"
 #include "..\include\SAT_Const.hpp"
 #include "..\include\Mjday.hpp"
+#include <string.h>
 #include <cmath>
 
 extern Matrix eopdata;
@@ -28,12 +29,13 @@ typedef struct {
     int n, m, sun, moon, planets;
 } Param;
 extern Param AuxParam;
-
+extern Matrix Obs;
 
 void eop19620101(int c);
 void GGM03S();
 void DE430Coeff();
 void auxparam();
+void GEOS3(int f);
 
 
 

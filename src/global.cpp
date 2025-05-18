@@ -24,13 +24,13 @@ Param AuxParam;
  * and flags for sun, moon, and planets.
  */
 void auxparam() {
-    AuxParam.Mjd_UTC = 49746.1163541665;
+    AuxParam.Mjd_UTC = 4.974611635416653e+04;
     AuxParam.n      = 20;
     AuxParam.m      = 20;
     AuxParam.sun     = 1;
     AuxParam.moon    = 1;
     AuxParam.planets = 1;
-    AuxParam.Mjd_TT  = 49746.1170623147;
+    AuxParam.Mjd_TT  = 4.974611706231468e+04;
 }
 
 Matrix eopdata;
@@ -107,3 +107,59 @@ void DE430Coeff() {
 	fclose(fid);
 }
 
+Matrix Obs;
+
+void GEOS3(int f) {
+    Obs = zeros(f, 4);
+
+    FILE *fp = fopen("../data/GEOS3.txt", "r");
+
+    int Y, MO, D, H, MI, S;
+    double AZ, EL, DIST;
+    char line[55], y[5], mo[3], d[3], h[3], mi[3], s[3], az[9], el[9], dist[10];
+    for(int i = 1; i <=f; i++) {
+        fgets(line, sizeof(line)+2, fp);
+
+        strncpy(y, &(line[0]), 4);
+        y[4]='\0';
+        Y=atoi(y);
+
+        strncpy(mo, &(line[5]), 2);
+        mo[2]='\0';
+        MO = atoi(mo);
+
+        strncpy(d, &(line[8]), 2);
+        d[2]='\0';
+        D = atoi(d);
+
+        strncpy(h, &(line[12]), 2);
+        h[2]='\0';
+        H = atoi(h);
+
+        strncpy(mi, &(line[15]), 2);
+        mi[2]='\0';
+        MI=atoi(mi);
+
+        strncpy(s, &(line[18]), 2);
+        s[2]='\0';
+        S = atoi(s);
+
+        strncpy(az, &(line[25]), 8);
+        az[8]='\0';
+        AZ = atof(az);
+
+        strncpy(el, &(line[34]), 8);
+        el[8]='\0';
+        EL=atof(el);
+
+        strncpy(dist, &(line[43]), 9);
+        dist[9]='\0';
+        DIST = atof(dist);
+
+        Obs(i, 1) = Mjday(Y, MO, D, H, MI, S);
+        Obs(i, 2) = SAT_Const::Rad*AZ;
+        Obs(i, 3) = SAT_Const::Rad*EL;
+        Obs(i, 4) = 1e3*DIST;
+
+    }
+}

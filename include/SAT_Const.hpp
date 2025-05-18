@@ -70,6 +70,8 @@ namespace SAT_Const {
     constexpr double GM_Pluto    = 977.0000000000009e9;                       // [m^3/s^2]
 
     constexpr double P_Sol       = 1367 / c_light;           // [N/m^2]
+	
+	constexpr double eps        = 2.22044604925031e-16;
 }
 
 #endif

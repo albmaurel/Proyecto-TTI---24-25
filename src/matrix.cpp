@@ -472,13 +472,12 @@ Matrix& inv(Matrix& m) {
  * @param a Reference to a Matrix object for which the norm is calculated.
  * @return The Euclidean norm of the matrix as a double.
  */
-double norm(Matrix& a){
-	 double r=0;
-	 for(int i=1;i<=a.n_column;i++){
-		 r +=pow(a(i),2);
-	 }
-	 double solv=sqrt(r);
-	 return solv;
+double norm(Matrix &a) {
+	double sum = 0.0;
+	for(int i = 1; i <=a.n_column*a.n_row; i++) {
+		sum+=a(i)*a(i);
+	}
+	return sqrt(sum);
 }
 
 /**
@@ -488,13 +487,17 @@ double norm(Matrix& a){
  * @param b Reference to the second matrix.
  * @return The dot product of the two matrices as a double.
  */
-double dot(Matrix& a,Matrix& b){
-	 double r=0;
-	 for(int i=1;i<=a.n_column;i++)
-		 r +=a(i)*b(i);
-	 return r;
-}
+double dot(Matrix &a, Matrix &b) {
+	if (a.n_column==1 && b.n_column==1 && a.n_row==b.n_row) {
+		return dot(transpose(a),transpose(b));
+	}
+	double r = 0;
+	for(int i = 1; i <=a.n_column; i++) {
+		r+=a(i)*b(i);
+	}
 
+	return r;
+}
 /**
  * @brief Computes the cross product of two 3-dimensional matrices.
  * 

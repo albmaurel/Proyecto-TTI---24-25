@@ -18,18 +18,17 @@ tuple<Matrix&, double, double, double, string> hgibbs(Matrix r1, Matrix r2, Matr
     double dt31= (Mjd3-Mjd1)*86400.0;
     double dt32= (Mjd3-Mjd2)*86400.0;
 
-    Matrix p = cross( r2,r3 );
+    Matrix p = transpose(cross(transpose(r2),transpose(r3)));
     Matrix pn = unit( p );
     Matrix r1n = unit( r1 );
     double copa=  asin( dot( pn,r1n ) );
 
-    if ( abs( dot(r1n,pn) ) > 0.017452406 ) {
+    if ( fabs( dot(r1n,pn) ) > 0.017452406 ) {
         error= "not coplanar";
     }
 
     theta  = angl( r1,r2 );
     theta1 = angl( r2,r3 );
-
     if ( (theta > tolangle) | (theta1 > tolangle) ) {
         error= "   angl > 1ø";
     }

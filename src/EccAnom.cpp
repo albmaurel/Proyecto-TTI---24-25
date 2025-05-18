@@ -21,13 +21,15 @@
  */
 
 double EccAnom(double M, double e) {
-    const int maxit = 15;
+    int maxit = 15;
     int i = 1;
 	
 	//Starting value
     M = fmod(M, 2.0 * M_PI );
-
-    double E;
+	if (M < 0) {
+        M += 2.0*M_PI;
+    }
+    double E=0;
     if (e < 0.8) {
         E = M;
     } else {
@@ -40,10 +42,10 @@ double EccAnom(double M, double e) {
 	
     double eps = 1e-10;
 	//Iteration
-    while (fabs(f) > 1e-2 * eps) {
+    while (fabs(f) > 1e2 * eps) {
         f = E - e * sin(E) - M;
         E = E - f / (1.0 - e * cos(E));
-        i++;
+        i = i+1;
 
         if (i == maxit) {
 			cout << "Convergence problems in EccAnom\n";

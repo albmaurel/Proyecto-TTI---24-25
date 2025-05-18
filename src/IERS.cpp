@@ -34,7 +34,6 @@
 tuple<double, double, double, double, double, double, double, double, double> IERS(Matrix& eop, double Mjd_UTC, char interp) {
     
 
-    //return values
     double x_pole, y_pole, UT1_UTC, LOD, dpsi, deps, dx_pole, dy_pole, TAI_UTC;
 
 
@@ -44,7 +43,7 @@ tuple<double, double, double, double, double, double, double, double, double> IE
         int i = 0;
         Matrix aux = extract_row(eop,4);
         for (int j = 1; j <= aux.n_column; j++) {
-            if (aux(j) == mjd) {
+             if (fabs(aux(j)-mjd)<SAT_Const::eps) {
                 i = j;
                 break;
             }
@@ -54,8 +53,8 @@ tuple<double, double, double, double, double, double, double, double, double> IE
 
         Matrix nexteop = extract_column(eop,i+1);
         
-        double mfme = 1440*(Mjd_UTC-floor(Mjd_UTC));
-        double fixf = mfme/1440;
+        double mfme = Mjd_UTC-floor(Mjd_UTC);
+        double fixf = mfme;
         // Setting of IERS Earth rotation parameters
         // (UT1-UTC [s], TAI-UTC [s], x ["], y ["])
         x_pole  = preeop(5)+(nexteop(5)-preeop(5))*fixf;
@@ -79,7 +78,7 @@ tuple<double, double, double, double, double, double, double, double, double> IE
         int i = 0;
         Matrix aux = extract_row(eop,4);
         for (int j = 1; j <= aux.n_column; j++) {
-            if (aux(j) == mjd) {
+            if (fabs(aux(j)-mjd)<SAT_Const::eps) {
                 i = j;
                 break;
             }

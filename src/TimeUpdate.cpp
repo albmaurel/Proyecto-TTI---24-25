@@ -23,9 +23,8 @@
  * @param Qdt Process noise covariance scaled by the time step.
  * @return The updated covariance matrix after the time update step.
  */
-Matrix TimeUpdate( Matrix& P,  Matrix& Phi, double Qdt) {
-	Matrix PhiT = transpose(Phi);
-	Matrix updatedP = Phi * P * PhiT + Qdt;
+Matrix& TimeUpdate( Matrix& P,  Matrix Phi, double Qdt) {
+	Matrix& updatedP = Phi * P * transpose(Phi) + Qdt;
 	
 	return updatedP;
 }

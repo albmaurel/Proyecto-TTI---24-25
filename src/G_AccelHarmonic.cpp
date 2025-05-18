@@ -27,8 +27,12 @@ Matrix& G_AccelHarmonic(Matrix r, Matrix U, int n_max, int m_max) {
     double d = 1.0;   // Position increment [m]
 
     Matrix& G = zeros(3,3);
-    Matrix& dr = zeros(3,1);
+    Matrix dr = zeros(3,1);
     Matrix da;
+	
+	if (r.n_row==1) {
+        r = transpose(r); 
+    }
     // Gradient
     for (int i=1; i <= 3; i++) {
         // Set offset in i-th component of the position vector

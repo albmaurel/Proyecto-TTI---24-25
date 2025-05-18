@@ -39,6 +39,7 @@
 #include "..\include\elements.hpp"
 #include "..\include\angl.hpp"
 #include "..\include\unit.hpp"
+#include "..\include\DEInteg.hpp"
 
 
 
@@ -1151,6 +1152,29 @@ int vareqn_01() {
     return 0;
 }
 
+int DEinteg_01() {
+	AuxParam.Mjd_UTC=4.974611128472211e+04;
+	Matrix Y0_apr(6, 1);
+	Y0_apr(1, 1) = 6.221397628578685e+06;
+	Y0_apr(2, 1) = 2.867713779657379e+06;
+	Y0_apr(3, 1) = 3.006155985099489e+06;
+	Y0_apr(4, 1) = 4.645047251618060e+03;
+	Y0_apr(5, 1) = -2.752215915882042e+03;
+	Y0_apr(6, 1) = -7.507999409870306e+03;
+	Matrix result = DEInteg(Accel, 0.0, -1.349999919533730e+02, 1e-13, 1e-6, 6, Y0_apr);
+
+	Matrix expected(6, 1);
+	expected(1, 1) = 5.542555937228607e+06;
+	expected(2, 1) = 3.213514867349196e+06;
+	expected(3, 1) = 3.990892975876853e+06;
+	expected(4, 1) = 5.394068421663513e+03;
+	expected(5, 1) = -2.365213378823415e+03;
+	expected(6, 1) = -7.061845542002954e+03;
+	_assert(m_equals(transpose(result), expected, 1e-6));
+	return 0;
+
+}
+
 int geodetic_01() {
 	Matrix r(3);
 	r(1)=50; r(2)=30; r(3)=6;
@@ -1243,6 +1267,42 @@ int gibbs_01() {
 
 	return 0;
 }
+int hgibbs_01() {
+
+	Matrix r1(3, 1);
+	r1(1, 1)=5.720303710129856e+06;
+	r1(2, 1)=3.152426696533103e+06;
+	r1(3, 1)=3.750056804164019e+06;
+	Matrix r2(3,1);
+	r2(1, 1) = 6.221397628578685e+06;
+	r2(2, 1) = 2.867713779657379e+06;
+	r2(3, 1) = 3.006155985099489e+06;
+	Matrix r3(3, 1);
+	r3(1, 1) = 6.699811809767957e+06;
+	r3(2, 1) = 2.569867807638814e+06;
+	r3(3, 1) = 2.154940295423891e+06;
+	double Mjd1=4.974611015046295e+04;
+	double Mjd2=4.974611128472211e+04;
+	double Mjd3=4.974611253472231e+04;
+	
+	Matrix res(3, 1);
+	res(1, 1) = 4.796825169167805e+03;
+	res(2, 1) = -2.839418128699730e+03;
+	res(3, 1) = -7.741594338630217e+03;
+	double theta2 = 0.125269502872995;
+	double theta12 = 0.136454013492468;
+	double cop2 = 0.005097233477757;
+	string error2 = "   angl > 1ø";
+	auto [v2, theta, theta1, copa, error] = hgibbs(r1, r2, r3, Mjd1, Mjd2, Mjd3);
+
+	_assert(m_equals(v2, res, 1e-10));
+	_assert(fabs(theta-theta2) < 1e-10);
+	_assert(fabs(theta1-theta12) < 1e-10);
+	_assert(fabs(cop2-copa) < 1e-10);
+	_assert(error==error2);
+
+	return 0;
+}
 
 
 int all_tests()
@@ -1311,6 +1371,8 @@ int all_tests()
     _verify(elements_01);
     _verify(unit_01);
     _verify(gibbs_01);
+	_verify(hgibbs_01);
+	_verify(DEinteg_01);
 
 
     return 0;

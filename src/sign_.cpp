@@ -13,7 +13,6 @@
 //----------------------------------------------------------------------
 #include "..\include\sign_.hpp"
 
-#include <cmath>
 
 /**
  * @brief Returns the absolute value of a with the sign of b.
@@ -24,5 +23,5 @@
  */
 
 double sign_(double a, double b) {
-    return (b >= 0.0) ? abs(a) : -abs(a);
+    return (b > 0.0) ? fabs(a) : -fabs(a);
 }

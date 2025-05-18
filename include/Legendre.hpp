@@ -24,6 +24,6 @@
 
 
 
-tuple<Matrix, Matrix> Legendre(int n, int m, double fi);
+tuple<Matrix&, Matrix&> Legendre(int n, int m, double fi);
 
 #endif
