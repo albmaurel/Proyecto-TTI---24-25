@@ -15,8 +15,7 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
 	if (y.n_row==1) {
         y = transpose(y);
     }
-
-    double eps = SAT_Const::eps;
+	//A diferencia de todos los ficheros en este caso los inicializo todos juntos porque son muchos y por no ir de uno en uno 
     bool PermitTOUT;
     double twou, fouru, told, epsilon, x, h, hi, ki, kold, temp1, term, psijm1, gamma, eta,
     i, p5eps, ifail, round, sum, absh, hold, hnew, k, kp1, kp2, km1, km2, ns, nsp1,
@@ -25,7 +24,7 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
     double del, absdel, tend, nostep, kle4, releps, abseps, delsgn;
     bool stiff, OldPermit=false, start=false, crash=false, phase1=false, nornd=false, success=false;
     Matrix yy, yout=zeros(n_eqn, 1), ypout=zeros(n_eqn, 1), g, rho, wt, v, w, phi, p, yp,sig,alpha,beta,psi_;
-
+    double eps = SAT_Const::eps;
     // maxnum = 500;
     twou  = 2*eps;
     fouru = 4*eps;
@@ -508,9 +507,7 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
         
         // Restore x, phi[*,*] and psi[*]
         phase1 = false; 
-        // cout << "x update (rollback to old), prev: " << x;
         x = xold;
-        // cout << ", new: " << x << "(h: "<<h<<")"<<endl;
         for (int i=1; i <= k; i++) {
             temp1 = 1.0/beta(i+1);
             ip1 = i+1;
