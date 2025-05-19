@@ -40,6 +40,8 @@
 #include "..\include\angl.hpp"
 #include "..\include\unit.hpp"
 #include "..\include\DEInteg.hpp"
+#include "..\include\anglesg.hpp"
+
 
 
 
@@ -341,10 +343,10 @@ int m_norm_01() {
     Matrix a(3); 
     a(1) = 3; a(2) = 4; a(3) = 0;
 
-    double expected = 5.0; 
+    double exp = 5.0; 
     double result = norm(a);
 
-    _assert(fabs(result - expected) < 1e-10);
+    _assert(fabs(result - exp) < 1e-10);
     return 0;
 }
 
@@ -355,10 +357,10 @@ int m_dot_01() {
     Matrix b(1, 3);
     b(1,1) = 4; b(1,2) = -5; b(1,3) = 6;
 
-    double expected = 1*4 + 2*(-5) + 3*6; 
+    double exp = 1*4 + 2*(-5) + 3*6; 
     double result = dot(a, b);
 
-    _assert(fabs(result - expected) < 1e-10);
+    _assert(fabs(result - exp) < 1e-10);
     return 0;
 }
 
@@ -369,14 +371,14 @@ int m_cross_01() {
     Matrix b(1, 3);
     b(1,1) = 4; b(1,2) = 5; b(1,3) = 6;
 
-    Matrix expected(3);
-    expected(1) = -3; 
-    expected(2) = 6;  
-    expected(3) = -3; 
+    Matrix exp(3);
+    exp(1) = -3; 
+    exp(2) = 6;  
+    exp(3) = -3; 
 
     Matrix result = cross(a, b);
 
-    _assert(m_equals(result, expected, 1e-10));
+    _assert(m_equals(result, exp, 1e-10));
     return 0;
 }
 int m_extract_vector_01() {
@@ -385,14 +387,14 @@ int m_extract_vector_01() {
     Matrix A(c);
     A(1) = 0; A(2) = 2; A(3) = 8; A(4) = 0;
     
-    Matrix Expected(3);
-    Expected(1) = 0;
-    Expected(2) = 2;
-    Expected(3) = 8;
+    Matrix exp(3);
+    exp(1) = 0;
+    exp(2) = 2;
+    exp(3) = 8;
 
     Matrix R = extract_vector(A, 1, 3);  
     
-    _assert(m_equals(Expected, R, 1e-10));  
+    _assert(m_equals(exp, R, 1e-10));  
     
     return 0;
 }
@@ -408,16 +410,16 @@ int m_union_vector_01() {
     B(1) = 4;
     B(2) = 5;
 
-    Matrix Expected(5);
-    Expected(1) = 1;
-    Expected(2) = 2;
-    Expected(3) = 3;
-    Expected(4) = 4;
-    Expected(5) = 5;
+    Matrix exp(5);
+    exp(1) = 1;
+    exp(2) = 2;
+    exp(3) = 3;
+    exp(4) = 4;
+    exp(5) = 5;
 
     Matrix R = union_vector(A, B);  
     
-    _assert(m_equals(Expected, R, 1e-10));  
+    _assert(m_equals(exp, R, 1e-10));  
     
     return 0;
 }
@@ -430,14 +432,14 @@ int m_extract_row_01() {
     A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
     A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
 
-    Matrix Expected(c);
-    Expected(1) = 4;
-    Expected(2) = 5;
-    Expected(3) = 6;
+    Matrix exp(c);
+    exp(1) = 4;
+    exp(2) = 5;
+    exp(3) = 6;
 
     Matrix R = extract_row(A, 2);  
 
-    _assert(m_equals(Expected, R, 1e-10));  
+    _assert(m_equals(exp, R, 1e-10));  
 
     return 0;
 }
@@ -450,14 +452,14 @@ int m_extract_column_01() {
     A(2,1) = 4; A(2,2) = 5; A(2,3) = 6;
     A(3,1) = 7; A(3,2) = 8; A(3,3) = 9;
 
-    Matrix Expected(f);
-    Expected(1) = 2;
-    Expected(2) = 5;
-    Expected(3) = 8;
+    Matrix exp(f);
+    exp(1) = 2;
+    exp(2) = 5;
+    exp(3) = 8;
 
     Matrix R = extract_column(A, 2);  
 
-    _assert(m_equals(Expected, R, 1e-10));  
+    _assert(m_equals(exp, R, 1e-10));  
 
     return 0;
 }
@@ -564,15 +566,34 @@ int R_z_01() {
 }
 
 int AzElPa_01() {
-	Matrix r(3);
-	r(1)=1; r(2)=2; r(3)=3;
-	double expected = 0.463647609000806; 
-	double expected2 = 0.930274014115472;
-	tuple<double, double, Matrix, Matrix> result = AzElPa(r);
+{
+    Matrix A(3);  
+    A(1) = 100;
+    A(2) = 200;
+    A(3) = 300;
+	
+	
+	double Az_expected = 0.463647609000806;
+    double El_expected = 0.930274014115472;
+    Matrix dAds_expected(3), dEds_expected(3);
 
-	_assert(fabs(get<0>(result) - expected) < 1e-10);
-	_assert(fabs(get<1>(result) - expected2) < 1e-10);
-	return 0;
+    dAds_expected(1) = 0.0040;
+    dAds_expected(2) = -0.0020;
+    dAds_expected(3) = 0.0;
+
+    dEds_expected(1) = -0.00095831484749991 ;
+    dEds_expected(2) = -0.00191662969499982;
+    dEds_expected(3) = 0.00159719141249985;
+	
+	auto [Az, El, dAds, dEds] =AzElPa(A);
+
+	_assert(fabs(Az_expected - Az) < 1e-10);
+    _assert(fabs(El_expected - El) < 1e-10);
+	_assert(m_equals(dAds_expected, dAds, 1e-10));
+	_assert(m_equals(dEds_expected, dEds, 1e-10));
+	
+    return 0;
+}
 }
 
 int Mjday_01() {
@@ -653,7 +674,6 @@ int TimeUpdate_01(){
 
     Matrix P_updated = TimeUpdate(P, Phi, Qdt);
 
-    // Expected result
 	Matrix Res(2, 2);
     Res(1, 1) = 0.350000000000000;
     Res(1, 2) = 0.600000000000000;
@@ -680,12 +700,12 @@ int AccelPointMass_01() {
 
     Matrix a = AccelPointMass(r, s, GM);
 
-    Matrix expected(3);
-    expected(1) = 1.24226040196081e-06;
-    expected(2) = 0.0;
-    expected(3) = 0.0;
+    Matrix exp(3);
+    exp(1) = 1.24226040196081e-06;
+    exp(2) = 0.0;
+    exp(3) = 0.0;
 
-    _assert(m_equals(a, expected, 1e-12));
+    _assert(m_equals(a, exp, 1e-12));
 
     return 0;
 }
@@ -702,12 +722,12 @@ int Cheb3D_01() {
 
     Matrix ChebApp = Cheb3D(t, N, Ta, Tb, Cx, Cy, Cz);
 
-    Matrix expected(3);
-    expected(1) = -2.0;   
-    expected(2) = 0;
-    expected(3) = 6;
+    Matrix exp(3);
+    exp(1) = -2.0;   
+    exp(2) = 0;
+    exp(3) = 6;
 
-    _assert(m_equals(ChebApp, expected, 1e-10));
+    _assert(m_equals(ChebApp, exp, 1e-10));
 
     return 0;
 }
@@ -719,11 +739,11 @@ int Frac_01() {
 
 int MeanObliquity_01() {
     double Mjd_TT = 58000.0;
-    double expected = 0.40905268985035; 
+    double exp = 0.40905268985035; 
 
     double result = MeanObliquity(Mjd_TT);
 
-    _assert(fabs(result - expected) < 1e-6);
+    _assert(fabs(result - exp) < 1e-6);
 
     return 0;
 }
@@ -735,25 +755,25 @@ int Legendre_01() {
 
     auto[pnm,dpnm]=Legendre(n, m, fi);
 
-    Matrix expected_pnm(3, 3);  
-    expected_pnm(1, 1) = 1.000000000000000;
-	expected_pnm(2, 1) = 1.45747045027529753547;
-    expected_pnm(2, 2) = 0.93583099453595375294;
-    expected_pnm(3, 1) = 1.25691629764617052167;
-    expected_pnm(3, 2) = 1.76084674147066455596;
-	expected_pnm(3, 3) = 0.56531333344858780698;
+    Matrix exp_pnm(3, 3);  
+    exp_pnm(1, 1) = 1.000000000000000;
+	exp_pnm(2, 1) = 1.45747045027529753547;
+    exp_pnm(2, 2) = 0.93583099453595375294;
+    exp_pnm(3, 1) = 1.25691629764617052167;
+    exp_pnm(3, 2) = 1.76084674147066455596;
+	exp_pnm(3, 3) = 0.56531333344858780698;
 
 
-    Matrix expected_dpnm(3, 3);  
-    expected_dpnm(1, 1) = 0.0;
-	expected_dpnm(2, 1) = 0.93583099453595375294;
-    expected_dpnm(2, 2) = -1.45747045027529753547;
-    expected_dpnm(3, 1) = 3.04987602056929052452;
-    expected_dpnm(3, 2) = -1.61172970742831900282;
-	expected_dpnm(3, 3) = -1.76084674147066455596;
+    Matrix exp_dpnm(3, 3);  
+    exp_dpnm(1, 1) = 0.0;
+	exp_dpnm(2, 1) = 0.93583099453595375294;
+    exp_dpnm(2, 2) = -1.45747045027529753547;
+    exp_dpnm(3, 1) = 3.04987602056929052452;
+    exp_dpnm(3, 2) = -1.61172970742831900282;
+	exp_dpnm(3, 3) = -1.76084674147066455596;
 	
-	_assert(m_equals(pnm, expected_pnm, 1e-10));
-	_assert(m_equals(dpnm, expected_dpnm, 1e-10));
+	_assert(m_equals(pnm, exp_pnm, 1e-10));
+	_assert(m_equals(dpnm, exp_dpnm, 1e-10));
 		
 	return 0;
 }
@@ -762,12 +782,12 @@ int EccAnom_01() {
     double M = 1.0;  
     double e = 0.5;  
 
-    double expected_E = 1.49870113351785;
+    double exp_E = 1.49870113351785;
 
 
-    double calculated_E=EccAnom(M, e); 
+    double cal_E=EccAnom(M, e); 
 
-    _assert(fabs(expected_E - calculated_E) < 1e-10);
+    _assert(fabs(exp_E - cal_E) < 1e-10);
 
     return 0;
 }
@@ -795,6 +815,18 @@ int iers_01() {
 	_assert(fabs(get<0>(result) - (-1.338037278494208e-07)) < 1e-10);
 	_assert(fabs(get<1>(result) - 1.058353113998928e-06) < 1e-10);
 	_assert(fabs(get<2>(result) - 0.030535300000000) < 1e-10);
+
+	return 0;
+}
+
+int iers_02() { //evaluamos los dos tipos del iers con l y con n
+	Matrix s = eye(15);
+	tuple<double, double, double, double, double, double, double, double, double> result = IERS(eopdata, 49746.116354166530073,'l');
+	
+
+	_assert(fabs(get<0>(result) - (-5.593787242040705e-07)) < 1e-10);
+	_assert(fabs(get<1>(result) - 2.335598341471968e-06) < 1e-10);
+	_assert(fabs(get<2>(result) - 3.257476329587091e-01) < 1e-10);
 
 	return 0;
 }
@@ -837,10 +869,10 @@ int precmat_01() {
 }
 
 int gmst_01() {
-	double expected = 1.05922210457995;
+	double exp = 1.05922210457995;
 	double result = gmst(5.0);
 
-	_assert(fabs(expected-result) < 1e-10);
+	_assert(fabs(exp-result) < 1e-10);
 	return 0;
 }
 
@@ -853,36 +885,36 @@ int accelharmonic_01() {
     Matrix E(3);
     E(1)=9.9e6; E(2)=8.8e6; E(3)=7.7e6;
 
-    Matrix expected(3);
-    expected(1) = -4.799617844379188e-09;
-    expected(2) = -5.712662039382403e-09;
-    expected(3) = -6.190233410373446e-09;
+    Matrix exp(3);
+    exp(1) = -4.799617844379188e-09;
+    exp(2) = -5.712662039382403e-09;
+    exp(3) = -6.190233410373446e-09;
 
     Matrix result = AccelHarmonic(transpose(E), r, 1, 10);
 
-    _assert(m_equals(transpose(expected), result, 1e-10));
+    _assert(m_equals(transpose(exp), result, 1e-10));
     return 0;
 }
 
 int EqnEquinox_01() {
     double result = EqnEquinox(5.5);
-	double expected = 2.64781060573754e-05; 
+	double exp = 2.64781060573754e-05; 
 
-	_assert(fabs(expected-result) < 1e-10);
+	_assert(fabs(exp-result) < 1e-10);
 
 	return 0;
 }
 
 int LTC_01() {
 
-	Matrix expected(3,3);
-	expected(1,1)=0.958924274663138 ; expected(1,2)=0.283662185463226 ; expected(1,3)=0;
-	expected(2,1)= 0.272010555444685 ; expected(2,2)=-0.919535764538226; expected(2,3)= 0.283662185463226;
-	expected(3,1)=0.0804642354617738 ; expected(3,2)=-0.272010555444685; expected(3,3)=-0.958924274663138;
+	Matrix exp(3,3);
+	exp(1,1)=0.958924274663138 ; exp(1,2)=0.283662185463226 ; exp(1,3)=0;
+	exp(2,1)= 0.272010555444685 ; exp(2,2)=-0.919535764538226; exp(2,3)= 0.283662185463226;
+	exp(3,1)=0.0804642354617738 ; exp(3,2)=-0.272010555444685; exp(3,3)=-0.958924274663138;
 
 	Matrix result = LTC(5.0, 5.0);
 
-	_assert(m_equals(expected, result, 1e-10));
+	_assert(m_equals(exp, result, 1e-10));
 	return 0;
 
 }
@@ -913,6 +945,9 @@ int gast_01() {
 	return 0;
 }
 int measupdate_01() {
+	double z = 3.196905628244;
+	double g = 3.19766548246716;
+	double s = 0.00039095375244673;
 	Matrix x(6,1);
 	x(1,1)=7101576.98989518;
 	x(2,1)=1295199.87126989;
@@ -920,9 +955,7 @@ int measupdate_01() {
 	x(4,1)=576.004647735755;
 	x(5,1)=-3084.62203921229;
 	x(6,1)=-6736.0259467681;
-	double z = 3.196905628244;
-	double g = 3.19766548246716;
-	double s = 0.00039095375244673;
+
 	Matrix G(6);
 	G(1)=6.8011430799027e-08; G(2)=-3.73341445315677e-07; G(3)=1.98045516802789e-08; G(4)=0; G(5)=0; G(6)=0;
 	Matrix P(6,6);
@@ -979,22 +1012,22 @@ int g_accelharmonic_01() {
     int n_max = 20;
     int m_max = 20;
 
-    Matrix expected(3,3);
-    expected(1,1) = 4.577110823689168e-08;
-    expected(1,2) = 1.914096479094241e-07;
-    expected(1,3) = 2.248192538800708e-07;
+    Matrix exp(3,3);
+    exp(1,1) = 4.577110823689168e-08;
+    exp(1,2) = 1.914096479094241e-07;
+    exp(1,3) = 2.248192538800708e-07;
 
-    expected(2,1) = 1.914096490196471e-07;
-    expected(2,2) = -5.022823978961810e-08;
-    expected(2,3) = 1.727688230257485e-07;
+    exp(2,1) = 1.914096490196471e-07;
+    exp(2,2) = -5.022823978961810e-08;
+    exp(2,3) = 1.727688230257485e-07;
 
-    expected(3,1) = 2.248192534359816e-07;
-    expected(3,2) = 1.727688219155255e-07;
-    expected(3,3) = 3.566242856578583e-09;
+    exp(3,1) = 2.248192534359816e-07;
+    exp(3,2) = 1.727688219155255e-07;
+    exp(3,3) = 3.566242856578583e-09;
 
     Matrix result = G_AccelHarmonic(r, U, n_max, m_max);
 
-    _assert(m_equals(expected, result, 1e-7));// he tenido que bajar la tolerancia a 1e-7
+    _assert(m_equals(exp, result, 1e-7));// he tenido que bajar la tolerancia a 1e-7
     return 0;
 }
 
@@ -1002,18 +1035,17 @@ int GHAMatrix_01() {
 
     Matrix result = GHAMatrix(5.0);
 
-	Matrix expected(3,3);
-	expected(1,1)=0.489527823677807; expected(1,2)= 0.871987677576507 ; expected(1,3)=0;
-	expected(2,1)=-0.871987677576507  ; expected(2,2)=0.489527823677807; expected(2,3)=0;
-	expected(3,1)=0; expected(3,2)=0; expected(3,3)=1.0;
+	Matrix exp(3,3);
+	exp(1,1)=0.489527823677807; exp(1,2)= 0.871987677576507 ; exp(1,3)=0;
+	exp(2,1)=-0.871987677576507  ; exp(2,2)=0.489527823677807; exp(2,3)=0;
+	exp(3,1)=0; exp(3,2)=0; exp(3,3)=1.0;
 
-	_assert(m_equals(expected, result, 1e-10));
+	_assert(m_equals(exp, result, 1e-10));
 
 	return 0;
 }
 
 int accel_01() {
-    double x = 125.349830192;
     Matrix Y(6, 1);
     Y(1,1) = 6524000.000000;  
     Y(2,1) = 1223000.000000;  
@@ -1021,23 +1053,23 @@ int accel_01() {
     Y(4,1) = -500.000000;     
     Y(5,1) = 5700.000000;    
     Y(6,1) = 3800.000000;     
+    double x = 125.349830192;
 
-    Matrix expected(6,1);
-    expected(1,1) = -500.000000;    
-    expected(2,1) = 5700.000000;    
-    expected(3,1) = 3800.000000;     
-    expected(4,1) = -6.95755523897325;  
-    expected(5,1) = -1.30432214898872;  
-    expected(6,1) = -2.99374240926662;  
+    Matrix exp(6,1);
+    exp(1,1) = -500.000000;    
+    exp(2,1) = 5700.000000;    
+    exp(3,1) = 3800.000000;     
+    exp(4,1) = -6.95755523897325;  
+    exp(5,1) = -1.30432214898872;  
+    exp(6,1) = -2.99374240926662;  
 
     Matrix result = Accel(x, Y);
 
-    _assert(m_equals(result, expected, 1e-3));// he tenido que bajar la tolerancia a 1e-3
+    _assert(m_equals(result, exp, 1e-3));// he tenido que bajar la tolerancia a 1e-3
     return 0;	
 }
 
 int vareqn_01() {
-    double x = 6.123456789;
     Matrix yPhi(42, 1);
     yPhi(1,1)=7200000.123456;
     yPhi(2,1)=1300000.654321;
@@ -1081,58 +1113,60 @@ int vareqn_01() {
     yPhi(40,1)=1.555e-7;
     yPhi(41,1)=2.999e-8;
     yPhi(42,1)=0.999983;
-
-    Matrix expected(42, 1);
-    expected(1,1)=600.123456;
-    expected(2,1)=-3100.654321;
-    expected(3,1)=-6700.987654;
-    expected(4,1)=-7.33689642338892;
-    expected(5,1)=-1.32475130369553;
-    expected(6,1)=-0.0102190259201806;
-    expected(7,1)=1.1234e-05;
-    expected(8,1)=3.111e-06;
-    expected(9,1)=7.789e-08;
-    expected(10,1)=1.94401592885572e-06;
-    expected(11,1)=5.34987648886599e-07;
-    expected(12,1)=4.12371845506934e-09;
-    expected(13,1)=3.111e-06;
-    expected(14,1)=-5.199e-06;
-    expected(15,1)=1.111e-08;
-    expected(16,1)=5.34995075010738e-07;
-    expected(17,1)=-9.224048256789e-07;
-    expected(18,1)=7.48720551859153e-10;
-    expected(19,1)=7.789e-08;
-    expected(20,1)=1.111e-08;
-    expected(21,1)=-5.7e-06;
-    expected(22,1)=4.12429766048822e-09;
-    expected(23,1)=7.48814159162625e-10;
-    expected(24,1)=-1.02153636715955e-06;
-    expected(25,1)=1.000015;
-    expected(26,1)=9.321e-06;
-    expected(27,1)=1.555e-07;
-    expected(28,1)=1.19038974069259e-05;
-    expected(29,1)=3.27596179718002e-06;
-    expected(30,1)=2.52521292145952e-08;
-    expected(31,1)=9.321e-06;
-    expected(32,1)=0.999980;
-    expected(33,1)=2.999e-08;
-    expected(34,1)=3.27593414922061e-06;
-    expected(35,1)=-5.64831610100146e-06;
-    expected(36,1)=4.58478325655083e-09;
-    expected(37,1)=1.555e-07;
-    expected(38,1)=2.999e-08;
-    expected(39,1)=0.999983;
-    expected(40,1)=2.52525823082998e-08;
-    expected(41,1)=4.58489955053349e-09;
-    expected(42,1)=-6.25530224011641e-06;
+	double x = 6.123456789;
+	
+    Matrix exp(42, 1);
+    exp(1,1)=600.123456;
+    exp(2,1)=-3100.654321;
+    exp(3,1)=-6700.987654;
+    exp(4,1)=-7.33689642338892;
+    exp(5,1)=-1.32475130369553;
+    exp(6,1)=-0.0102190259201806;
+    exp(7,1)=1.1234e-05;
+    exp(8,1)=3.111e-06;
+    exp(9,1)=7.789e-08;
+    exp(10,1)=1.94401592885572e-06;
+    exp(11,1)=5.34987648886599e-07;
+    exp(12,1)=4.12371845506934e-09;
+    exp(13,1)=3.111e-06;
+    exp(14,1)=-5.199e-06;
+    exp(15,1)=1.111e-08;
+    exp(16,1)=5.34995075010738e-07;
+    exp(17,1)=-9.224048256789e-07;
+    exp(18,1)=7.48720551859153e-10;
+    exp(19,1)=7.789e-08;
+    exp(20,1)=1.111e-08;
+    exp(21,1)=-5.7e-06;
+    exp(22,1)=4.12429766048822e-09;
+    exp(23,1)=7.48814159162625e-10;
+    exp(24,1)=-1.02153636715955e-06;
+    exp(25,1)=1.000015;
+    exp(26,1)=9.321e-06;
+    exp(27,1)=1.555e-07;
+    exp(28,1)=1.19038974069259e-05;
+    exp(29,1)=3.27596179718002e-06;
+    exp(30,1)=2.52521292145952e-08;
+    exp(31,1)=9.321e-06;
+    exp(32,1)=0.999980;
+    exp(33,1)=2.999e-08;
+    exp(34,1)=3.27593414922061e-06;
+    exp(35,1)=-5.64831610100146e-06;
+    exp(36,1)=4.58478325655083e-09;
+    exp(37,1)=1.555e-07;
+    exp(38,1)=2.999e-08;
+    exp(39,1)=0.999983;
+    exp(40,1)=2.52525823082998e-08;
+    exp(41,1)=4.58489955053349e-09;
+    exp(42,1)=-6.25530224011641e-06;
 
     Matrix result = VarEqn(x, yPhi);
 
-    _assert(m_equals(result, expected, 1e-5)); // he tenido que bajar la tolerancia a 1e-5
+    _assert(m_equals(result, exp, 1e-5)); // he tenido que bajar la tolerancia a 1e-5
     return 0;
 }
 
-int DEinteg_01() {
+int DEinteg_01() { 
+//Valores obtenidos de mostrar por pantalla los valores de entrada y de salida del DEInteg de la línea 112 de EFK_GEOS3 de Matlab
 	AuxParam.Mjd_UTC=4.974611128472211e+04;
 	Matrix Y0_apr(6, 1);
 	Y0_apr(1, 1) = 6.221397628578685e+06;
@@ -1143,25 +1177,25 @@ int DEinteg_01() {
 	Y0_apr(6, 1) = -7.507999409870306e+03;
 	Matrix result = DEInteg(Accel, 0.0, -1.349999919533730e+02, 1e-13, 1e-6, 6, Y0_apr);
 
-	Matrix expected(6, 1);
-	expected(1, 1) = 5.542555937228607e+06;
-	expected(2, 1) = 3.213514867349196e+06;
-	expected(3, 1) = 3.990892975876853e+06;
-	expected(4, 1) = 5.394068421663513e+03;
-	expected(5, 1) = -2.365213378823415e+03;
-	expected(6, 1) = -7.061845542002954e+03;
-	_assert(m_equals(transpose(result), expected, 1e-6));
+	Matrix exp(6, 1);
+	exp(1, 1) = 5.542555937228607e+06;
+	exp(2, 1) = 3.213514867349196e+06;
+	exp(3, 1) = 3.990892975876853e+06;
+	exp(4, 1) = 5.394068421663513e+03;
+	exp(5, 1) = -2.365213378823415e+03;
+	exp(6, 1) = -7.061845542002954e+03;
+	_assert(m_equals(transpose(result), exp, 1e-6));
 	return 0;
 
 }
 
 int geodetic_01() {
-	Matrix r(3);
-	r(1)=50; r(2)=30; r(3)=6;
-
+	
 	double h2 = -6356745.57691637;
 	double lat2 = 1.56943545859473;
 	double lon2 = 0.540419500270584;
+	Matrix r(3);
+	r(1)=50; r(2)=30; r(3)=6;
 
     auto [lon, lat, h] = Geodetic(r);
 
@@ -1176,13 +1210,31 @@ int angl_01() {
 	vec1(1)=0; vec1(2)=0; vec1(3)=1;
 	Matrix vec2(3);
 	vec2(1)=1; vec2(2)=0; vec2(3)=0;
+	
 	double theta = angl(vec1,vec2);
-
 	_assert(fabs(M_PI/2-theta) < 1e-10);
 	return 0;
 }
 
+int unit_01() {
+	Matrix vec(3, 1);
+	vec(1, 1)=50.659;
+	vec(2, 1)=755545.925151;
+	vec(3, 1)=-5522525.562;
+
+	Matrix vec2(3);
+	vec2(1)=9.0884957606754e-06 ; vec2(2)=0.135548983156605; vec2(3)=-0.990770646054176;
+
+	Matrix res = unit(vec);
+	
+	_assert(m_equals(vec2, res, 1e-10));
+
+	return 0;
+}
+
 int elements_01() {
+//Valores obtenidos de mostrar por pantalla los valores de entrada y de salida del elements de la línea 165 de anglesg de Matlab ejecutando EFK_GEOS3
+
 	Matrix y(6);
 	y(1) = 6221397.62857869;
 	y(2) = 2867713.77965738;
@@ -1211,20 +1263,6 @@ int elements_01() {
 
 }
 
-int unit_01() {
-	Matrix vec(3, 1);
-	vec(1, 1)=50.659;
-	vec(2, 1)=755545.925151;
-	vec(3, 1)=-5522525.562;
-
-	Matrix vec2(3);
-	vec2(1)=9.0884957606754e-06 ; vec2(2)=0.135548983156605; vec2(3)=-0.990770646054176;
-
-	Matrix res = unit(vec);
-	_assert(m_equals(vec2, res, 1e-10));
-
-	return 0;
-}
 
 int gibbs_01() {
 	Matrix r1(3); Matrix r2(3); Matrix r3(3);
@@ -1248,7 +1286,8 @@ int gibbs_01() {
 	return 0;
 }
 int hgibbs_01() {
-
+//Valores obtenidos de mostrar por pantalla los valores de entrada y de salida del elements de la línea 162 de anglesg de Matlab ejecutando EFK_GEOS3
+// Modificando para que entre en ese if
 	Matrix r1(3, 1);
 	r1(1, 1)=5.720303710129856e+06;
 	r1(2, 1)=3.152426696533103e+06;
@@ -1283,6 +1322,43 @@ int hgibbs_01() {
 
 	return 0;
 }
+
+int anglesg_01() {
+//Valores obtenidos de mostrar por pantalla los valores de entrada y de salida del anglesg de la línea 92 de EFK_GEOS3 de Matlab ejecutándolo 
+
+	double aux1=1.0559084894933;
+	double aux2=1.36310214580757;
+	double aux3=1.97615602688759;
+	double aux4=0.282624656433946;
+	double aux5=0.453434794338875;
+	double aux6=0.586427138011591;
+	double Mjd1=4.974611015046295e+04;
+	double Mjd2=4.974611128472211e+04;
+	double Mjd3=4.974611253472231e+04;
+	
+	Matrix Rs(3, 1);
+	Rs(1, 1) = -5.512567840036068e+06;
+	Rs(2, 1) = -2.196994446669333e+06;
+	Rs(3, 1) = 2.330804966146887e+06;
+	
+	Matrix r2(3, 1);
+    r2(1,1)=6221397.62857869;
+    r2(2,1)=2867713.77965738;
+    r2(3,1)=3006155.98509949;
+	
+    Matrix v2(3,1);
+    v2(1,1)=4645.04725161806;
+    v2(2,1)=-2752.21591588204;
+    v2(3,1)=-7507.99940987031;
+	
+	auto [expr2, expv2] = anglesg(aux1, aux2, aux3, aux4, aux5, aux6, Mjd1, Mjd2, Mjd3, Rs, Rs, Rs);
+	
+	_assert(m_equals(r2, expr2, 1e-7)); 
+	_assert(m_equals(v2, expv2, 1e-7));
+
+	return 0;
+}
+
 
 
 int all_tests()
@@ -1332,6 +1408,7 @@ int all_tests()
 	_verify(NutAngles_01);
     _verify(Legendre_01);
     _verify(iers_01);
+	_verify(iers_02);
     _verify(nutmatrix_01);
     _verify(polemat_01);
     _verify(precmat_01);
@@ -1346,13 +1423,15 @@ int all_tests()
     _verify(GHAMatrix_01);
     _verify(accel_01);
     _verify(vareqn_01);
+	_verify(DEinteg_01);
     _verify(geodetic_01);
     _verify(angl_01);
     _verify(elements_01);
     _verify(unit_01);
     _verify(gibbs_01);
 	_verify(hgibbs_01);
-	_verify(DEinteg_01);
+	_verify(anglesg_01);
+
 
 
     return 0;

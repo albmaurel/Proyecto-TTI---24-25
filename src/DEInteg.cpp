@@ -15,23 +15,22 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
 	if (y.n_row==1) {
         y = transpose(y);
     }
-	//A diferencia de todos los ficheros en este caso los inicializo todos juntos porque son muchos y por no ir de uno en uno 
-    bool PermitTOUT;
-    double twou, fouru, told, epsilon, x, h, hi, ki, kold, temp1, term, psijm1, gamma, eta,
+    double  x, h, hi, ki, kold, temp1, term, psijm1, gamma, eta,
     i, p5eps, ifail, round, sum, absh, hold, hnew, k, kp1, kp2, km1, km2, ns, nsp1,
     realns, im1, temp2, reali, temp4, nsm2, limit1, temp5, temp3, nsp2, limit2, temp6,
-    ip1, tau, xold, erkm2, erkm1, erk, err, knew, erkp1, r, rho2;
-    double del, absdel, tend, nostep, kle4, releps, abseps, delsgn;
-    bool stiff, OldPermit=false, start=false, crash=false, phase1=false, nornd=false, success=false;
+    ip1, tau, xold, erkm2, erkm1, erk, err, knew, erkp1, r, rho2, delsgn;
+	
+    bool  OldPermit=false, start=false, crash=false, phase1=false, nornd=false, success=false;
     Matrix yy, yout=zeros(n_eqn, 1), ypout=zeros(n_eqn, 1), g, rho, wt, v, w, phi, p, yp,sig,alpha,beta,psi_;
+	
     double eps = SAT_Const::eps;
     // maxnum = 500;
-    twou  = 2*eps;
-    fouru = 4*eps;
+    double twou  = 2*eps;
+    double fouru = 4*eps;
 
     DE_STATE State_ = DE_STATE::DE_INIT;
-    PermitTOUT = true;         // Allow integration past tout by default
-    told = 0;
+    bool PermitTOUT = true;         // Allow integration past tout by default
+    double told = 0;
 
     // Powers of two (two(n)=2^n)
     
@@ -92,7 +91,7 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
 
     // Test for improper parameters
 
-    epsilon = fmax(relerr,abserr);
+    double epsilon = fmax(relerr,abserr);
 
     if ( ( relerr <  0.0         ) ||             // Negative relative error bound
         ( abserr <  0.0         ) ||             // Negative absolute error bound
@@ -108,19 +107,19 @@ Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double rel
     // number of steps. Adjust input error tolerances to define
     // weight vector for subroutine STEP.
     
-    del    = tout - t;
-    absdel = fabs(del);
+    double del    = tout - t;
+    double absdel = fabs(del);
 
-    tend   = t + 100.0*del;
+    double tend   = t + 100.0*del;
     if (!PermitTOUT) {
         tend = tout;
     }
 
-    nostep = 0;
-    kle4   = 0;
-    stiff  = false;
-    releps = relerr/epsilon;
-    abseps = abserr/epsilon;
+    double nostep = 0;
+    double kle4   = 0;
+    bool stiff  = false;
+    double releps = relerr/epsilon;
+    double abseps = abserr/epsilon;
 
     if  ( (State_==DE_STATE::DE_INIT) || (!OldPermit) || (delsgn*del<=0.0) ) {
         // On start and restart also set the work variables x and yy(*),
