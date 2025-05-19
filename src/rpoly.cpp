@@ -1,3 +1,16 @@
+// $Source$
+//----------------------------------------------------------------------
+// rpoly
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file rpoly.cpp
+ * @brief This file contains the implementation of the rpoly function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\angl.hpp"
 #include "..\include\rpoly.hpp"
 // Adapted in 2013 by Ethan Eade from NETLIB program 493:
@@ -59,6 +72,12 @@ struct RPoly_State *real_poly_alloc(int deg)
     return s;
 }
 
+/**
+ * @brief Releases the memory allocated for an RPoly_State structure.
+ *
+ * @param s Pointer to the RPoly_State structure to be freed.
+ * @return void
+ */
 void real_poly_release(struct RPoly_State *s)
 {
     free(s);
@@ -134,10 +153,14 @@ static void maybe_scale_coefs(double p[], int n)
     }
 }
 
-
-// p[] has n+1 slots
-// scratch[] must also have n+1 slots
-// Returns lower bound on modulus of roots of p[]
+/**
+ * @brief Computes the lower bound on the modulus of the roots of a polynomial.
+ *
+ * @param p[] has n+1 slots
+ * @param scratch[] must also have n+1 slots
+ * @param n slots
+ * @return lower bound on modulus of roots of p[]
+ */
 static double root_modulus_lower_bound(const double p[], int n, double scratch[])
 {
     double *pt = scratch;

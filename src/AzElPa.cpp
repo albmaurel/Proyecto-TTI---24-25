@@ -13,20 +13,19 @@
 //----------------------------------------------------------------------
 #include "..\include\AzElPa.hpp"
 
-
 /**
- * @brief Computes azimuth, elevation, and their partial derivatives from local tangent coordinates.
+ * @brief Calculates the azimuth and elevation angles, along with their partial derivatives, from a position vector.
  *
- * This method calculates the azimuth (Az) and elevation (El) angles in radians, as well as their partial derivatives
- * with respect to the topocentric local tangent coordinates (East-North-Zenith frame).
+ * This function computes the azimuth (Az) and elevation (El) angles based on the provided position vector `s`.
+ * It also calculates the partial derivatives of Az and El with respect to the components of `s`.
  *
- * @param s Input matrix representing topocentric local tangent coordinates (East-North-Zenith frame).
- * @param Az Output double representing the azimuth angle in radians.
- * @param El Output double representing the elevation angle in radians.
- * @param dAds Output matrix representing the partial derivatives of azimuth with respect to s.
- * @param dEds Output matrix representing the partial derivatives of elevation with respect to s.
+ * @param s Reference to a 3-element position vector (Matrix&).
+ * @return A tuple containing:
+ *   - Azimuth angle (double)
+ *   - Elevation angle (double)
+ *   - Reference to the partial derivatives of Azimuth with respect to `s` (Matrix&)
+ *   - Reference to the partial derivatives of Elevation with respect to `s` (Matrix&)
  */
-
 tuple<double, double, Matrix&, Matrix&> AzElPa(Matrix& s) {
 
     double rho = sqrt(s(1)*s(1)+s(2)*s(2));

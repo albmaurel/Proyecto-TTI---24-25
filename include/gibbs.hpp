@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// gibbs
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file gibbs.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función gibbs.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _GIBBS_
 #define _GIBBS_
 

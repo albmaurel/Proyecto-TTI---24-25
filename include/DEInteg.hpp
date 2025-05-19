@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// DEInteg
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file DEInteg.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función DEInteg.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _DEINTEG_
 #define _DEINTEG_
 

@@ -1,3 +1,14 @@
+//$Source$
+//------------------------------------------------------------------------------
+// EFK_GEOS3
+//------------------------------------------------------------------------------
+/** @file EFK_GEOS3.cpp
+ *  @brief This file implements the Extended Kalman Filter (EKF) for the GEOS-3 satellite.
+
+ *  @author Alberto Maurel Mendizabal
+ *  @bug No known bug
+ */
+//------------------------------------------------------------------------------
 #include "..\include\matrix.hpp"
 #include "..\include\global.hpp"
 #include "..\include\Legendre.hpp"

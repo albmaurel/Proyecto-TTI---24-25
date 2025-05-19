@@ -5,7 +5,7 @@
 // Proyecto TT1
 //
 /** @file global.hpp
-*	@brief Este archivo de cabecera contiene una implementación de las acciones eop19620101,GGM03S,DE430Coeff,auxparam.
+*	@brief Este archivo de cabecera contiene una implementación de las acciones eop19620101,GGM03S,DE430Coeff,auxparam,GEOS3.
 *	
 *	@author Alberto Maurel Mendizábal
 *	@bug No known bugs.

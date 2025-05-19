@@ -1,3 +1,15 @@
+//$Source$
+//------------------------------------------------------------------------------
+// tests
+//------------------------------------------------------------------------------
+/**
+ * @file tests.cpp
+ * @brief Source file for the tests of methods in the EFK_GEOS3 project.
+ *
+ * @author Alberto Maurel Mendizabal
+ * @bug No known bugs.
+ */
+//------------------------------------------------------------------------------
 #include "..\include\matrix.hpp"
 #include "..\include\R_x.hpp"
 #include "..\include\R_y.hpp"

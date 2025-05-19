@@ -1,3 +1,16 @@
+// $Source$
+//----------------------------------------------------------------------
+// unit
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file unit.cpp
+ * @brief This file contains the implementation of the unit function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\unit.hpp"
 
 /**

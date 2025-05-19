@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// rpoly
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file rpoly.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función real_poly_roots.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef BEGIN_C_DECLS
 #define BEGIN_C_DECLS
 

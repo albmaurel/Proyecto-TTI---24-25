@@ -516,18 +516,15 @@ Matrix& cross(Matrix& a,Matrix& b){
     return (*m_aux);
 }
 
+
 /**
- * @brief Extracts a subvector from a matrix.
+ * @brief Extracts a subvector from the given matrix.
  * 
- * @param m The matrix from which the subvector will be extracted.
- * @param n1 The starting column index (1-based) of the subvector.
- * @param n2 The ending column index (1-based) of the subvector.
- * @return A reference to a newly allocated matrix containing the extracted subvector.
- * 
- * @note The function will terminate the program if:
- *       - n1 or n2 are less than or equal to 0.
- *       - n1 or n2 exceed the number of columns in the matrix.
- *       - n1 is greater than n2.
+ * @param m Reference to the source Matrix object.
+ * @param n1 Starting index of the subvector (inclusive, 1-based).
+ * @param n2 Ending index of the subvector (inclusive, 1-based).
+ * @return Reference to a newly allocated Matrix object containing the extracted subvector.
+ *         The caller is responsible for managing the memory of the returned object.
  */
 Matrix& extract_vector(Matrix& m, const int n1, const int n2) {
 

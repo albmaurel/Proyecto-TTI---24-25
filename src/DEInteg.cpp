@@ -1,4 +1,18 @@
+// $Source$
+//----------------------------------------------------------------------
+// DEInteg
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file DEInteg.cpp
+ * @brief This file contains the implementation of the DEInteg function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\DEInteg.hpp"
+
 
 enum class DE_STATE {
     DE_INIT = 1,      // Restart integration
@@ -9,7 +23,17 @@ enum class DE_STATE {
     DE_INVPARAM = 6   // Invalid input parameters
 };
 
-
+/**
+ * @brief Integrates a system of ordinary differential equations (ODEs) using a variable-step, variable-order method.
+ * @param f       Function pointer representing the system of ODEs: f(double t, Matrix y) -> Matrix.
+ * @param t       Initial value of the independent variable (typically time).
+ * @param tout    Output value of the independent variable to which integration is performed.
+ * @param relerr  Relative error tolerance for the integration.
+ * @param abserr  Absolute error tolerance for the integration.
+ * @param n_eqn   Number of equations in the system (dimension of y).
+ * @param y       On input: initial values of the dependent variables; on output: solution at tout.
+ * @return        Reference to the solution vector y at tout.
+ */
 Matrix& DEInteg(Matrix& f(double t, Matrix y), double t, double tout, double relerr, double abserr, int n_eqn, Matrix &y) {
     
 	if (y.n_row==1) {

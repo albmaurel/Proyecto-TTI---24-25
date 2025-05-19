@@ -1,5 +1,42 @@
+// $Source$
+//----------------------------------------------------------------------
+// anglesg
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file anglesg.cpp
+ * @brief This file contains the implementation of the anglesg function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\anglesg.hpp"
 
+/**
+ * @brief Computes the geocentric inertial position and velocity vectors using the Gauss angles-only method.
+ *
+ * This function implements the Gauss method for initial orbit determination using three optical observations
+ * (azimuth and elevation angles) at three different times, along with the observer's position vectors at those times.
+ * It transforms the observed directions to the inertial frame, solves for the range to the object, and computes
+ * the position and velocity vectors in the geocentric inertial frame.
+ *
+ * @param az1 Azimuth angle at the first observation (radians).
+ * @param az2 Azimuth angle at the second observation (radians).
+ * @param az3 Azimuth angle at the third observation (radians).
+ * @param el1 Elevation angle at the first observation (radians).
+ * @param el2 Elevation angle at the second observation (radians).
+ * @param el3 Elevation angle at the third observation (radians).
+ * @param Mjd1 Modified Julian Date of the first observation (UTC).
+ * @param Mjd2 Modified Julian Date of the second observation (UTC).
+ * @param Mjd3 Modified Julian Date of the third observation (UTC).
+ * @param Rs1 Observer's position vector at the first observation (ECEF frame).
+ * @param Rs2 Observer's position vector at the second observation (ECEF frame).
+ * @param Rs3 Observer's position vector at the third observation (ECEF frame).
+ * @return A tuple containing:
+ *         - r2: The geocentric inertial position vector at the second observation (Matrix&).
+ *         - v2: The geocentric inertial velocity vector at the second observation (Matrix&).
+ */
 tuple<Matrix&, Matrix&> anglesg(double az1, double az2, double az3, double el1, double el2, double el3, double Mjd1, double Mjd2, double Mjd3, Matrix Rs1, Matrix Rs2, Matrix Rs3) {
 	//Las variables que están inicializadas aquí son aquellas que entran por primera vez en un bucle o en un método.
     Matrix L1(3); Matrix L2(3); Matrix L3(3);

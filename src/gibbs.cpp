@@ -1,4 +1,16 @@
-
+// $Source$
+//----------------------------------------------------------------------
+// gibbs
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file gibbs.cpp
+ * @brief This file contains the implementation of the Gibbs method for orbit determination.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\gibbs.hpp"
 
 /**

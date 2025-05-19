@@ -1,5 +1,38 @@
+// $Source$
+//----------------------------------------------------------------------
+// hgibbs
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file hgibbs.cpp
+ * @brief This file contains the implementation of the hgibbs function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\hgibbs.hpp"
 
+/**
+ * @brief Computes the velocity vector at the second position using the Herrick-Gibbs method.
+ *
+ * This function implements the Herrick-Gibbs method to estimate the velocity vector at the second
+ * position vector (r2) given three position vectors (r1, r2, r3) and their corresponding Modified Julian Dates (Mjd1, Mjd2, Mjd3).
+ * It also checks for coplanarity and angular constraints, returning diagnostic information.
+ *
+ * @param r1   First position vector (Matrix).
+ * @param r2   Second position vector (Matrix).
+ * @param r3   Third position vector (Matrix).
+ * @param Mjd1 Modified Julian Date corresponding to r1.
+ * @param Mjd2 Modified Julian Date corresponding to r2.
+ * @param Mjd3 Modified Julian Date corresponding to r3.
+ * @return A tuple containing:
+ *         - Reference to the computed velocity vector at r2 (Matrix&),
+ *         - Angle between r1 and r2 (double),
+ *         - Angle between r2 and r3 (double),
+ *         - Coplanarity angle (double),
+ *         - Error message string (string).
+ */
 tuple<Matrix&, double, double, double, string> hgibbs(Matrix r1, Matrix r2, Matrix r3, double Mjd1, double Mjd2, double Mjd3) {
     
     string error =  "          ok";

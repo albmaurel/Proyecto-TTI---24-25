@@ -1,3 +1,16 @@
+// $Header$
+//----------------------------------------------------------------------
+// anglesg
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file anglesg.hpp
+*	@brief Este archivo de cabecera contiene una implementación de la función anglesg.
+*	
+*	@author Alberto Maurel Mendizábal
+*	@bug No known bugs.
+*/ 
+//----------------------------------------------------------------------
 #ifndef _ANGLESG_
 #define _ANGLESG_
 

@@ -1,6 +1,32 @@
+// $Source$
+//----------------------------------------------------------------------
+// Geodetic
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file Geodetic.cpp
+ * @brief This file contains the implementation of the Geodetic function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\Geodetic.hpp"
 
 
+/**
+ * @brief Converts Cartesian coordinates to geodetic coordinates (longitude, latitude, altitude).
+ *
+ * This function transforms a position vector in Cartesian coordinates (ECEF) to geodetic coordinates
+ * (longitude, latitude, and altitude) based on the WGS-84 ellipsoid parameters.
+ * The conversion uses an iterative method to account for the Earth's flattening.
+ *
+ * @param r A 3-element Matrix representing the Cartesian coordinates (X, Y, Z) in meters.
+ * @return A tuple containing:
+ *         - longitude (radians)
+ *         - latitude (radians)
+ *         - altitude above the ellipsoid (meters)
+ */
 tuple<double, double, double> Geodetic(Matrix r) {
     
     double R_equ = SAT_Const::R_Earth;
@@ -44,6 +70,6 @@ tuple<double, double, double> Geodetic(Matrix r) {
     lat = atan2 ( ZdZ, sqrt(rho2) );
     h   = Nh - N;
 
-    return std::tie(lon, lat, h);
+    return tie(lon, lat, h);
 
 }

@@ -5,7 +5,7 @@
 // Proyecto TT1
 //
 /** @file gast.cpp
- * @brief implementation of the methods auxparam,eop19620101,GGM03S,DE430Coeff
+ * @brief implementation of the methods auxparam,eop19620101,GGM03S,DE430Coeff,GEOS3.
  * 
  * @author Alberto Maurel Mendizábal
  * @bug No known bugs.
@@ -109,6 +109,16 @@ void DE430Coeff() {
 
 Matrix Obs;
 
+/**
+ * @brief Reads observation data from a file and populates the global Obs matrix.
+ *
+ * This function reads formatted observation data from the file "../data/GEOS3.txt".
+ * For each observation, it parses the date, time, azimuth, elevation, and distance,
+ * then stores the converted values into the Obs matrix. The function expects the file
+ * to have a specific fixed-width format for each line.
+ *
+ * @param f The number of observation records to read from the file.
+ */
 void GEOS3(int f) {
     Obs = zeros(f, 4);
 
