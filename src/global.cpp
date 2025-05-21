@@ -1,10 +1,10 @@
 // $Source$
 //----------------------------------------------------------------------
-// gast
+// global
 //----------------------------------------------------------------------
 // Proyecto TT1
 //
-/** @file gast.cpp
+/** @file global.cpp
  * @brief implementation of the methods auxparam,eop19620101,GGM03S,DE430Coeff,GEOS3.
  * 
  * @author Alberto Maurel Mendizábal

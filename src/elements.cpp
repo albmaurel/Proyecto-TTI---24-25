@@ -1,3 +1,16 @@
+// $Source$
+//----------------------------------------------------------------------
+// elements
+//----------------------------------------------------------------------
+// Proyecto TT1
+//
+/** @file elements.cpp
+ * @brief This file contains the implementation of the elements function.
+ * 
+ * @author Alberto Maurel Mendizábal
+ * @bug No known bugs.
+ */
+//----------------------------------------------------------------------
 #include "..\include\elements.hpp"
 
 /**
