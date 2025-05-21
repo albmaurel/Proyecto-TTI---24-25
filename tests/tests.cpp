@@ -832,13 +832,19 @@ int iers_01() {
 }
 
 int iers_02() { //evaluamos los dos tipos del iers con l y con n
-	Matrix s = eye(15);
-	tuple<double, double, double, double, double, double, double, double, double> result = IERS(eopdata, 49746.116354166530073,'l');
+	auto [A,B,C,D,E,F,G,H,I] = IERS(eopdata,49746.1163541665,'l');
 	
 
-	_assert(fabs(get<0>(result) - (-5.593787242040705e-07)) < 1e-10);
-	_assert(fabs(get<1>(result) - 2.335598341471968e-06) < 1e-10);
-	_assert(fabs(get<2>(result) - 3.257476329587091e-01) < 1e-10);
+	double p = 1e-10;
+	_assert(fabs(A+5.5937872420407e-07) < p);
+	_assert(fabs(B-2.33559834147197e-06) < p);
+	_assert(fabs(C-0.325747632958709) < p);
+	_assert(fabs(D-0.00272698971874332) < p);
+	_assert(fabs(E+1.16882953161744e-07) < p);
+	_assert(fabs(F+2.4783506198648e-08) < p);
+	_assert(fabs(G+8.43027359626024e-10) < p);
+	_assert(fabs(H+1.56811369105037e-09) < p);
+	_assert(fabs(I-29) < p);
 
 	return 0;
 }
@@ -933,19 +939,53 @@ int LTC_01() {
 
 int JPL_Eph_01() {
 
-	Matrix r_Mercury(3);
-	r_Mercury(1)=-3.120904288035969e+10; r_Mercury(2)=-1.562493277880154e+11; r_Mercury(3)=-6.409670990423103e+10;
-	Matrix r_Venus(3);
-	r_Venus(1)=9.456114421786035e+10; r_Venus(2)=-5.446125036393051e+10; r_Venus(3)=-2.661042312791346e+10;
-	Matrix r_Earth(3);
-	r_Earth(1)=-2.758784301574040e+10; r_Earth(2)=1.320400551107718e+11; r_Earth(3)=5.726729591563843e+10;
+	auto [r_Mercury,r_Venus,r_Earth,r_Mars,r_Jupiter,r_Saturn,r_Uranus,r_Neptune,r_Pluto,r_Moon,r_Sun] = JPL_Eph_DE430(49746.1);
+	Matrix A(3,1);
+	A(1,1)=83810666211.6714;A(2,1)=-65300253562.273;A(3,1)=-23400591423.1512;
+	
+	Matrix B(3,1);
+	B(1,1)=-15254871090.737;B(2,1)=-110119619839.499;B(3,1)=-41014557782.1451;
+	
+	Matrix C(3,1);
+	C(1,1)=-92446370466.6615;C(2,1)=106412761987.887;C(3,1)=46137876551.2218;
+	
+	Matrix D(3,1);
+	D(1,1)=-88286755974.9184;D(2,1)=46961779170.9088;D(3,1)=29069662998.0302;
+	
+	Matrix E(3,1);
+	E(1,1)=-298422178337.688;E(2,1)=-754510732235.042;E(3,1)=-314415669431.536;
+	
+	Matrix F(3,1);
+	F(1,1)=1482007182963.1;F(2,1)=-453899645892.782;F(3,1)=-249413567763.422;
+	
+	Matrix G(3,1);
+	G(1,1)=1412337137361.43;G(2,1)=-2511375518242.91;G(3,1)=-1118117451413.37;
+	
+	Matrix H(3,1);
+	H(1,1)=1871221039794.16;H(2,1)=-3928996288702.76;H(3,1)=-1655028957852.41;
+	
+	Matrix I(3,1);
+	I(1,1)=-2171444383702.46;I(2,1)=-3915447988031.43;I(3,1)=-552721549757.353;
+	
+	Matrix J(3,1);
+	J(1,1)=88301268.8063318;J(2,1)=-336822619.971717;J(3,1)=-114792187.645337;
+	
+	Matrix K(3,1);
+	K(1,1)=92273673176.1919;K(2,1)=-105393042175.493;K(3,1)=-45694105289.8874;
+	double e = 1e-2;
+	_assert(m_equals(r_Mercury,A, e));
+	_assert(m_equals(r_Venus,B, e));
+	_assert(m_equals(r_Earth,C, e));
+	_assert(m_equals(r_Mars,D, e));
+	_assert(m_equals(r_Jupiter,E, e));
+	_assert(m_equals(r_Saturn,F,e));
+	_assert(m_equals(r_Uranus,G, e));
+	_assert(m_equals(r_Neptune,H, e));
+	_assert(m_equals(r_Pluto,I, e));
+	_assert(m_equals(r_Moon,J, e));
+	_assert(m_equals(r_Sun,K, e));
 
-	auto [ar, br, cr, d, e, f, g, h, i, j, k] = JPL_Eph_DE430(60676);
-
-	_assert(m_equals(transpose(r_Mercury), ar, 1e-4));
-	_assert(m_equals(transpose(r_Venus), br, 1e-4));
-	_assert(m_equals(transpose(r_Earth), cr, 1e-4));
-
+	
 	return 0;
 }
 

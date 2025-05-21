@@ -26,12 +26,10 @@
 #include "..\include\LTC.hpp"
 #include "..\include\anglesg.hpp"
 #include <iostream>
-#include <chrono>
 
 using namespace std;
 
 int main() {
-    auto start = std::chrono::high_resolution_clock::now();
 	eop19620101(21413); 
     GGM03S();
     DE430Coeff();
@@ -199,7 +197,5 @@ int main() {
     printf("dVx%8.1f [m/s]\n", Y0(4)-Y_true(4));
     printf("dVy%8.1f [m/s]\n", Y0(5)-Y_true(5));
     printf("dVz%8.1f [m/s]\n", Y0(6)-Y_true(6));
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    std::cout << "Tiempo transcurrido: " << elapsed.count() << " segundos\n";
+
 }
