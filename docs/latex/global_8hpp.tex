@@ -1,0 +1,124 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/global.hpp File Reference}
+\hypertarget{global_8hpp}{}\label{global_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/global.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/global.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de las acciones eop19620101,GGM03S,DE430\+Coeff,auxparam,GEOS3.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Mjday.\+hpp"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for global.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{global_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{global_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_param}{Param}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{global_8hpp_af1504e3e975e6f502042c7fa8b7abe60}{eop19620101}} (int c)
+\begin{DoxyCompactList}\small\item\em Reads Earth Orientation Parameters (EOP) data from a file and stores it in a matrix. \end{DoxyCompactList}\item 
+\Hypertarget{global_8hpp_a6b92ea032a8e792ede2023c6d46bd53c}\label{global_8hpp_a6b92ea032a8e792ede2023c6d46bd53c} 
+void {\bfseries GGM03S} ()
+\begin{DoxyCompactList}\small\item\em Reads GGM03S gravitational coefficients from a file and stores them in matrices. \end{DoxyCompactList}\item 
+\Hypertarget{global_8hpp_ae38d918efc2790a2d633e60440a3bbab}\label{global_8hpp_ae38d918efc2790a2d633e60440a3bbab} 
+void {\bfseries DE430\+Coeff} ()
+\begin{DoxyCompactList}\small\item\em Reads DE430 planetary coefficients from a file and stores them in a matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{global_8hpp_ad94b35791ed1c8c96b220944eaa8c35e}{auxparam}} ()
+\begin{DoxyCompactList}\small\item\em Initializes auxiliary parameters for the program. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{global_8hpp_a4eb2c87949d7faa807f6b9f9acb21a92}{GEOS3}} (int f)
+\begin{DoxyCompactList}\small\item\em Reads observation data from a file and populates the global Obs matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{global_8hpp_a16817456f74489dad2c22ee5b145a1c4}\label{global_8hpp_a16817456f74489dad2c22ee5b145a1c4} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries eopdata}
+\item 
+\Hypertarget{global_8hpp_aae4f5247dbe2733ec80f005dfbb2c3ed}\label{global_8hpp_aae4f5247dbe2733ec80f005dfbb2c3ed} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries Cnm}
+\item 
+\Hypertarget{global_8hpp_a19b1b61df2d43fbf34bc708611f8d589}\label{global_8hpp_a19b1b61df2d43fbf34bc708611f8d589} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries Snm}
+\item 
+\Hypertarget{global_8hpp_abdf16b7def3047932352a98d4f907e0a}\label{global_8hpp_abdf16b7def3047932352a98d4f907e0a} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries PC}
+\item 
+\Hypertarget{global_8hpp_a5706b12963234f7382e60cb7324441f9}\label{global_8hpp_a5706b12963234f7382e60cb7324441f9} 
+\mbox{\hyperlink{struct_param}{Param}} {\bfseries Aux\+Param}
+\item 
+\Hypertarget{global_8hpp_a901fc93b53a050d8afbd923df0398b01}\label{global_8hpp_a901fc93b53a050d8afbd923df0398b01} 
+\mbox{\hyperlink{class_matrix}{Matrix}} {\bfseries Obs}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de las acciones eop19620101,GGM03S,DE430\+Coeff,auxparam,GEOS3. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000018}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{global_8hpp_ad94b35791ed1c8c96b220944eaa8c35e}\index{global.hpp@{global.hpp}!auxparam@{auxparam}}
+\index{auxparam@{auxparam}!global.hpp@{global.hpp}}
+\doxysubsubsection{\texorpdfstring{auxparam()}{auxparam()}}
+{\footnotesize\ttfamily \label{global_8hpp_ad94b35791ed1c8c96b220944eaa8c35e} 
+void auxparam (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes auxiliary parameters for the program. 
+
+This function sets the values for various auxiliary parameters used in the program. It includes the Modified Julian Date (Mjd\+\_\+\+UTC), number of coefficients (n, m), and flags for sun, moon, and planets. \Hypertarget{global_8hpp_af1504e3e975e6f502042c7fa8b7abe60}\index{global.hpp@{global.hpp}!eop19620101@{eop19620101}}
+\index{eop19620101@{eop19620101}!global.hpp@{global.hpp}}
+\doxysubsubsection{\texorpdfstring{eop19620101()}{eop19620101()}}
+{\footnotesize\ttfamily \label{global_8hpp_af1504e3e975e6f502042c7fa8b7abe60} 
+void eop19620101 (\begin{DoxyParamCaption}\item[{int}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Reads Earth Orientation Parameters (EOP) data from a file and stores it in a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The number of columns (data entries) to read from the file. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{global_8hpp_a4eb2c87949d7faa807f6b9f9acb21a92}\index{global.hpp@{global.hpp}!GEOS3@{GEOS3}}
+\index{GEOS3@{GEOS3}!global.hpp@{global.hpp}}
+\doxysubsubsection{\texorpdfstring{GEOS3()}{GEOS3()}}
+{\footnotesize\ttfamily \label{global_8hpp_a4eb2c87949d7faa807f6b9f9acb21a92} 
+void GEOS3 (\begin{DoxyParamCaption}\item[{int}]{f}{}\end{DoxyParamCaption})}
+
+
+
+Reads observation data from a file and populates the global Obs matrix. 
+
+This function reads formatted observation data from the file "{}../data/\+GEOS3.\+txt"{}. For each observation, it parses the date, time, azimuth, elevation, and distance, then stores the converted values into the Obs matrix. The function expects the file to have a specific fixed-\/width format for each line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The number of observation records to read from the file. \\
+\hline
+\end{DoxyParams}

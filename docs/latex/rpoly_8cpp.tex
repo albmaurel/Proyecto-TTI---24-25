@@ -1,0 +1,73 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/rpoly.cpp File Reference}
+\hypertarget{rpoly_8cpp}{}\label{rpoly_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/rpoly.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/rpoly.cpp}}
+
+
+This file contains the implementation of the rpoly function.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}angl.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}rpoly.\+hpp"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+Include dependency graph for rpoly.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rpoly_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{rpoly_8cpp_a03a7de2acac925b6339645bed232b0f9}\label{rpoly_8cpp_a03a7de2acac925b6339645bed232b0f9} 
+\#define {\bfseries RPOLY\+\_\+\+DEBUG}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{rpoly_8cpp_a0db139afe7587e0362614a7f16b84180}\label{rpoly_8cpp_a0db139afe7587e0362614a7f16b84180} 
+struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*} {\bfseries real\+\_\+poly\+\_\+alloc} (int deg)
+\item 
+void \mbox{\hyperlink{rpoly_8cpp_a532a23bdc8f92a332dccb59661be5db5}{real\+\_\+poly\+\_\+release}} (struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Releases the memory allocated for an \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure. \end{DoxyCompactList}\item 
+\Hypertarget{rpoly_8cpp_af09c0354f5c263de0a96c44dc0624210}\label{rpoly_8cpp_af09c0354f5c263de0a96c44dc0624210} 
+int {\bfseries real\+\_\+poly\+\_\+roots\+\_\+compute} (const double \texorpdfstring{$\ast$}{*}op, int degree, struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, double \texorpdfstring{$\ast$}{*}zeror, double \texorpdfstring{$\ast$}{*}zeroi)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the implementation of the rpoly function. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000082}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rpoly_8cpp_a532a23bdc8f92a332dccb59661be5db5}\index{rpoly.cpp@{rpoly.cpp}!real\_poly\_release@{real\_poly\_release}}
+\index{real\_poly\_release@{real\_poly\_release}!rpoly.cpp@{rpoly.cpp}}
+\doxysubsubsection{\texorpdfstring{real\_poly\_release()}{real\_poly\_release()}}
+{\footnotesize\ttfamily \label{rpoly_8cpp_a532a23bdc8f92a332dccb59661be5db5} 
+void real\+\_\+poly\+\_\+release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Releases the memory allocated for an \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure to be freed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

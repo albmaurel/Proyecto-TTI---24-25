@@ -1,0 +1,71 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/hgibbs.cpp File Reference}
+\hypertarget{hgibbs_8cpp}{}\label{hgibbs_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/hgibbs.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/hgibbs.cpp}}
+
+
+This file contains the implementation of the hgibbs function.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}hgibbs.\+hpp"{}}\newline
+Include dependency graph for hgibbs.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hgibbs_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, double, double, double, string $>$ \mbox{\hyperlink{hgibbs_8cpp_a1db91908c4316a75b6fa095eaabaf3e4}{hgibbs}} (\mbox{\hyperlink{class_matrix}{Matrix}} r1, \mbox{\hyperlink{class_matrix}{Matrix}} r2, \mbox{\hyperlink{class_matrix}{Matrix}} r3, double Mjd1, double Mjd2, double Mjd3)
+\begin{DoxyCompactList}\small\item\em Computes the velocity vector at the second position using the Herrick-\/\+Gibbs method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the implementation of the hgibbs function. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000064}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hgibbs_8cpp_a1db91908c4316a75b6fa095eaabaf3e4}\index{hgibbs.cpp@{hgibbs.cpp}!hgibbs@{hgibbs}}
+\index{hgibbs@{hgibbs}!hgibbs.cpp@{hgibbs.cpp}}
+\doxysubsubsection{\texorpdfstring{hgibbs()}{hgibbs()}}
+{\footnotesize\ttfamily \label{hgibbs_8cpp_a1db91908c4316a75b6fa095eaabaf3e4} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, double, double, double, string $>$ hgibbs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r1}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r2}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r3}{, }\item[{double}]{Mjd1}{, }\item[{double}]{Mjd2}{, }\item[{double}]{Mjd3}{}\end{DoxyParamCaption})}
+
+
+
+Computes the velocity vector at the second position using the Herrick-\/\+Gibbs method. 
+
+This function implements the Herrick-\/\+Gibbs method to estimate the velocity vector at the second position vector (r2) given three position vectors (r1, r2, r3) and their corresponding Modified Julian Dates (Mjd1, Mjd2, Mjd3). It also checks for coplanarity and angular constraints, returning diagnostic information.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & First position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em r2} & Second position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em r3} & Third position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em Mjd1} & Modified Julian Date corresponding to r1. \\
+\hline
+{\em Mjd2} & Modified Julian Date corresponding to r2. \\
+\hline
+{\em Mjd3} & Modified Julian Date corresponding to r3. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item Reference to the computed velocity vector at r2 (\doxylink{class_matrix}{Matrix}\&),
+\item Angle between r1 and r2 (double),
+\item Angle between r2 and r3 (double),
+\item Coplanarity angle (double),
+\item Error message string (string). 
+\end{DoxyItemize}
+\end{DoxyReturn}

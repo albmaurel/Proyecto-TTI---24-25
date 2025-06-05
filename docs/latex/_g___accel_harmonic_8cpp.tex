@@ -1,0 +1,58 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+G\+\_\+\+Accel\+Harmonic.cpp File Reference}
+\hypertarget{_g___accel_harmonic_8cpp}{}\label{_g___accel_harmonic_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/G\_AccelHarmonic.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/G\_AccelHarmonic.cpp}}
+
+
+Computes the gradient of the Earth\textquotesingle{}s harmonic gravity field.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+G\+\_\+\+Accel\+Harmonic.\+hpp"{}}\newline
+Include dependency graph for G\+\_\+\+Accel\+Harmonic.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_g___accel_harmonic_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_g___accel_harmonic_8cpp_a99252400abd160067d7d1bb16a727832}{G\+\_\+\+Accel\+Harmonic}} (\mbox{\hyperlink{class_matrix}{Matrix}} r, \mbox{\hyperlink{class_matrix}{Matrix}} U, int n\+\_\+max, int m\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Computes the gradient of the Earth\textquotesingle{}s harmonic gravity field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the gradient of the Earth\textquotesingle{}s harmonic gravity field. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000057}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_g___accel_harmonic_8cpp_a99252400abd160067d7d1bb16a727832}\index{G\_AccelHarmonic.cpp@{G\_AccelHarmonic.cpp}!G\_AccelHarmonic@{G\_AccelHarmonic}}
+\index{G\_AccelHarmonic@{G\_AccelHarmonic}!G\_AccelHarmonic.cpp@{G\_AccelHarmonic.cpp}}
+\doxysubsubsection{\texorpdfstring{G\_AccelHarmonic()}{G\_AccelHarmonic()}}
+{\footnotesize\ttfamily \label{_g___accel_harmonic_8cpp_a99252400abd160067d7d1bb16a727832} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& G\+\_\+\+Accel\+Harmonic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{U}{, }\item[{int}]{n\+\_\+max}{, }\item[{int}]{m\+\_\+max}{}\end{DoxyParamCaption})}
+
+
+
+Computes the gradient of the Earth\textquotesingle{}s harmonic gravity field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Satellite position vector in the true-\/of-\/date system \\
+\hline
+{\em U} & Transformation matrix to body-\/fixed system \\
+\hline
+{\em n\+\_\+max} & Gravity model degree \\
+\hline
+{\em m\+\_\+max} & Gravity model order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& -\/ Gradient (G=da/dr) in the true-\/of-\/date system 
+\end{DoxyReturn}

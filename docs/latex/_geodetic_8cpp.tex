@@ -1,0 +1,59 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Geodetic.cpp File Reference}
+\hypertarget{_geodetic_8cpp}{}\label{_geodetic_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Geodetic.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Geodetic.cpp}}
+
+
+This file contains the implementation of the Geodetic function.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Geodetic.\+hpp"{}}\newline
+Include dependency graph for Geodetic.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geodetic_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, double $>$ \mbox{\hyperlink{_geodetic_8cpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35}{Geodetic}} (\mbox{\hyperlink{class_matrix}{Matrix}} r)
+\begin{DoxyCompactList}\small\item\em Converts Cartesian coordinates to geodetic coordinates (longitude, latitude, altitude). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the implementation of the Geodetic function. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000059}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_geodetic_8cpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35}\index{Geodetic.cpp@{Geodetic.cpp}!Geodetic@{Geodetic}}
+\index{Geodetic@{Geodetic}!Geodetic.cpp@{Geodetic.cpp}}
+\doxysubsubsection{\texorpdfstring{Geodetic()}{Geodetic()}}
+{\footnotesize\ttfamily \label{_geodetic_8cpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35} 
+tuple$<$ double, double, double $>$ Geodetic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Converts Cartesian coordinates to geodetic coordinates (longitude, latitude, altitude). 
+
+This function transforms a position vector in Cartesian coordinates (ECEF) to geodetic coordinates (longitude, latitude, and altitude) based on the WGS-\/84 ellipsoid parameters. The conversion uses an iterative method to account for the Earth\textquotesingle{}s flattening.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & A 3-\/element \doxylink{class_matrix}{Matrix} representing the Cartesian coordinates (X, Y, Z) in meters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item longitude (radians)
+\item latitude (radians)
+\item altitude above the ellipsoid (meters) 
+\end{DoxyItemize}
+\end{DoxyReturn}

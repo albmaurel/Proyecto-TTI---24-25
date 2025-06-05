@@ -1,0 +1,64 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Cheb3D.cpp File Reference}
+\hypertarget{_cheb3_d_8cpp}{}\label{_cheb3_d_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Cheb3D.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Cheb3D.cpp}}
+
+
+Chebyshev approximation of 3-\/dimensional vectors.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Cheb3\+D.\+hpp"{}}\newline
+Include dependency graph for Cheb3\+D.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{_cheb3_d_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_cheb3_d_8cpp_a05a110559834c211c7a7eeac28dd8246}{Cheb3D}} (double t, int N, double Ta, double Tb, \mbox{\hyperlink{class_matrix}{Matrix}} \&Cx, \mbox{\hyperlink{class_matrix}{Matrix}} \&Cy, \mbox{\hyperlink{class_matrix}{Matrix}} \&Cz)
+\begin{DoxyCompactList}\small\item\em Chebyshev approximation of 3-\/dimensional vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Chebyshev approximation of 3-\/dimensional vectors. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000051}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_cheb3_d_8cpp_a05a110559834c211c7a7eeac28dd8246}\index{Cheb3D.cpp@{Cheb3D.cpp}!Cheb3D@{Cheb3D}}
+\index{Cheb3D@{Cheb3D}!Cheb3D.cpp@{Cheb3D.cpp}}
+\doxysubsubsection{\texorpdfstring{Cheb3D()}{Cheb3D()}}
+{\footnotesize\ttfamily \label{_cheb3_d_8cpp_a05a110559834c211c7a7eeac28dd8246} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Cheb3D (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{int}]{N}{, }\item[{double}]{Ta}{, }\item[{double}]{Tb}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{Cx}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{Cy}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{Cz}{}\end{DoxyParamCaption})}
+
+
+
+Chebyshev approximation of 3-\/dimensional vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time value to evaluate at \\
+\hline
+{\em N} & Number of coefficients \\
+\hline
+{\em Ta} & Begin interval \\
+\hline
+{\em Tb} & End interval \\
+\hline
+{\em Cx} & Coefficients of Chebyshev polynomial (x-\/coordinate) \\
+\hline
+{\em Cy} & Coefficients of Chebyshev polynomial (y-\/coordinate) \\
+\hline
+{\em Cz} & Coefficients of Chebyshev polynomial (z-\/coordinate) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Position vector at time t 
+\end{DoxyReturn}

@@ -1,0 +1,322 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/tests/tests.cpp File Reference}
+\hypertarget{tests_8cpp}{}\label{tests_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/tests/tests.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/tests/tests.cpp}}
+
+
+Source file for the tests of methods in the EFK\+\_\+\+GEOS3 project.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+R\+\_\+x.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+R\+\_\+y.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+R\+\_\+z.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Az\+El\+Pa.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Mjday.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Mjday\+\_\+\+TDB.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Position.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}timediff.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}sign\+\_\+.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Ecc\+Anom.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Nut\+Angles.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+IERS.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Time\+Update.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Accel\+Point\+Mass.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Cheb3\+D.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Mean\+Obliquity.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Frac.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Legendre.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}global.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Prec\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Nut\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Pole\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}gmst.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Accel\+Harmonic.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Eqn\+Equinox.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+LTC.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+JPL\+\_\+\+Eph\+\_\+\+DE430.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Meas\+Update.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+G\+\_\+\+Accel\+Harmonic.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}gast.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+GHAMatrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Accel.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Var\+Eqn.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Geodetic.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}hgibbs.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}gibbs.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}elements.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}angl.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}unit.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+DEInteg.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}anglesg.\+hpp"{}}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for tests.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tests_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tests_8cpp_a3e26a8d27caa386ed0ea7ce9d5b7c4ed}{FAIL}}()
+\item 
+\#define \mbox{\hyperlink{tests_8cpp_ab7bf6e2bf0262bce12f04d753fa389c9}{\+\_\+assert}}(test)
+\item 
+\#define \mbox{\hyperlink{tests_8cpp_a91b59b48448415132fb0ba63ad048ba0}{\+\_\+verify}}(test)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tests_8cpp_a3677c19fd7f5e97a58733e0a15082327}\label{tests_8cpp_a3677c19fd7f5e97a58733e0a15082327} 
+int {\bfseries m\+\_\+equals} (\mbox{\hyperlink{class_matrix}{Matrix}} A, \mbox{\hyperlink{class_matrix}{Matrix}} B, double p)
+\item 
+\Hypertarget{tests_8cpp_abf714e2ae2d143937f0d7d3379deb687}\label{tests_8cpp_abf714e2ae2d143937f0d7d3379deb687} 
+int {\bfseries m\+\_\+sum\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a2f68ad5306c9969dd9f1a60219cf1b46}\label{tests_8cpp_a2f68ad5306c9969dd9f1a60219cf1b46} 
+int {\bfseries m\+\_\+sub\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a4ab9a8c0c7ed4a936ae41b3091d59ff3}\label{tests_8cpp_a4ab9a8c0c7ed4a936ae41b3091d59ff3} 
+int {\bfseries m\+\_\+zeros\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_af82bc43fb596cb0d5e7d56f609ac3d60}\label{tests_8cpp_af82bc43fb596cb0d5e7d56f609ac3d60} 
+int {\bfseries m\+\_\+zeros\+\_\+02} ()
+\item 
+\Hypertarget{tests_8cpp_a8dfba81ba6dbfa31005ffce02c7fd0eb}\label{tests_8cpp_a8dfba81ba6dbfa31005ffce02c7fd0eb} 
+int {\bfseries m\+\_\+mul\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_afdc481dea95dec81570612a575354cb1}\label{tests_8cpp_afdc481dea95dec81570612a575354cb1} 
+int {\bfseries m\+\_\+div\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_af941b5f6d4761a4ef7ec4a01db10675a}\label{tests_8cpp_af941b5f6d4761a4ef7ec4a01db10675a} 
+int {\bfseries m\+\_\+eye\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a2ab939ab4a3d3ddaefc51f132143e67a}\label{tests_8cpp_a2ab939ab4a3d3ddaefc51f132143e67a} 
+int {\bfseries m\+\_\+transpose\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ad07ed5d284f451339d9300d39989603f}\label{tests_8cpp_ad07ed5d284f451339d9300d39989603f} 
+int {\bfseries m\+\_\+inv\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ae27838d3911fa4be0aa04368df54e7a8}\label{tests_8cpp_ae27838d3911fa4be0aa04368df54e7a8} 
+int {\bfseries m\+\_\+add\+\_\+scalar\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a40126a870c1382a14b45df59c18cc10c}\label{tests_8cpp_a40126a870c1382a14b45df59c18cc10c} 
+int {\bfseries m\+\_\+sub\+\_\+scalar\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_af7950b397fab26a8d4e6ac2b52eaf8fa}\label{tests_8cpp_af7950b397fab26a8d4e6ac2b52eaf8fa} 
+int {\bfseries m\+\_\+mul\+\_\+scalar\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aacc1536e0be133bd4bf3101fb979331b}\label{tests_8cpp_aacc1536e0be133bd4bf3101fb979331b} 
+int {\bfseries m\+\_\+div\+\_\+scalar\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a849eb16f7c09caa330ef57a5ba224a68}\label{tests_8cpp_a849eb16f7c09caa330ef57a5ba224a68} 
+int {\bfseries m\+\_\+norm\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a80eb336548d0522d418cc85aa79adbe9}\label{tests_8cpp_a80eb336548d0522d418cc85aa79adbe9} 
+int {\bfseries m\+\_\+dot\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a92c4710d9227d409c39924406966293a}\label{tests_8cpp_a92c4710d9227d409c39924406966293a} 
+int {\bfseries m\+\_\+cross\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ac0e5fe3f0fab41e456b43bcce3843f39}\label{tests_8cpp_ac0e5fe3f0fab41e456b43bcce3843f39} 
+int {\bfseries m\+\_\+extract\+\_\+vector\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aff63af41ea42d3c3a0891dc11d13628c}\label{tests_8cpp_aff63af41ea42d3c3a0891dc11d13628c} 
+int {\bfseries m\+\_\+union\+\_\+vector\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ae424a1e545b7b7cdfde9483fac8b9d37}\label{tests_8cpp_ae424a1e545b7b7cdfde9483fac8b9d37} 
+int {\bfseries m\+\_\+extract\+\_\+row\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a18077a4b6de87f4e24c8ef9034700ea9}\label{tests_8cpp_a18077a4b6de87f4e24c8ef9034700ea9} 
+int {\bfseries m\+\_\+extract\+\_\+column\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a281517426974f02495d940213e558ff8}\label{tests_8cpp_a281517426974f02495d940213e558ff8} 
+int {\bfseries m\+\_\+assign\+\_\+row\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aba1fe36fec979cdb9c9e00ab8c319bf8}\label{tests_8cpp_aba1fe36fec979cdb9c9e00ab8c319bf8} 
+int {\bfseries m\+\_\+assign\+\_\+column\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aeb989bb321d9b709dda0a090f457d655}\label{tests_8cpp_aeb989bb321d9b709dda0a090f457d655} 
+int {\bfseries R\+\_\+x\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a58eb6d40ddf60f6702a6b3ea52b43ede}\label{tests_8cpp_a58eb6d40ddf60f6702a6b3ea52b43ede} 
+int {\bfseries R\+\_\+y\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a98a7d08cf45b95d365a9b0c77cec7b96}\label{tests_8cpp_a98a7d08cf45b95d365a9b0c77cec7b96} 
+int {\bfseries R\+\_\+z\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a29c2bc700b92765e76e4c0552966a7f3}\label{tests_8cpp_a29c2bc700b92765e76e4c0552966a7f3} 
+int {\bfseries Az\+El\+Pa\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a214e18e05fb0b83134a75f7238188244}\label{tests_8cpp_a214e18e05fb0b83134a75f7238188244} 
+int {\bfseries Mjday\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_adf0ba5a3200b14b5fdad81267b794f8c}\label{tests_8cpp_adf0ba5a3200b14b5fdad81267b794f8c} 
+int {\bfseries Mjd\+\_\+\+TDB\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a5d40baacb1f4077496aff5d20392fee6}\label{tests_8cpp_a5d40baacb1f4077496aff5d20392fee6} 
+int {\bfseries Position\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_acdac5ff4c40b89a522ae854e8416696b}\label{tests_8cpp_acdac5ff4c40b89a522ae854e8416696b} 
+int {\bfseries timediff\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ad33e21703851db21b8ac41ca102bd52f}\label{tests_8cpp_ad33e21703851db21b8ac41ca102bd52f} 
+int {\bfseries sign\+\_\+\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a16c2088e5f4b2a17cb0723da7a688747}\label{tests_8cpp_a16c2088e5f4b2a17cb0723da7a688747} 
+int {\bfseries Time\+Update\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a04dd8280cfafda306d5acf944f617cf0}\label{tests_8cpp_a04dd8280cfafda306d5acf944f617cf0} 
+int {\bfseries Accel\+Point\+Mass\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ab788fc6a1f5c2dc05d97a516cb34ea55}\label{tests_8cpp_ab788fc6a1f5c2dc05d97a516cb34ea55} 
+int {\bfseries Cheb3\+D\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a9c33600327ab5fcfff81dd8604feeb0b}\label{tests_8cpp_a9c33600327ab5fcfff81dd8604feeb0b} 
+int {\bfseries Frac\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aedd4e55d0be11380908a5f58ef6ac09b}\label{tests_8cpp_aedd4e55d0be11380908a5f58ef6ac09b} 
+int {\bfseries Mean\+Obliquity\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ac482aba5ccf79b45ddd3ad6e951cfe03}\label{tests_8cpp_ac482aba5ccf79b45ddd3ad6e951cfe03} 
+int {\bfseries Legendre\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a89b8af920b04f0bf701678cbeae805f0}\label{tests_8cpp_a89b8af920b04f0bf701678cbeae805f0} 
+int {\bfseries Ecc\+Anom\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a072b5c5984615bbfd619e7a522291acb}\label{tests_8cpp_a072b5c5984615bbfd619e7a522291acb} 
+int {\bfseries Nut\+Angles\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a74d3191841fde339c84feae910c72219}\label{tests_8cpp_a74d3191841fde339c84feae910c72219} 
+int {\bfseries iers\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a75c9533ce33b2c928ca6ffeb5d5d0ed5}\label{tests_8cpp_a75c9533ce33b2c928ca6ffeb5d5d0ed5} 
+int {\bfseries iers\+\_\+02} ()
+\item 
+\Hypertarget{tests_8cpp_a19896b6cbe9066e8a38578ff2b3d1b52}\label{tests_8cpp_a19896b6cbe9066e8a38578ff2b3d1b52} 
+int {\bfseries nutmatrix\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_afc166b7f7ef1d635be492d153fec93f3}\label{tests_8cpp_afc166b7f7ef1d635be492d153fec93f3} 
+int {\bfseries polemat\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a40525416a3310819050f50901ed7e85b}\label{tests_8cpp_a40525416a3310819050f50901ed7e85b} 
+int {\bfseries precmat\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a161c4e14b5bd85007b2e05d60dc5f9cd}\label{tests_8cpp_a161c4e14b5bd85007b2e05d60dc5f9cd} 
+int {\bfseries gmst\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a70fc2b3cc0b1a0abf8ec14bd496a6506}\label{tests_8cpp_a70fc2b3cc0b1a0abf8ec14bd496a6506} 
+int {\bfseries accelharmonic\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aa7916dd992a67b3a01040b7767255b7e}\label{tests_8cpp_aa7916dd992a67b3a01040b7767255b7e} 
+int {\bfseries Eqn\+Equinox\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a1d10c50138effaa249aab2f6bc65e7b1}\label{tests_8cpp_a1d10c50138effaa249aab2f6bc65e7b1} 
+int {\bfseries LTC\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_afe0fa6a4d3a3f1927859ea5216816730}\label{tests_8cpp_afe0fa6a4d3a3f1927859ea5216816730} 
+int {\bfseries JPL\+\_\+\+Eph\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ab9e86dc21278f2259d50189de91db3d2}\label{tests_8cpp_ab9e86dc21278f2259d50189de91db3d2} 
+int {\bfseries gast\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_abe588b15679d3ecf33f7e2826d53fa51}\label{tests_8cpp_abe588b15679d3ecf33f7e2826d53fa51} 
+int {\bfseries measupdate\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a9369481a5aa30ef0aa21803f93a3b0ea}\label{tests_8cpp_a9369481a5aa30ef0aa21803f93a3b0ea} 
+int {\bfseries g\+\_\+accelharmonic\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_aef6e1e3472cc4668672211f02bc22fad}\label{tests_8cpp_aef6e1e3472cc4668672211f02bc22fad} 
+int {\bfseries GHAMatrix\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a702bc27647ccba0dddee3125e94cc947}\label{tests_8cpp_a702bc27647ccba0dddee3125e94cc947} 
+int {\bfseries accel\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a7ef2bbe69e8b57bc945f4bdad24eab1b}\label{tests_8cpp_a7ef2bbe69e8b57bc945f4bdad24eab1b} 
+int {\bfseries vareqn\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_adf1b96c3eae4bca7948d6a066dd14335}\label{tests_8cpp_adf1b96c3eae4bca7948d6a066dd14335} 
+int {\bfseries DEinteg\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_afa2cfc2d8bb150e5c6d458abd8539586}\label{tests_8cpp_afa2cfc2d8bb150e5c6d458abd8539586} 
+int {\bfseries geodetic\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a3035c1d53074fff3061b094ad5efde19}\label{tests_8cpp_a3035c1d53074fff3061b094ad5efde19} 
+int {\bfseries angl\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a4c7872c4348612329e716dd90e5f25df}\label{tests_8cpp_a4c7872c4348612329e716dd90e5f25df} 
+int {\bfseries unit\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a0e221d0fb85708adff3646b7b78d1b2e}\label{tests_8cpp_a0e221d0fb85708adff3646b7b78d1b2e} 
+int {\bfseries elements\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_afa20f97f25cbb17232e9ad66fba7111b}\label{tests_8cpp_afa20f97f25cbb17232e9ad66fba7111b} 
+int {\bfseries gibbs\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a5f3d17ff5c5b55e29c2d33907af1ddb4}\label{tests_8cpp_a5f3d17ff5c5b55e29c2d33907af1ddb4} 
+int {\bfseries hgibbs\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_ac3f8bc9c18377da47436422cb58b8ca5}\label{tests_8cpp_ac3f8bc9c18377da47436422cb58b8ca5} 
+int {\bfseries anglesg\+\_\+01} ()
+\item 
+\Hypertarget{tests_8cpp_a438723717e25f3ab29c50c261ed54996}\label{tests_8cpp_a438723717e25f3ab29c50c261ed54996} 
+int {\bfseries all\+\_\+tests} ()
+\item 
+\Hypertarget{tests_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{tests_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int {\bfseries main} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{tests_8cpp_a91aa4203331e915f2d20dd26579791ee}\label{tests_8cpp_a91aa4203331e915f2d20dd26579791ee} 
+int {\bfseries tests\+\_\+run} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Source file for the tests of methods in the EFK\+\_\+\+GEOS3 project. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizabal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000089}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{tests_8cpp_ab7bf6e2bf0262bce12f04d753fa389c9}\index{tests.cpp@{tests.cpp}!\_assert@{\_assert}}
+\index{\_assert@{\_assert}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{\_assert}{\_assert}}
+{\footnotesize\ttfamily \label{tests_8cpp_ab7bf6e2bf0262bce12f04d753fa389c9} 
+\#define \+\_\+assert(\begin{DoxyParamCaption}\item[{}]{test}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do}\ \{\ \textcolor{keywordflow}{if}\ (!(test))\ \{\ FAIL();\ \textcolor{keywordflow}{return}\ 1;\ \}\ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\Hypertarget{tests_8cpp_a91b59b48448415132fb0ba63ad048ba0}\index{tests.cpp@{tests.cpp}!\_verify@{\_verify}}
+\index{\_verify@{\_verify}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{\_verify}{\_verify}}
+{\footnotesize\ttfamily \label{tests_8cpp_a91b59b48448415132fb0ba63ad048ba0} 
+\#define \+\_\+verify(\begin{DoxyParamCaption}\item[{}]{test}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do}\ \{\ \textcolor{keywordtype}{int}\ r=test();\ tests\_run++;\ \textcolor{keywordflow}{if}(r)\ \textcolor{keywordflow}{return}\ r;\ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\Hypertarget{tests_8cpp_a3e26a8d27caa386ed0ea7ce9d5b7c4ed}\index{tests.cpp@{tests.cpp}!FAIL@{FAIL}}
+\index{FAIL@{FAIL}!tests.cpp@{tests.cpp}}
+\doxysubsubsection{\texorpdfstring{FAIL}{FAIL}}
+{\footnotesize\ttfamily \label{tests_8cpp_a3e26a8d27caa386ed0ea7ce9d5b7c4ed} 
+\#define FAIL(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{printf(\textcolor{stringliteral}{"{}\(\backslash\)nfailure\ in\ \%s()\ line\ \%d\(\backslash\)n"{}},\ \_\_func\_\_,\ \_\_LINE\_\_)}
+
+\end{DoxyCode}

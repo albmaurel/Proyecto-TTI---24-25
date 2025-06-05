@@ -25,19 +25,30 @@
 var NAVTREE =
 [
   [ "Proyecto TT1", "index.html", [
+    [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ]
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
+      ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_accel_8hpp_source.html"
+"_accel_8cpp.html",
+"matrix_8hpp.html#a3ffc7c15ca5000d753fc575ce42bb528"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -1,0 +1,62 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Accel.cpp File Reference}
+\hypertarget{_accel_8cpp}{}\label{_accel_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Accel.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Accel.cpp}}
+
+
+Computes the acceleration of an Earth orbiting satellite.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Accel.\+hpp"{}}\newline
+Include dependency graph for Accel.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_accel_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_accel_8cpp_a90a9d07270cea0a2accb38d118fff177}{Accel}} (double x, \mbox{\hyperlink{class_matrix}{Matrix}} Y)
+\begin{DoxyCompactList}\small\item\em Computes the acceleration of an Earth orbiting satellite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the acceleration of an Earth orbiting satellite. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000045}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_accel_8cpp_a90a9d07270cea0a2accb38d118fff177}\index{Accel.cpp@{Accel.cpp}!Accel@{Accel}}
+\index{Accel@{Accel}!Accel.cpp@{Accel.cpp}}
+\doxysubsubsection{\texorpdfstring{Accel()}{Accel()}}
+{\footnotesize\ttfamily \label{_accel_8cpp_a90a9d07270cea0a2accb38d118fff177} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Accel (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Y}{}\end{DoxyParamCaption})}
+
+
+
+Computes the acceleration of an Earth orbiting satellite. 
+
+Due to\+:
+\begin{DoxyItemize}
+\item The Earth\textquotesingle{}s harmonic gravity field
+\item The Gravitational perturbations of Sun and Moon
+\item The Solar radiation pressure
+\item The Atmospheric drag
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Terrestrial Time (Modified Julian Date) \\
+\hline
+{\em Y} & Satellite state vector in the ICRF/\+EME2000 system \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Acceleration (a=d\texorpdfstring{$^\wedge$}{\string^}2r/dt\texorpdfstring{$^\wedge$}{\string^}2) in the ICRF/\+EME2000 system 
+\end{DoxyReturn}

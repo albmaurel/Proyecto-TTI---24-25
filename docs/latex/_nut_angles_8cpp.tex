@@ -1,0 +1,56 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Nut\+Angles.cpp File Reference}
+\hypertarget{_nut_angles_8cpp}{}\label{_nut_angles_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/NutAngles.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/NutAngles.cpp}}
+
+
+Nutation in longitude and obliquity.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Nut\+Angles.\+hpp"{}}\newline
+Include dependency graph for Nut\+Angles.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_nut_angles_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double $>$ \mbox{\hyperlink{_nut_angles_8cpp_a8028f5f2ac1a0a2126d8edf6a5ed80c6}{Nut\+Angles}} (double Mjd\+\_\+\+TT)
+\begin{DoxyCompactList}\small\item\em Nutation in longitude and obliquity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Nutation in longitude and obliquity. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000074}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_nut_angles_8cpp_a8028f5f2ac1a0a2126d8edf6a5ed80c6}\index{NutAngles.cpp@{NutAngles.cpp}!NutAngles@{NutAngles}}
+\index{NutAngles@{NutAngles}!NutAngles.cpp@{NutAngles.cpp}}
+\doxysubsubsection{\texorpdfstring{NutAngles()}{NutAngles()}}
+{\footnotesize\ttfamily \label{_nut_angles_8cpp_a8028f5f2ac1a0a2126d8edf6a5ed80c6} 
+tuple$<$ double, double $>$ Nut\+Angles (\begin{DoxyParamCaption}\item[{double}]{Mjd\+\_\+\+TT}{}\end{DoxyParamCaption})}
+
+
+
+Nutation in longitude and obliquity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mjd\+\_\+\+TT} & -\/Modified Julian Date (Terrestrial Time) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item dpsi\+: Nutation Angle in longitude (in radians).
+\item deps\+: Nutation Angle in obliquity (in radians). 
+\end{DoxyItemize}
+\end{DoxyReturn}

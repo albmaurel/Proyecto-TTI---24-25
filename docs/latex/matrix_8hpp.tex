@@ -1,0 +1,393 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/matrix.hpp File Reference}
+\hypertarget{matrix_8hpp}{}\label{matrix_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/matrix.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/matrix.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de una clase que representa una matriz y vectores.  
+
+
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+Include dependency graph for matrix.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{matrix_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{matrix_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_matrix}{Matrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{matrix_8hpp_a6ce0bc529fe2ee6fb2d0eb8acbdc1e92}{operator$<$$<$}} (ostream \&o, \mbox{\hyperlink{class_matrix}{Matrix}} \&m)
+\begin{DoxyCompactList}\small\item\em Overloads the output stream operator to print the contents of a \doxylink{class_matrix}{Matrix} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_a56d60ea1f08402246a7cfd477d69a618}{zeros}} (const int n\+\_\+row, const int n\+\_\+column)
+\begin{DoxyCompactList}\small\item\em Creates a matrix filled with zeros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_ab2f05195ce5c6c4b6e00df63a50c329d}{zeros}} (const int n)
+\begin{DoxyCompactList}\small\item\em Creates a matrix initialized with zeros. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_a105acb24d0209ed7409a581b57f1fd28}{eye}} (int size)
+\begin{DoxyCompactList}\small\item\em Creates an identity matrix of the specified size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_acbd9778b697f9ad3da64ef53b850e2c9}{transpose}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m)
+\begin{DoxyCompactList}\small\item\em Transposes the given matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_ad8d8519e7f94df41a4c5b535b4899222}{inv}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m)
+\begin{DoxyCompactList}\small\item\em Computes the inverse of a square matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8hpp_a9ef61d6bda97c664dedff5c1ab24f39e}{norm}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&a)
+\begin{DoxyCompactList}\small\item\em Computes the Euclidean norm of a matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{matrix_8hpp_aaa3848c8c63b7aac4dbb3f76d2028dbf}{dot}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&a, \mbox{\hyperlink{class_matrix}{Matrix}} \&b)
+\begin{DoxyCompactList}\small\item\em Computes the dot product of two matrices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_ab0d9f507de46974747e11fb59b72d455}{cross}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&a, \mbox{\hyperlink{class_matrix}{Matrix}} \&b)
+\begin{DoxyCompactList}\small\item\em Computes the cross product of two 3-\/dimensional matrices. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_a5993d6cfc4d33d6c5d8bc3ffeb8362db}{extract\+\_\+vector}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m, const int n1, const int n2)
+\begin{DoxyCompactList}\small\item\em Extracts a subvector from the given matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_add9318968fde875741d53ec5fbc3ae94}{union\+\_\+vector}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m1, \mbox{\hyperlink{class_matrix}{Matrix}} \&m2)
+\begin{DoxyCompactList}\small\item\em Combines two vector matrices into a single vector matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_af6c38e4f9def080f0b8906f3b26ff245}{extract\+\_\+column}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m, const int column)
+\begin{DoxyCompactList}\small\item\em Extracts a specific column from a matrix and returns it as a new matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_ab3041f94720b2f13c33892d6a459100d}{extract\+\_\+row}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m, const int row)
+\begin{DoxyCompactList}\small\item\em Extracts a specific row from a matrix and returns it as a new matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_a3ffc7c15ca5000d753fc575ce42bb528}{assign\+\_\+column}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m, \mbox{\hyperlink{class_matrix}{Matrix}} \&v, const int column)
+\begin{DoxyCompactList}\small\item\em Assigns a column of a matrix with values from a vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{matrix_8hpp_a56ac6e462f0422a4ac5f624d889a6838}{assign\+\_\+row}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&m, \mbox{\hyperlink{class_matrix}{Matrix}} \&v, const int row)
+\begin{DoxyCompactList}\small\item\em Assigns a row of a matrix with the values from another matrix (vector). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de una clase que representa una matriz y vectores. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000025}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{matrix_8hpp_a3ffc7c15ca5000d753fc575ce42bb528}\index{matrix.hpp@{matrix.hpp}!assign\_column@{assign\_column}}
+\index{assign\_column@{assign\_column}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{assign\_column()}{assign\_column()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a3ffc7c15ca5000d753fc575ce42bb528} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& assign\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{v}{, }\item[{const int}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a column of a matrix with values from a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to which the column will be assigned. \\
+\hline
+{\em v} & The vector containing the values to assign to the column. \\
+\hline
+{\em column} & The index of the column to be assigned (1-\/based index). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to the modified matrix. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_a56ac6e462f0422a4ac5f624d889a6838}\index{matrix.hpp@{matrix.hpp}!assign\_row@{assign\_row}}
+\index{assign\_row@{assign\_row}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{assign\_row()}{assign\_row()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a56ac6e462f0422a4ac5f624d889a6838} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& assign\+\_\+row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{v}{, }\item[{const int}]{row}{}\end{DoxyParamCaption})}
+
+
+
+Assigns a row of a matrix with the values from another matrix (vector). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix whose row will be modified. \\
+\hline
+{\em v} & The matrix (vector) containing the values to assign to the row. \\
+\hline
+{\em row} & The row index in the matrix {\ttfamily m} to be assigned (1-\/based index). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to the modified matrix {\ttfamily m}. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_ab0d9f507de46974747e11fb59b72d455}\index{matrix.hpp@{matrix.hpp}!cross@{cross}}
+\index{cross@{cross}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_ab0d9f507de46974747e11fb59b72d455} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{a}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Computes the cross product of two 3-\/dimensional matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first matrix operand. \\
+\hline
+{\em b} & The second matrix operand. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to a new matrix containing the result of the cross product.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The returned matrix is dynamically allocated and must be manually deleted to avoid memory leaks. 
+\end{DoxyNote}
+\Hypertarget{matrix_8hpp_aaa3848c8c63b7aac4dbb3f76d2028dbf}\index{matrix.hpp@{matrix.hpp}!dot@{dot}}
+\index{dot@{dot}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{dot()}{dot()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_aaa3848c8c63b7aac4dbb3f76d2028dbf} 
+double dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{a}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{b}{}\end{DoxyParamCaption})}
+
+
+
+Computes the dot product of two matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Reference to the first matrix. \\
+\hline
+{\em b} & Reference to the second matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The dot product of the two matrices as a double. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_af6c38e4f9def080f0b8906f3b26ff245}\index{matrix.hpp@{matrix.hpp}!extract\_column@{extract\_column}}
+\index{extract\_column@{extract\_column}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{extract\_column()}{extract\_column()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_af6c38e4f9def080f0b8906f3b26ff245} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& extract\+\_\+column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{, }\item[{const int}]{column}{}\end{DoxyParamCaption})}
+
+
+
+Extracts a specific column from a matrix and returns it as a new matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The input matrix from which the column will be extracted. \\
+\hline
+{\em column} & The column number to extract (1-\/based index). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to a new matrix containing the extracted column. Note\+: The returned matrix is dynamically allocated and must be managed properly to avoid memory leaks. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_ab3041f94720b2f13c33892d6a459100d}\index{matrix.hpp@{matrix.hpp}!extract\_row@{extract\_row}}
+\index{extract\_row@{extract\_row}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{extract\_row()}{extract\_row()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_ab3041f94720b2f13c33892d6a459100d} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& extract\+\_\+row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{, }\item[{const int}]{row}{}\end{DoxyParamCaption})}
+
+
+
+Extracts a specific row from a matrix and returns it as a new matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix from which the row will be extracted. \\
+\hline
+{\em row} & The index of the row to extract (1-\/based index). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to a new matrix containing the extracted row. Note\+: The returned reference points to dynamically allocated memory. The caller is responsible for managing the memory to avoid leaks. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_a5993d6cfc4d33d6c5d8bc3ffeb8362db}\index{matrix.hpp@{matrix.hpp}!extract\_vector@{extract\_vector}}
+\index{extract\_vector@{extract\_vector}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{extract\_vector()}{extract\_vector()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a5993d6cfc4d33d6c5d8bc3ffeb8362db} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& extract\+\_\+vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{, }\item[{const int}]{n1}{, }\item[{const int}]{n2}{}\end{DoxyParamCaption})}
+
+
+
+Extracts a subvector from the given matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Reference to the source \doxylink{class_matrix}{Matrix} object. \\
+\hline
+{\em n1} & Starting index of the subvector (inclusive, 1-\/based). \\
+\hline
+{\em n2} & Ending index of the subvector (inclusive, 1-\/based). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to a newly allocated \doxylink{class_matrix}{Matrix} object containing the extracted subvector. The caller is responsible for managing the memory of the returned object. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_a105acb24d0209ed7409a581b57f1fd28}\index{matrix.hpp@{matrix.hpp}!eye@{eye}}
+\index{eye@{eye}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{eye()}{eye()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a105acb24d0209ed7409a581b57f1fd28} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& eye (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Creates an identity matrix of the specified size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & The size of the identity matrix (number of rows and columns). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the created identity matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The returned matrix is dynamically allocated and must be manually deleted to avoid memory leaks. 
+\end{DoxyNote}
+\Hypertarget{matrix_8hpp_ad8d8519e7f94df41a4c5b535b4899222}\index{matrix.hpp@{matrix.hpp}!inv@{inv}}
+\index{inv@{inv}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{inv()}{inv()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_ad8d8519e7f94df41a4c5b535b4899222} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& inv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Computes the inverse of a square matrix. 
+
+This function calculates the inverse of the given square matrix using Gaussian elimination. If the matrix is not square or is singular, the function will terminate the program with an error message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The square matrix to be inverted. The matrix must have the same number of rows and columns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to a new matrix object containing the inverse of the input matrix.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function dynamically allocates memory for the inverse matrix and returns it. The caller is responsible for managing the memory of the returned matrix to avoid memory leaks. 
+\end{DoxyNote}
+\Hypertarget{matrix_8hpp_a9ef61d6bda97c664dedff5c1ab24f39e}\index{matrix.hpp@{matrix.hpp}!norm@{norm}}
+\index{norm@{norm}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a9ef61d6bda97c664dedff5c1ab24f39e} 
+double norm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{a}{}\end{DoxyParamCaption})}
+
+
+
+Computes the Euclidean norm of a matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Reference to a \doxylink{class_matrix}{Matrix} object for which the norm is calculated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Euclidean norm of the matrix as a double. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_a6ce0bc529fe2ee6fb2d0eb8acbdc1e92}\index{matrix.hpp@{matrix.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a6ce0bc529fe2ee6fb2d0eb8acbdc1e92} 
+ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{o}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Overloads the output stream operator to print the contents of a \doxylink{class_matrix}{Matrix} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em o} & The output stream to which the matrix will be written. \\
+\hline
+{\em m} & The \doxylink{class_matrix}{Matrix} object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the output stream after writing the matrix. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_acbd9778b697f9ad3da64ef53b850e2c9}\index{matrix.hpp@{matrix.hpp}!transpose@{transpose}}
+\index{transpose@{transpose}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_acbd9778b697f9ad3da64ef53b850e2c9} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& transpose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m}{}\end{DoxyParamCaption})}
+
+
+
+Transposes the given matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & The matrix to be transposed. It is passed by reference. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to the newly created transposed matrix. Note\+: The returned reference points to a dynamically allocated matrix, and it is the caller\textquotesingle{}s responsibility to manage its memory. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_add9318968fde875741d53ec5fbc3ae94}\index{matrix.hpp@{matrix.hpp}!union\_vector@{union\_vector}}
+\index{union\_vector@{union\_vector}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{union\_vector()}{union\_vector()}}
+{\footnotesize\ttfamily \label{matrix_8hpp_add9318968fde875741d53ec5fbc3ae94} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& union\+\_\+vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m1}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{m2}{}\end{DoxyParamCaption})}
+
+
+
+Combines two vector matrices into a single vector matrix. 
+
+This function takes two matrices, which must be vectors (either a single row or a single column), and concatenates them into a new vector matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m1} & The first vector matrix to be combined. \\
+\hline
+{\em m2} & The second vector matrix to be combined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the newly created vector matrix containing the elements of both input matrices.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The caller is responsible for managing the memory of the returned matrix, as it is dynamically allocated. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If either of the input matrices is not a vector, the program will terminate with an error message. 
+\end{DoxyWarning}
+\Hypertarget{matrix_8hpp_ab2f05195ce5c6c4b6e00df63a50c329d}\index{matrix.hpp@{matrix.hpp}!zeros@{zeros}}
+\index{zeros@{zeros}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{zeros()}{zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{matrix_8hpp_ab2f05195ce5c6c4b6e00df63a50c329d} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& zeros (\begin{DoxyParamCaption}\item[{const int}]{v\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Creates a matrix initialized with zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v\+\_\+size} & The size of the matrix to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the newly created matrix filled with zeros. 
+\end{DoxyReturn}
+\Hypertarget{matrix_8hpp_a56d60ea1f08402246a7cfd477d69a618}\index{matrix.hpp@{matrix.hpp}!zeros@{zeros}}
+\index{zeros@{zeros}!matrix.hpp@{matrix.hpp}}
+\doxysubsubsection{\texorpdfstring{zeros()}{zeros()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{matrix_8hpp_a56d60ea1f08402246a7cfd477d69a618} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& zeros (\begin{DoxyParamCaption}\item[{const int}]{n\+\_\+row}{, }\item[{const int}]{n\+\_\+column}{}\end{DoxyParamCaption})}
+
+
+
+Creates a matrix filled with zeros. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+row} & Number of rows in the matrix. \\
+\hline
+{\em n\+\_\+column} & Number of columns in the matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Reference to the newly created matrix filled with zeros. Note\+: The returned reference points to a dynamically allocated object. The caller is responsible for managing its memory. 
+\end{DoxyReturn}

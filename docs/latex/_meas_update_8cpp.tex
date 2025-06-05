@@ -1,0 +1,69 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Meas\+Update.cpp File Reference}
+\hypertarget{_meas_update_8cpp}{}\label{_meas_update_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/MeasUpdate.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/MeasUpdate.cpp}}
+
+
+Performs a measurement update step in a Kalman filter.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Meas\+Update.\+hpp"{}}\newline
+Include dependency graph for Meas\+Update.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{_meas_update_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_meas_update_8cpp_a7d681f8dbcf8357623182f9f56ff815b}{Meas\+Update}} (\mbox{\hyperlink{class_matrix}{Matrix}} x, double z, double g, double s, \mbox{\hyperlink{class_matrix}{Matrix}} G, \mbox{\hyperlink{class_matrix}{Matrix}} P, int n)
+\begin{DoxyCompactList}\small\item\em Performs a measurement update step in a Kalman filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Performs a measurement update step in a Kalman filter. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000071}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_meas_update_8cpp_a7d681f8dbcf8357623182f9f56ff815b}\index{MeasUpdate.cpp@{MeasUpdate.cpp}!MeasUpdate@{MeasUpdate}}
+\index{MeasUpdate@{MeasUpdate}!MeasUpdate.cpp@{MeasUpdate.cpp}}
+\doxysubsubsection{\texorpdfstring{MeasUpdate()}{MeasUpdate()}}
+{\footnotesize\ttfamily \label{_meas_update_8cpp_a7d681f8dbcf8357623182f9f56ff815b} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ Meas\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{x}{, }\item[{double}]{z}{, }\item[{double}]{g}{, }\item[{double}]{s}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{G}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{P}{, }\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Performs a measurement update step in a Kalman filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The current state vector. \\
+\hline
+{\em z} & The measurement value. \\
+\hline
+{\em g} & The predicted measurement value. \\
+\hline
+{\em s} & The standard deviation of the measurement noise. \\
+\hline
+{\em G} & The measurement matrix. \\
+\hline
+{\em P} & The current state covariance matrix. \\
+\hline
+{\em n} & The dimension of the state vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item The Kalman gain matrix (\doxylink{class_matrix}{Matrix}\& K).
+\item The updated state vector (\doxylink{class_matrix}{Matrix}\& x2).
+\item The updated state covariance matrix (\doxylink{class_matrix}{Matrix}\& P2). 
+\end{DoxyItemize}
+\end{DoxyReturn}

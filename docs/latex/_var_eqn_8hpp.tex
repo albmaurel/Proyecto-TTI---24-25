@@ -1,0 +1,72 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Var\+Eqn.hpp File Reference}
+\hypertarget{_var_eqn_8hpp}{}\label{_var_eqn_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/VarEqn.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/VarEqn.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Var\+Eqn.  
+
+
+{\ttfamily \#include "{}../include/matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/global.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+IERS.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/timediff.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+Prec\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+Nut\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+GHAMatrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+Accel\+Harmonic.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+Pole\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}../include/\+G\+\_\+\+Accel\+Harmonic.\+hpp"{}}\newline
+Include dependency graph for Var\+Eqn.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_var_eqn_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_var_eqn_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_var_eqn_8hpp_a502bdb5c8e9c335cd3fc942d1816f2e2}{Var\+Eqn}} (double x, \mbox{\hyperlink{class_matrix}{Matrix}} y\+Phi)
+\begin{DoxyCompactList}\small\item\em Computes the variational equations, i.\+e. the derivative of the state vector and the state transition matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Var\+Eqn. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000044}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_var_eqn_8hpp_a502bdb5c8e9c335cd3fc942d1816f2e2}\index{VarEqn.hpp@{VarEqn.hpp}!VarEqn@{VarEqn}}
+\index{VarEqn@{VarEqn}!VarEqn.hpp@{VarEqn.hpp}}
+\doxysubsubsection{\texorpdfstring{VarEqn()}{VarEqn()}}
+{\footnotesize\ttfamily \label{_var_eqn_8hpp_a502bdb5c8e9c335cd3fc942d1816f2e2} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Var\+Eqn (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{y\+Phi}{}\end{DoxyParamCaption})}
+
+
+
+Computes the variational equations, i.\+e. the derivative of the state vector and the state transition matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Time since epoch in \mbox{[}s\mbox{]} \\
+\hline
+{\em y\+Phi} & (6+36)-\/dim vector comprising the state vector (y) and the state transition matrix (Phi) in column wise storage order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& y\+Phip, Derivative of y\+Phi 
+\end{DoxyReturn}

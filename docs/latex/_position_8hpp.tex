@@ -1,0 +1,67 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Position.hpp File Reference}
+\hypertarget{_position_8hpp}{}\label{_position_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Position.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Position.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Position.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for Position.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_position_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_position_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_position_8hpp_ad3ff3004edb305ae3aed0230373b848e}{Position}} (double lon, double lat, double h)
+\begin{DoxyCompactList}\small\item\em Calculate geocentric position from geodetic coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Position. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000033}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_position_8hpp_ad3ff3004edb305ae3aed0230373b848e}\index{Position.hpp@{Position.hpp}!Position@{Position}}
+\index{Position@{Position}!Position.hpp@{Position.hpp}}
+\doxysubsubsection{\texorpdfstring{Position()}{Position()}}
+{\footnotesize\ttfamily \label{_position_8hpp_ad3ff3004edb305ae3aed0230373b848e} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Position (\begin{DoxyParamCaption}\item[{double}]{lon}{, }\item[{double}]{lat}{, }\item[{double}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Calculate geocentric position from geodetic coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lon} & Longitude in radians \\
+\hline
+{\em lat} & Latitude in radians ~\newline
+ \\
+\hline
+{\em h} & Altitude in meters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Position vector in Earth-\/fixed frame 
+\end{DoxyReturn}

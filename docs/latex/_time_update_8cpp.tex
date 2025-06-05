@@ -1,0 +1,56 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Time\+Update.cpp File Reference}
+\hypertarget{_time_update_8cpp}{}\label{_time_update_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/TimeUpdate.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/TimeUpdate.cpp}}
+
+
+Performs the time update step for a covariance matrix in a Kalman filter.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Time\+Update.\+hpp"{}}\newline
+Include dependency graph for Time\+Update.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{_time_update_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_time_update_8cpp_a2e5c72bff56d65a0298504f67339b1fc}{Time\+Update}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&P, \mbox{\hyperlink{class_matrix}{Matrix}} Phi, double Qdt)
+\begin{DoxyCompactList}\small\item\em Performs the time update step for a covariance matrix in a Kalman filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Performs the time update step for a covariance matrix in a Kalman filter. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000085}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_time_update_8cpp_a2e5c72bff56d65a0298504f67339b1fc}\index{TimeUpdate.cpp@{TimeUpdate.cpp}!TimeUpdate@{TimeUpdate}}
+\index{TimeUpdate@{TimeUpdate}!TimeUpdate.cpp@{TimeUpdate.cpp}}
+\doxysubsubsection{\texorpdfstring{TimeUpdate()}{TimeUpdate()}}
+{\footnotesize\ttfamily \label{_time_update_8cpp_a2e5c72bff56d65a0298504f67339b1fc} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Time\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{P}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Phi}{, }\item[{double}]{Qdt}{}\end{DoxyParamCaption})}
+
+
+
+Performs the time update step for a covariance matrix in a Kalman filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Reference to the current covariance matrix to be updated. \\
+\hline
+{\em Phi} & Reference to the state transition matrix. \\
+\hline
+{\em Qdt} & Process noise covariance scaled by the time step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated covariance matrix after the time update step. 
+\end{DoxyReturn}

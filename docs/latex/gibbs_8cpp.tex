@@ -1,0 +1,63 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/gibbs.cpp File Reference}
+\hypertarget{gibbs_8cpp}{}\label{gibbs_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/gibbs.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/gibbs.cpp}}
+
+
+This file contains the implementation of the Gibbs method for orbit determination.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}gibbs.\+hpp"{}}\newline
+Include dependency graph for gibbs.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{gibbs_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, double, double, double, string $>$ \mbox{\hyperlink{gibbs_8cpp_a579ddb809b4d4a061b4ac155a3a6f80a}{gibbs}} (\mbox{\hyperlink{class_matrix}{Matrix}} r1, \mbox{\hyperlink{class_matrix}{Matrix}} r2, \mbox{\hyperlink{class_matrix}{Matrix}} r3)
+\begin{DoxyCompactList}\small\item\em this function performs the gibbs method of orbit determination. this method determines the velocity at the middle point of the 3 given position vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the implementation of the Gibbs method for orbit determination. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000061}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gibbs_8cpp_a579ddb809b4d4a061b4ac155a3a6f80a}\index{gibbs.cpp@{gibbs.cpp}!gibbs@{gibbs}}
+\index{gibbs@{gibbs}!gibbs.cpp@{gibbs.cpp}}
+\doxysubsubsection{\texorpdfstring{gibbs()}{gibbs()}}
+{\footnotesize\ttfamily \label{gibbs_8cpp_a579ddb809b4d4a061b4ac155a3a6f80a} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, double, double, double, string $>$ gibbs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r1}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r2}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r3}{}\end{DoxyParamCaption})}
+
+
+
+this function performs the gibbs method of orbit determination. this method determines the velocity at the middle point of the 3 given position vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & First position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em r2} & Second position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+{\em r3} & Third position vector (\doxylink{class_matrix}{Matrix}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item \doxylink{class_matrix}{Matrix}\&\+: The velocity vector at the second position vector (v2).
+\item double\+: The angle between the first and second position vectors (theta).
+\item double\+: The angle between the second and third position vectors (theta1).
+\item double\+: The coplanarity angle (copa).
+\item std\+::string\+: An error message if the orbit is not feasible or vectors are not coplanar, otherwise "{}ok"{}. 
+\end{DoxyItemize}
+\end{DoxyReturn}

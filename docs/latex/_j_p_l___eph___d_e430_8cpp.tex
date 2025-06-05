@@ -1,0 +1,95 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+JPL\+\_\+\+Eph\+\_\+\+DE430.cpp File Reference}
+\hypertarget{_j_p_l___eph___d_e430_8cpp}{}\label{_j_p_l___eph___d_e430_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/JPL\_Eph\_DE430.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/JPL\_Eph\_DE430.cpp}}
+
+
+Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+JPL\+\_\+\+Eph\+\_\+\+DE430.\+hpp"{}}\newline
+Include dependency graph for JPL\+\_\+\+Eph\+\_\+\+DE430.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_j_p_l___eph___d_e430_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_j_p_l___eph___d_e430_8cpp_a8450597cabfd3aa8d59bcf5e59650dac}{range}} (int x, int y, int f)
+\begin{DoxyCompactList}\small\item\em Creates a range of integers from x to f with a step of y. \end{DoxyCompactList}\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_j_p_l___eph___d_e430_8cpp_a5e6fedfbbbe0ca32aa62a9016e7d3293}{JPL\+\_\+\+Eph\+\_\+\+DE430}} (double Mjd\+\_\+\+TDB)
+\begin{DoxyCompactList}\small\item\em Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000066}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_j_p_l___eph___d_e430_8cpp_a5e6fedfbbbe0ca32aa62a9016e7d3293}\index{JPL\_Eph\_DE430.cpp@{JPL\_Eph\_DE430.cpp}!JPL\_Eph\_DE430@{JPL\_Eph\_DE430}}
+\index{JPL\_Eph\_DE430@{JPL\_Eph\_DE430}!JPL\_Eph\_DE430.cpp@{JPL\_Eph\_DE430.cpp}}
+\doxysubsubsection{\texorpdfstring{JPL\_Eph\_DE430()}{JPL\_Eph\_DE430()}}
+{\footnotesize\ttfamily \label{_j_p_l___eph___d_e430_8cpp_a5e6fedfbbbe0ca32aa62a9016e7d3293} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ JPL\+\_\+\+Eph\+\_\+\+DE430 (\begin{DoxyParamCaption}\item[{double}]{Mjd\+\_\+\+TDB}{}\end{DoxyParamCaption})}
+
+
+
+Computes the equatorial positions of the Sun, Moon, and the nine major planets using JPL Ephemerides. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mjd\+\_\+\+TDB} & Modified Julian Date of Barycentric Dynamical Time (TDB). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item r\+\_\+\+Mercury\+: Geocentric equatorial position of Mercury \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Venus\+: Geocentric equatorial position of Venus \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Earth\+: Geocentric equatorial position of Earth (solar system barycenter) \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Mars\+: Geocentric equatorial position of Mars \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Jupiter\+: Geocentric equatorial position of Jupiter \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Saturn\+: Geocentric equatorial position of Saturn \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Uranus\+: Geocentric equatorial position of Uranus \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Neptune\+: Geocentric equatorial position of Neptune \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Pluto\+: Geocentric equatorial position of Pluto \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Moon\+: Geocentric equatorial position of the Moon \mbox{[}m\mbox{]}.
+\item r\+\_\+\+Sun\+: Geocentric equatorial position of the Sun \mbox{[}m\mbox{]}.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The positions are referred to the International Celestial Reference Frame (ICRF). Light-\/time corrections are already taken into account. 
+\end{DoxyNote}
+\Hypertarget{_j_p_l___eph___d_e430_8cpp_a8450597cabfd3aa8d59bcf5e59650dac}\index{JPL\_Eph\_DE430.cpp@{JPL\_Eph\_DE430.cpp}!range@{range}}
+\index{range@{range}!JPL\_Eph\_DE430.cpp@{JPL\_Eph\_DE430.cpp}}
+\doxysubsubsection{\texorpdfstring{range()}{range()}}
+{\footnotesize\ttfamily \label{_j_p_l___eph___d_e430_8cpp_a8450597cabfd3aa8d59bcf5e59650dac} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& range (\begin{DoxyParamCaption}\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{int}]{f}{}\end{DoxyParamCaption})}
+
+
+
+Creates a range of integers from x to f with a step of y. 
+
+This function generates a range of integers starting from x, incrementing by y, and ending at f. The range is inclusive of x and f. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The starting integer of the range. \\
+\hline
+{\em y} & The step size for the range. \\
+\hline
+{\em f} & The ending integer of the range. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& A reference to a \doxylink{class_matrix}{Matrix} object containing the generated range of integers. 
+\end{DoxyReturn}

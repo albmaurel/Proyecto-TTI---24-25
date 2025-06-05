@@ -1,0 +1,65 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Prec\+Matrix.hpp File Reference}
+\hypertarget{_prec_matrix_8hpp}{}\label{_prec_matrix_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/PrecMatrix.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/PrecMatrix.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Prec\+Matrix.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+R\+\_\+z.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+R\+\_\+y.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+Include dependency graph for Prec\+Matrix.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_prec_matrix_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_prec_matrix_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_prec_matrix_8hpp_a95bbb47a6bcd9ecaf7b5bc46f88dc7d1}{Prec\+Matrix}} (double Mjd\+\_\+1, double Mjd\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Precession transformation of equatorial coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Prec\+Matrix. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000034}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_prec_matrix_8hpp_a95bbb47a6bcd9ecaf7b5bc46f88dc7d1}\index{PrecMatrix.hpp@{PrecMatrix.hpp}!PrecMatrix@{PrecMatrix}}
+\index{PrecMatrix@{PrecMatrix}!PrecMatrix.hpp@{PrecMatrix.hpp}}
+\doxysubsubsection{\texorpdfstring{PrecMatrix()}{PrecMatrix()}}
+{\footnotesize\ttfamily \label{_prec_matrix_8hpp_a95bbb47a6bcd9ecaf7b5bc46f88dc7d1} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Prec\+Matrix (\begin{DoxyParamCaption}\item[{double}]{Mjd\+\_\+1}{, }\item[{double}]{Mjd\+\_\+2}{}\end{DoxyParamCaption})}
+
+
+
+Precession transformation of equatorial coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mjd\+\_\+1} & Epoch given (Modified Julian Date TT) \\
+\hline
+{\em Mj\+D\+\_\+2} & Epoch to precess to (Modified Julian Date TT) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Prec\+Mat -\/ Precession transformation matrix 
+\end{DoxyReturn}

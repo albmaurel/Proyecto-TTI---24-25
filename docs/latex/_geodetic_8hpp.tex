@@ -1,0 +1,69 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Geodetic.hpp File Reference}
+\hypertarget{_geodetic_8hpp}{}\label{_geodetic_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Geodetic.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Geodetic.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Geodetic.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+Include dependency graph for Geodetic.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geodetic_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_geodetic_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, double $>$ \mbox{\hyperlink{_geodetic_8hpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35}{Geodetic}} (\mbox{\hyperlink{class_matrix}{Matrix}} r)
+\begin{DoxyCompactList}\small\item\em Converts Cartesian coordinates to geodetic coordinates (longitude, latitude, altitude). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Geodetic. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000015}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_geodetic_8hpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35}\index{Geodetic.hpp@{Geodetic.hpp}!Geodetic@{Geodetic}}
+\index{Geodetic@{Geodetic}!Geodetic.hpp@{Geodetic.hpp}}
+\doxysubsubsection{\texorpdfstring{Geodetic()}{Geodetic()}}
+{\footnotesize\ttfamily \label{_geodetic_8hpp_a7e95eb39d6e4e9a1acd33fa1ee2a1a35} 
+tuple$<$ double, double, double $>$ Geodetic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Converts Cartesian coordinates to geodetic coordinates (longitude, latitude, altitude). 
+
+This function transforms a position vector in Cartesian coordinates (ECEF) to geodetic coordinates (longitude, latitude, and altitude) based on the WGS-\/84 ellipsoid parameters. The conversion uses an iterative method to account for the Earth\textquotesingle{}s flattening.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & A 3-\/element \doxylink{class_matrix}{Matrix} representing the Cartesian coordinates (X, Y, Z) in meters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item longitude (radians)
+\item latitude (radians)
+\item altitude above the ellipsoid (meters) 
+\end{DoxyItemize}
+\end{DoxyReturn}

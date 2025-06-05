@@ -1,0 +1,74 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Legendre.hpp File Reference}
+\hypertarget{_legendre_8hpp}{}\label{_legendre_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Legendre.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/Legendre.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Legendre.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+Include dependency graph for Legendre.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_legendre_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_legendre_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_legendre_8hpp_a55ce532de3c95506384990ae714dd99d}{Legendre}} (int n, int m, double fi)
+\begin{DoxyCompactList}\small\item\em Computes the Legendre polynomials and their derivatives. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Legendre. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000023}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_legendre_8hpp_a55ce532de3c95506384990ae714dd99d}\index{Legendre.hpp@{Legendre.hpp}!Legendre@{Legendre}}
+\index{Legendre@{Legendre}!Legendre.hpp@{Legendre.hpp}}
+\doxysubsubsection{\texorpdfstring{Legendre()}{Legendre()}}
+{\footnotesize\ttfamily \label{_legendre_8hpp_a55ce532de3c95506384990ae714dd99d} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ Legendre (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{int}]{m}{, }\item[{double}]{fi}{}\end{DoxyParamCaption})}
+
+
+
+Computes the Legendre polynomials and their derivatives. 
+
+This function calculates the associated Legendre polynomials (Pn,m) and their derivatives (d\+Pn,m/dθ) up to a given degree (n) and order (m) for a specified angle (fi) in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Maximum degree of the Legendre polynomials. \\
+\hline
+{\em m} & Maximum order of the Legendre polynomials. \\
+\hline
+{\em fi} & Angle in radians for which the polynomials are computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple$<$\+Matrix, Matrix$>$ A tuple containing two matrices\+:
+\begin{DoxyItemize}
+\item The first matrix contains the values of the Legendre polynomials.
+\item The second matrix contains the values of their derivatives. 
+\end{DoxyItemize}
+\end{DoxyReturn}

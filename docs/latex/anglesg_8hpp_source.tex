@@ -1,0 +1,37 @@
+\doxysection{anglesg.\+hpp}
+\hypertarget{anglesg_8hpp_source}{}\label{anglesg_8hpp_source}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/anglesg.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/anglesg.hpp}}
+\mbox{\hyperlink{anglesg_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ \$Header\$}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ anglesg}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Proyecto\ TT1}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ \_ANGLESG\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_ANGLESG\_}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_8hpp}{..\(\backslash\)include\(\backslash\)matrix.hpp}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_s_a_t___const_8hpp}{..\(\backslash\)include\(\backslash\)SAT\_Const.hpp}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{angl_8hpp}{..\(\backslash\)include\(\backslash\)angl.hpp}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{elements_8hpp}{..\(\backslash\)include\(\backslash\)elements.hpp}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_pole_matrix_8hpp}{..\(\backslash\)include\(\backslash\)PoleMatrix.hpp}}"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{global_8hpp}{..\(\backslash\)include\(\backslash\)global.hpp}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_e_r_s_8hpp}{..\(\backslash\)include\(\backslash\)IERS.hpp}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_geodetic_8hpp}{..\(\backslash\)include\(\backslash\)geodetic.hpp}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_g_h_a_matrix_8hpp}{..\(\backslash\)include\(\backslash\)GHAMatrix.hpp}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{timediff_8hpp}{..\(\backslash\)include\(\backslash\)timediff.hpp}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hgibbs_8hpp}{..\(\backslash\)include\(\backslash\)hgibbs.hpp}}"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gibbs_8hpp}{..\(\backslash\)include\(\backslash\)gibbs.hpp}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prec_matrix_8hpp}{..\(\backslash\)include\(\backslash\)PrecMatrix.hpp}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_l_t_c_8hpp}{..\(\backslash\)include\(\backslash\)LTC.hpp}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_nut_matrix_8hpp}{..\(\backslash\)include\(\backslash\)NutMatrix.hpp}}"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rpoly_8hpp}{..\(\backslash\)include\(\backslash\)rpoly.hpp}}"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ tuple<Matrix\&,\ Matrix\&>\ \mbox{\hyperlink{anglesg_8hpp_a06683a08c92ea5d0783fdaea7b558339}{anglesg}}(\textcolor{keywordtype}{double}\ az1,\ \textcolor{keywordtype}{double}\ az2,\ \textcolor{keywordtype}{double}\ az3,\ \textcolor{keywordtype}{double}\ el1,\ \textcolor{keywordtype}{double}\ el2,\ \textcolor{keywordtype}{double}\ el3,\ \textcolor{keywordtype}{double}\ Mjd1,\ \textcolor{keywordtype}{double}\ Mjd2,\ \textcolor{keywordtype}{double}\ Mjd3,\ \mbox{\hyperlink{class_matrix}{Matrix}}\ Rs1,\ \mbox{\hyperlink{class_matrix}{Matrix}}\ Rs2,\ \mbox{\hyperlink{class_matrix}{Matrix}}\ Rs3);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

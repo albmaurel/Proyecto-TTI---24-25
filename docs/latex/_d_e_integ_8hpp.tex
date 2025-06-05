@@ -1,0 +1,75 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+DEInteg.hpp File Reference}
+\hypertarget{_d_e_integ_8hpp}{}\label{_d_e_integ_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/DEInteg.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/DEInteg.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función DEInteg.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}sign\+\_\+.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for DEInteg.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_e_integ_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_e_integ_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_d_e_integ_8hpp_a4dd69868d913586235caced1243ab3eb}{DEInteg}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&f(double t, \mbox{\hyperlink{class_matrix}{Matrix}} y), double t, double tout, double relerr, double abserr, int n\+\_\+eqn, \mbox{\hyperlink{class_matrix}{Matrix}} \&y)
+\begin{DoxyCompactList}\small\item\em Integrates a system of ordinary differential equations (ODEs) using a variable-\/step, variable-\/order method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función DEInteg. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000008}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_d_e_integ_8hpp_a4dd69868d913586235caced1243ab3eb}\index{DEInteg.hpp@{DEInteg.hpp}!DEInteg@{DEInteg}}
+\index{DEInteg@{DEInteg}!DEInteg.hpp@{DEInteg.hpp}}
+\doxysubsubsection{\texorpdfstring{DEInteg()}{DEInteg()}}
+{\footnotesize\ttfamily \label{_d_e_integ_8hpp_a4dd69868d913586235caced1243ab3eb} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& DEInteg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{f}{double t, Matrix y, }\item[{double}]{t}{, }\item[{double}]{tout}{, }\item[{double}]{relerr}{, }\item[{double}]{abserr}{, }\item[{int}]{n\+\_\+eqn}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Integrates a system of ordinary differential equations (ODEs) using a variable-\/step, variable-\/order method. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & Function pointer representing the system of ODEs\+: f(double t, Matrix y) -\/\texorpdfstring{$>$}{>} \doxylink{class_matrix}{Matrix}. \\
+\hline
+{\em t} & Initial value of the independent variable (typically time). \\
+\hline
+{\em tout} & Output value of the independent variable to which integration is performed. \\
+\hline
+{\em relerr} & Relative error tolerance for the integration. \\
+\hline
+{\em abserr} & Absolute error tolerance for the integration. \\
+\hline
+{\em n\+\_\+eqn} & Number of equations in the system (dimension of y). \\
+\hline
+{\em y} & On input\+: initial values of the dependent variables; on output\+: solution at tout. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the solution vector y at tout. 
+\end{DoxyReturn}

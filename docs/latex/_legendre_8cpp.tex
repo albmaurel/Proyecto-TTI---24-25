@@ -1,0 +1,62 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Legendre.cpp File Reference}
+\hypertarget{_legendre_8cpp}{}\label{_legendre_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Legendre.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/Legendre.cpp}}
+
+
+Computes the Legendre polynomials and their derivatives.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Legendre.\+hpp"{}}\newline
+Include dependency graph for Legendre.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_legendre_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_legendre_8cpp_a55ce532de3c95506384990ae714dd99d}{Legendre}} (int n, int m, double fi)
+\begin{DoxyCompactList}\small\item\em Computes the Legendre polynomials and their derivatives. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the Legendre polynomials and their derivatives. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000067}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_legendre_8cpp_a55ce532de3c95506384990ae714dd99d}\index{Legendre.cpp@{Legendre.cpp}!Legendre@{Legendre}}
+\index{Legendre@{Legendre}!Legendre.cpp@{Legendre.cpp}}
+\doxysubsubsection{\texorpdfstring{Legendre()}{Legendre()}}
+{\footnotesize\ttfamily \label{_legendre_8cpp_a55ce532de3c95506384990ae714dd99d} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ Legendre (\begin{DoxyParamCaption}\item[{int}]{n}{, }\item[{int}]{m}{, }\item[{double}]{fi}{}\end{DoxyParamCaption})}
+
+
+
+Computes the Legendre polynomials and their derivatives. 
+
+This function calculates the associated Legendre polynomials (Pn,m) and their derivatives (d\+Pn,m/dθ) up to a given degree (n) and order (m) for a specified angle (fi) in radians.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Maximum degree of the Legendre polynomials. \\
+\hline
+{\em m} & Maximum order of the Legendre polynomials. \\
+\hline
+{\em fi} & Angle in radians for which the polynomials are computed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple$<$\+Matrix, Matrix$>$ A tuple containing two matrices\+:
+\begin{DoxyItemize}
+\item The first matrix contains the values of the Legendre polynomials.
+\item The second matrix contains the values of their derivatives. 
+\end{DoxyItemize}
+\end{DoxyReturn}

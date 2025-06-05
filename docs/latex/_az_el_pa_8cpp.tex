@@ -1,0 +1,60 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Az\+El\+Pa.cpp File Reference}
+\hypertarget{_az_el_pa_8cpp}{}\label{_az_el_pa_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/AzElPa.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/AzElPa.cpp}}
+
+
+Computes azimuth, elevation, and their partial derivatives from local tangent coordinates.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Az\+El\+Pa.\+hpp"{}}\newline
+Include dependency graph for Az\+El\+Pa.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_az_el_pa_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_az_el_pa_8cpp_ae89a6c135135b96ec7057c45dced4159}{Az\+El\+Pa}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&s)
+\begin{DoxyCompactList}\small\item\em Calculates the azimuth and elevation angles, along with their partial derivatives, from a position vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes azimuth, elevation, and their partial derivatives from local tangent coordinates. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000050}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_az_el_pa_8cpp_ae89a6c135135b96ec7057c45dced4159}\index{AzElPa.cpp@{AzElPa.cpp}!AzElPa@{AzElPa}}
+\index{AzElPa@{AzElPa}!AzElPa.cpp@{AzElPa.cpp}}
+\doxysubsubsection{\texorpdfstring{AzElPa()}{AzElPa()}}
+{\footnotesize\ttfamily \label{_az_el_pa_8cpp_ae89a6c135135b96ec7057c45dced4159} 
+tuple$<$ double, double, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ Az\+El\+Pa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the azimuth and elevation angles, along with their partial derivatives, from a position vector. 
+
+This function computes the azimuth (Az) and elevation (El) angles based on the provided position vector {\ttfamily s}. It also calculates the partial derivatives of Az and El with respect to the components of {\ttfamily s}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Reference to a 3-\/element position vector (\doxylink{class_matrix}{Matrix}\&). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item Azimuth angle (double)
+\item Elevation angle (double)
+\item Reference to the partial derivatives of Azimuth with respect to {\ttfamily s} (\doxylink{class_matrix}{Matrix}\&)
+\item Reference to the partial derivatives of Elevation with respect to {\ttfamily s} (\doxylink{class_matrix}{Matrix}\&) 
+\end{DoxyItemize}
+\end{DoxyReturn}

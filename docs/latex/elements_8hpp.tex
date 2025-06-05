@@ -1,0 +1,72 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/elements.hpp File Reference}
+\hypertarget{elements_8hpp}{}\label{elements_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/elements.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/elements.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función elements.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+Include dependency graph for elements.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{elements_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{elements_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, double, double, double, double, double $>$ \mbox{\hyperlink{elements_8hpp_a2628736c6f909f3cd2f71bce278c1cfb}{elements}} (\mbox{\hyperlink{class_matrix}{Matrix}} y)
+\begin{DoxyCompactList}\small\item\em Computes the osculating Keplerian elements from the satellite state vector for elliptic orbits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función elements. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000010}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{elements_8hpp_a2628736c6f909f3cd2f71bce278c1cfb}\index{elements.hpp@{elements.hpp}!elements@{elements}}
+\index{elements@{elements}!elements.hpp@{elements.hpp}}
+\doxysubsubsection{\texorpdfstring{elements()}{elements()}}
+{\footnotesize\ttfamily \label{elements_8hpp_a2628736c6f909f3cd2f71bce278c1cfb} 
+tuple$<$ double, double, double, double, double, double, double $>$ elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Computes the osculating Keplerian elements from the satellite state vector for elliptic orbits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & State (x,y,z,vx,vy,vz)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+tuple containing\+:
+\begin{DoxyItemize}
+\item double p\+: Semilatus rectum \mbox{[}m\mbox{]}
+\item double a\+: Semimajor axis
+\item double e\+: Eccentricity
+\item double i\+: Inclination (radians)
+\item double Omega\+: Longitude of the ascending node \mbox{[}rad\mbox{]}
+\item double omega\+: Argument of pericenter \mbox{[}rad\mbox{]}
+\item double M\+: Mean anomaly \mbox{[}rad\mbox{]} 
+\end{DoxyItemize}
+\end{DoxyReturn}

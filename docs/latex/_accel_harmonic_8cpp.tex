@@ -1,0 +1,58 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+Accel\+Harmonic.cpp File Reference}
+\hypertarget{_accel_harmonic_8cpp}{}\label{_accel_harmonic_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/AccelHarmonic.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/AccelHarmonic.cpp}}
+
+
+Computes the acceleration due to the harmonic gravity field of the central body.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Accel\+Harmonic.\+hpp"{}}\newline
+Include dependency graph for Accel\+Harmonic.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_accel_harmonic_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_accel_harmonic_8cpp_a97ea72b6a1426f18c34d295e50b8fc4b}{Accel\+Harmonic}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&r, \mbox{\hyperlink{class_matrix}{Matrix}} \&E, int n\+\_\+max, int m\+\_\+max)
+\begin{DoxyCompactList}\small\item\em Computes the acceleration due to the harmonic gravity field of the central body. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Computes the acceleration due to the harmonic gravity field of the central body. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000046}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_accel_harmonic_8cpp_a97ea72b6a1426f18c34d295e50b8fc4b}\index{AccelHarmonic.cpp@{AccelHarmonic.cpp}!AccelHarmonic@{AccelHarmonic}}
+\index{AccelHarmonic@{AccelHarmonic}!AccelHarmonic.cpp@{AccelHarmonic.cpp}}
+\doxysubsubsection{\texorpdfstring{AccelHarmonic()}{AccelHarmonic()}}
+{\footnotesize\ttfamily \label{_accel_harmonic_8cpp_a97ea72b6a1426f18c34d295e50b8fc4b} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Accel\+Harmonic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{r}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{E}{, }\item[{int}]{n\+\_\+max}{, }\item[{int}]{m\+\_\+max}{}\end{DoxyParamCaption})}
+
+
+
+Computes the acceleration due to the harmonic gravity field of the central body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & Satellite position vector in the inertial system \\
+\hline
+{\em E} & Transformation matrix to body-\/fixed system \\
+\hline
+{\em n\+\_\+max} & Maximum degree \\
+\hline
+{\em m\+\_\+max} & Maximum order (m\+\_\+max\texorpdfstring{$<$}{<}=n\+\_\+max; m\+\_\+max=0 for zonals, only) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_matrix}{Matrix}\& Acceleration (a=d\texorpdfstring{$^\wedge$}{\string^}2r/dt\texorpdfstring{$^\wedge$}{\string^}2) 
+\end{DoxyReturn}

@@ -1,0 +1,71 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Az\+El\+Pa.hpp File Reference}
+\hypertarget{_az_el_pa_8hpp}{}\label{_az_el_pa_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/AzElPa.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/AzElPa.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Az\+El\+Pa.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+Include dependency graph for Az\+El\+Pa.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_az_el_pa_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_az_el_pa_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{_az_el_pa_8hpp_ae89a6c135135b96ec7057c45dced4159}{Az\+El\+Pa}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&s)
+\begin{DoxyCompactList}\small\item\em Calculates the azimuth and elevation angles, along with their partial derivatives, from a position vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Az\+El\+Pa. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000006}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_az_el_pa_8hpp_ae89a6c135135b96ec7057c45dced4159}\index{AzElPa.hpp@{AzElPa.hpp}!AzElPa@{AzElPa}}
+\index{AzElPa@{AzElPa}!AzElPa.hpp@{AzElPa.hpp}}
+\doxysubsubsection{\texorpdfstring{AzElPa()}{AzElPa()}}
+{\footnotesize\ttfamily \label{_az_el_pa_8hpp_ae89a6c135135b96ec7057c45dced4159} 
+tuple$<$ double, double, \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ Az\+El\+Pa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the azimuth and elevation angles, along with their partial derivatives, from a position vector. 
+
+This function computes the azimuth (Az) and elevation (El) angles based on the provided position vector {\ttfamily s}. It also calculates the partial derivatives of Az and El with respect to the components of {\ttfamily s}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Reference to a 3-\/element position vector (\doxylink{class_matrix}{Matrix}\&). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item Azimuth angle (double)
+\item Elevation angle (double)
+\item Reference to the partial derivatives of Azimuth with respect to {\ttfamily s} (\doxylink{class_matrix}{Matrix}\&)
+\item Reference to the partial derivatives of Elevation with respect to {\ttfamily s} (\doxylink{class_matrix}{Matrix}\&) 
+\end{DoxyItemize}
+\end{DoxyReturn}

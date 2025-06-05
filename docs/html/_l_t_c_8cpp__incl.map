@@ -1,0 +1,23 @@
+<map id="C:/Users/Alberto/TRABAJO/Proyecto&#45;TTI&#45;&#45;&#45;24&#45;25/src/LTC.cpp" name="C:/Users/Alberto/TRABAJO/Proyecto&#45;TTI&#45;&#45;&#45;24&#45;25/src/LTC.cpp">
+<area shape="rect" id="Node000001" title="Transformation from Greenwich meridian system to local tangent coordinates." alt="" coords="74,5,260,64"/>
+<area shape="rect" id="Node000002" href="$_l_t_c_8hpp.html" title="Este archivo de cabecera contiene una implementación de la función LTC." alt="" coords="103,112,230,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,64,170,96,164,96,164,64"/>
+<area shape="rect" id="Node000003" href="$matrix_8hpp.html" title="Este archivo de cabecera contiene una implementación de una clase que representa una matriz y vectore..." alt="" coords="90,261,230,288"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="142,141,115,161,93,188,91,205,97,221,110,237,127,250,123,255,107,241,93,224,85,205,88,186,111,157,139,137"/>
+<area shape="rect" id="Node000008" href="$_r__y_8hpp.html" title="Este archivo de cabecera contiene una implementación de la función R_y." alt="" coords="254,187,381,213"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="194,137,279,177,276,182,192,142"/>
+<area shape="rect" id="Node000009" href="$_r__z_8hpp.html" title="Este archivo de cabecera contiene una implementación de la función R_z." alt="" coords="103,187,230,213"/>
+<area shape="poly" id="edge10_Node000002_Node000009" title=" " alt="" coords="170,139,170,171,164,171,164,139"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,336,62,363"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="139,291,70,330,67,326,137,286"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="85,336,144,363"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="155,290,133,324,129,321,150,287"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="264,336,321,363"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="184,286,257,326,255,331,182,291"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="168,336,240,363"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="170,287,191,321,186,324,166,290"/>
+<area shape="poly" id="edge8_Node000008_Node000003" title=" " alt="" coords="291,216,203,257,200,252,289,211"/>
+<area shape="poly" id="edge9_Node000008_Node000006" title=" " alt="" coords="318,214,300,321,294,320,313,213"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="168,214,165,246,160,245,163,214"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="188,212,216,233,244,260,266,291,283,321,278,324,261,293,239,263,212,237,185,216"/>
+</map>

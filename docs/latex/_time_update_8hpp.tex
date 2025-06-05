@@ -1,0 +1,65 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/\+Time\+Update.hpp File Reference}
+\hypertarget{_time_update_8hpp}{}\label{_time_update_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/TimeUpdate.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/TimeUpdate.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función Time\+Update.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for Time\+Update.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{_time_update_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_time_update_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& \mbox{\hyperlink{_time_update_8hpp_a9ce5637e01ee47a95c78df36d4aca846}{Time\+Update}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&P, \mbox{\hyperlink{class_matrix}{Matrix}} Phi, double Qdt=0.\+0)
+\begin{DoxyCompactList}\small\item\em Performs the time update step for a covariance matrix in a Kalman filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función Time\+Update. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000042}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_time_update_8hpp_a9ce5637e01ee47a95c78df36d4aca846}\index{TimeUpdate.hpp@{TimeUpdate.hpp}!TimeUpdate@{TimeUpdate}}
+\index{TimeUpdate@{TimeUpdate}!TimeUpdate.hpp@{TimeUpdate.hpp}}
+\doxysubsubsection{\texorpdfstring{TimeUpdate()}{TimeUpdate()}}
+{\footnotesize\ttfamily \label{_time_update_8hpp_a9ce5637e01ee47a95c78df36d4aca846} 
+\mbox{\hyperlink{class_matrix}{Matrix}} \& Time\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{P}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Phi}{, }\item[{double}]{Qdt}{}\end{DoxyParamCaption})}
+
+
+
+Performs the time update step for a covariance matrix in a Kalman filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Reference to the current covariance matrix to be updated. \\
+\hline
+{\em Phi} & Reference to the state transition matrix. \\
+\hline
+{\em Qdt} & Process noise covariance scaled by the time step. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The updated covariance matrix after the time update step. 
+\end{DoxyReturn}

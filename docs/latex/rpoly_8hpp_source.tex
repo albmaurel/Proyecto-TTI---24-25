@@ -1,0 +1,54 @@
+\doxysection{rpoly.\+hpp}
+\hypertarget{rpoly_8hpp_source}{}\label{rpoly_8hpp_source}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/rpoly.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/rpoly.hpp}}
+\mbox{\hyperlink{rpoly_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ \$Header\$}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ rpoly}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Proyecto\ TT1}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//}\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ BEGIN\_C\_DECLS}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ BEGIN\_C\_DECLS}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Opaque\ state\ handle}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_r_poly___state}{RPoly\_State}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Allocate\ state\ for\ finding\ roots\ of\ a\ real\ polynomial.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Degrees\ up\ to\ max\_degree\ are\ supported\ by\ returned\ state.}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_r_poly___state}{RPoly\_State}}\ *real\_poly\_alloc(\textcolor{keywordtype}{int}\ max\_degree);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ Release\ state}}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rpoly_8hpp_a532a23bdc8f92a332dccb59661be5db5}{real\_poly\_release}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_r_poly___state}{RPoly\_State}}\ *s);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Find\ roots\ of\ a\ polynomial\ with\ real\ coefficients.}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ p[]\ holds\ coefficients\ of\ the\ polynomial:}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ \ \ p(x)\ =\ p[0]*x\string^degree\ +\ ...\ +\ p[degree]}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Caller\ must\ have\ already\ allocated\ 'state'.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Returns\ number\ of\ roots\ stored\ in\ zeror[],\ zeroi[].}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{int}\ real\_poly\_roots\_compute(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ p[],\ \textcolor{keywordtype}{int}\ degree,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_r_poly___state}{RPoly\_State}}\ *state,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ zeror[],\ \textcolor{keywordtype}{double}\ zeroi[]);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ Convenience\ function.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Find\ roots\ of\ a\ polynomial\ with\ real\ coefficients.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ p[]\ holds\ coefficients\ of\ the\ polynomial:}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ \ \ p(x)\ =\ p[0]*x\string^degree\ +\ ...\ +\ p[degree]}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Returns\ number\ of\ roots\ stored\ in\ zeror[],\ zeroi[]}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ real\_poly\_roots(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ p[],\ \textcolor{keywordtype}{int}\ degree,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ zeror[],\ \textcolor{keywordtype}{double}\ zeroi[])}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_r_poly___state}{RPoly\_State}}\ *state\ =\ real\_poly\_alloc(degree);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ nr\ =\ real\_poly\_roots\_compute(p,\ degree,\ state,\ zeror,\ zeroi);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{rpoly_8hpp_a532a23bdc8f92a332dccb59661be5db5}{real\_poly\_release}}(state);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ nr;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,57 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/rpoly.hpp File Reference}
+\hypertarget{rpoly_8hpp}{}\label{rpoly_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/rpoly.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/rpoly.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función real\+\_\+poly\+\_\+roots.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rpoly_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{rpoly_8hpp_a088f63c5970e0c3089423abef42e3445}\label{rpoly_8hpp_a088f63c5970e0c3089423abef42e3445} 
+struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*} {\bfseries real\+\_\+poly\+\_\+alloc} (int max\+\_\+degree)
+\item 
+void \mbox{\hyperlink{rpoly_8hpp_a532a23bdc8f92a332dccb59661be5db5}{real\+\_\+poly\+\_\+release}} (struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}s)
+\begin{DoxyCompactList}\small\item\em Releases the memory allocated for an \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure. \end{DoxyCompactList}\item 
+\Hypertarget{rpoly_8hpp_aa12a3d2f8789a12e36515f664e96439a}\label{rpoly_8hpp_aa12a3d2f8789a12e36515f664e96439a} 
+int {\bfseries real\+\_\+poly\+\_\+roots\+\_\+compute} (const double p\mbox{[}$\,$\mbox{]}, int degree, struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}state, double zeror\mbox{[}$\,$\mbox{]}, double zeroi\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función real\+\_\+poly\+\_\+roots. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000038}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{rpoly_8hpp_a532a23bdc8f92a332dccb59661be5db5}\index{rpoly.hpp@{rpoly.hpp}!real\_poly\_release@{real\_poly\_release}}
+\index{real\_poly\_release@{real\_poly\_release}!rpoly.hpp@{rpoly.hpp}}
+\doxysubsubsection{\texorpdfstring{real\_poly\_release()}{real\_poly\_release()}}
+{\footnotesize\ttfamily \label{rpoly_8hpp_a532a23bdc8f92a332dccb59661be5db5} 
+void real\+\_\+poly\+\_\+release (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_r_poly___state}{RPoly\+\_\+\+State}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Releases the memory allocated for an \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the \doxylink{struct_r_poly___state}{RPoly\+\_\+\+State} structure to be freed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

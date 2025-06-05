@@ -1,0 +1,71 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/src/\+IERS.cpp File Reference}
+\hypertarget{_i_e_r_s_8cpp}{}\label{_i_e_r_s_8cpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/IERS.cpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/src/IERS.cpp}}
+
+
+Management of IERS time and polar motion data.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+IERS.\+hpp"{}}\newline
+Include dependency graph for IERS.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i_e_r_s_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ double, double, double, double, double, double, double, double, double $>$ \mbox{\hyperlink{_i_e_r_s_8cpp_a95030f50da11c7d73c99c0dc1090a603}{IERS}} (\mbox{\hyperlink{class_matrix}{Matrix}} \&eop, double Mjd\+\_\+\+UTC, char interp)
+\begin{DoxyCompactList}\small\item\em IERS\+: Management of IERS time and polar motion data. \end{DoxyCompactList}\item 
+\Hypertarget{_i_e_r_s_8cpp_a022694bf72a76b72ef63955ec48792a6}\label{_i_e_r_s_8cpp_a022694bf72a76b72ef63955ec48792a6} 
+tuple$<$ double, double, double, double, double, double, double, double, double $>$ {\bfseries IERS} (\mbox{\hyperlink{class_matrix}{Matrix}} \&eop, double Mjd\+\_\+\+UTC)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Management of IERS time and polar motion data. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000065}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_i_e_r_s_8cpp_a95030f50da11c7d73c99c0dc1090a603}\index{IERS.cpp@{IERS.cpp}!IERS@{IERS}}
+\index{IERS@{IERS}!IERS.cpp@{IERS.cpp}}
+\doxysubsubsection{\texorpdfstring{IERS()}{IERS()}}
+{\footnotesize\ttfamily \label{_i_e_r_s_8cpp_a95030f50da11c7d73c99c0dc1090a603} 
+tuple$<$ double, double, double, double, double, double, double, double, double $>$ IERS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}} \&}]{eop}{, }\item[{double}]{Mjd\+\_\+\+UTC}{, }\item[{char}]{interp}{}\end{DoxyParamCaption})}
+
+
+
+IERS\+: Management of IERS time and polar motion data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eop} & \doxylink{class_matrix}{Matrix} containing Earth Orientation Parameters (EOP) data \\
+\hline
+{\em Mjd\+\_\+\+UTC} & Modified Julian Date in UTC \\
+\hline
+{\em interp} & Interpolation method (\textquotesingle{}l\textquotesingle{} for linear, \textquotesingle{}n\textquotesingle{} for nearest) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the following values\+:
+\begin{DoxyItemize}
+\item x\+\_\+pole\+: x coordinate of the pole in radians ~\newline
+
+\item y\+\_\+pole\+: y coordinate of the pole in radians
+\item UT1\+\_\+\+UTC\+: UT1-\/\+UTC time difference in seconds
+\item lod\+: Length of day in seconds
+\item dpsi\+: dpsi value in radians
+\item deps\+: deps value in radians
+\item dx\+\_\+pole\+: dx coordinate of the pole in radians
+\item dy\+\_\+pole\+: dy coordinate of the pole in radians
+\item TAI\+\_\+\+UTC\+: TAI-\/\+UTC time difference in seconds 
+\end{DoxyItemize}
+\end{DoxyReturn}

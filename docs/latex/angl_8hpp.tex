@@ -1,0 +1,65 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/angl.hpp File Reference}
+\hypertarget{angl_8hpp}{}\label{angl_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/angl.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/angl.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función angl.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for angl.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{angl_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{angl_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{angl_8hpp_ac48c4ac03e1bae9d3e53a2639792cd32}{angl}} (\mbox{\hyperlink{class_matrix}{Matrix}} vec1, \mbox{\hyperlink{class_matrix}{Matrix}} vec2)
+\begin{DoxyCompactList}\small\item\em Calculates the angle (in radians) between two vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función angl. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000004}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{angl_8hpp_ac48c4ac03e1bae9d3e53a2639792cd32}\index{angl.hpp@{angl.hpp}!angl@{angl}}
+\index{angl@{angl}!angl.hpp@{angl.hpp}}
+\doxysubsubsection{\texorpdfstring{angl()}{angl()}}
+{\footnotesize\ttfamily \label{angl_8hpp_ac48c4ac03e1bae9d3e53a2639792cd32} 
+double angl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{vec1}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{vec2}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the angle (in radians) between two vectors. 
+
+This function computes the angle between two vectors using the dot product formula. If either vector has a near-\/zero magnitude, the function returns a predefined undefined value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec1} & The first vector as a \doxylink{class_matrix}{Matrix}. \\
+\hline
+{\em vec2} & The second vector as a \doxylink{class_matrix}{Matrix}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The angle in radians between vec1 and vec2, or a large undefined value if the angle cannot be determined. 
+\end{DoxyReturn}

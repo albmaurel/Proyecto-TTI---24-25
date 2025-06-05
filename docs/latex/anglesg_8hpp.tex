@@ -1,0 +1,104 @@
+\doxysection{C\+:/\+Users/\+Alberto/\+TRABAJO/\+Proyecto-\/\+TTI-\/-\/-\/24-\/25/include/anglesg.hpp File Reference}
+\hypertarget{anglesg_8hpp}{}\label{anglesg_8hpp}\index{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/anglesg.hpp@{C:/Users/Alberto/TRABAJO/Proyecto-\/TTI-\/-\/-\/24-\/25/include/anglesg.hpp}}
+
+
+Este archivo de cabecera contiene una implementación de la función anglesg.  
+
+
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+SAT\+\_\+\+Const.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}angl.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}elements.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Pole\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}global.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+IERS.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}geodetic.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+GHAMatrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}timediff.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}hgibbs.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}gibbs.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Prec\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+LTC.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}\+Nut\+Matrix.\+hpp"{}}\newline
+{\ttfamily \#include "{}..\textbackslash{}include\textbackslash{}rpoly.\+hpp"{}}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+Include dependency graph for anglesg.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{anglesg_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{anglesg_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ \mbox{\hyperlink{anglesg_8hpp_a06683a08c92ea5d0783fdaea7b558339}{anglesg}} (double az1, double az2, double az3, double el1, double el2, double el3, double Mjd1, double Mjd2, double Mjd3, \mbox{\hyperlink{class_matrix}{Matrix}} Rs1, \mbox{\hyperlink{class_matrix}{Matrix}} Rs2, \mbox{\hyperlink{class_matrix}{Matrix}} Rs3)
+\begin{DoxyCompactList}\small\item\em Computes the geocentric inertial position and velocity vectors using the Gauss angles-\/only method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Este archivo de cabecera contiene una implementación de la función anglesg. 
+
+\begin{DoxyAuthor}{Author}
+Alberto Maurel Mendizábal 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000005}{Bug}}]No known bugs. \end{DoxyRefDesc}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{anglesg_8hpp_a06683a08c92ea5d0783fdaea7b558339}\index{anglesg.hpp@{anglesg.hpp}!anglesg@{anglesg}}
+\index{anglesg@{anglesg}!anglesg.hpp@{anglesg.hpp}}
+\doxysubsubsection{\texorpdfstring{anglesg()}{anglesg()}}
+{\footnotesize\ttfamily \label{anglesg_8hpp_a06683a08c92ea5d0783fdaea7b558339} 
+tuple$<$ \mbox{\hyperlink{class_matrix}{Matrix}} \&, \mbox{\hyperlink{class_matrix}{Matrix}} \& $>$ anglesg (\begin{DoxyParamCaption}\item[{double}]{az1}{, }\item[{double}]{az2}{, }\item[{double}]{az3}{, }\item[{double}]{el1}{, }\item[{double}]{el2}{, }\item[{double}]{el3}{, }\item[{double}]{Mjd1}{, }\item[{double}]{Mjd2}{, }\item[{double}]{Mjd3}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Rs1}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Rs2}{, }\item[{\mbox{\hyperlink{class_matrix}{Matrix}}}]{Rs3}{}\end{DoxyParamCaption})}
+
+
+
+Computes the geocentric inertial position and velocity vectors using the Gauss angles-\/only method. 
+
+This function implements the Gauss method for initial orbit determination using three optical observations (azimuth and elevation angles) at three different times, along with the observer\textquotesingle{}s position vectors at those times. It transforms the observed directions to the inertial frame, solves for the range to the object, and computes the position and velocity vectors in the geocentric inertial frame.
+
+
+\begin{DoxyParams}{Parameters}
+{\em az1} & Azimuth angle at the first observation (radians). \\
+\hline
+{\em az2} & Azimuth angle at the second observation (radians). \\
+\hline
+{\em az3} & Azimuth angle at the third observation (radians). \\
+\hline
+{\em el1} & Elevation angle at the first observation (radians). \\
+\hline
+{\em el2} & Elevation angle at the second observation (radians). \\
+\hline
+{\em el3} & Elevation angle at the third observation (radians). \\
+\hline
+{\em Mjd1} & Modified Julian Date of the first observation (UTC). \\
+\hline
+{\em Mjd2} & Modified Julian Date of the second observation (UTC). \\
+\hline
+{\em Mjd3} & Modified Julian Date of the third observation (UTC). \\
+\hline
+{\em Rs1} & Observer\textquotesingle{}s position vector at the first observation (ECEF frame). \\
+\hline
+{\em Rs2} & Observer\textquotesingle{}s position vector at the second observation (ECEF frame). \\
+\hline
+{\em Rs3} & Observer\textquotesingle{}s position vector at the third observation (ECEF frame). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing\+:
+\begin{DoxyItemize}
+\item r2\+: The geocentric inertial position vector at the second observation (\doxylink{class_matrix}{Matrix}\&).
+\item v2\+: The geocentric inertial velocity vector at the second observation (\doxylink{class_matrix}{Matrix}\&). 
+\end{DoxyItemize}
+\end{DoxyReturn}
